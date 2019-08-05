@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //public Animator animController;
     public Animator animController;
-
+    public bool dead = false;
     public int health;
 
     // Start is called before the first frame update
-    void Start()
+    public void OnStart()
     {
         animController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    public void OnUpdate()
     {
         //Use right/D and left/W arrow keys to change player direction
         Vector2 keyInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
@@ -26,9 +27,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //Player dies
-        if (health <= 0)
+        if (!dead && health <= 0)
         {
+            Debug.Log("isDead set");
             animController.SetBool("isDead", true);
+            dead = true;
+            //animController.SetBool("isDead", false);
         }
 
         
