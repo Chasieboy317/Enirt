@@ -40,16 +40,16 @@ public class KnightController : PlayerController
          * JUMPING
          */
         //jumping down
-        if(Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.Space)){
             animController.SetBool("jump", true);
             animController.SetBool("jumpingOnto", false);
         }
         //jumping onto
-        else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.W))
+        /*else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.W))
         {
             animController.SetBool("jump", true);
             animController.SetBool("jumpingOnto", true);
-        }
+        }*/
         //not jumping
         else
         {
@@ -91,15 +91,21 @@ public class KnightController : PlayerController
         /*
          * WALKING AND RUNNING
          */
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.D))
         {
+            //transform.Rotate(Vector3.up);
+            animController.SetBool("isRunning", true);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            //transform.Rotate(-Vector3.up);
             animController.SetBool("isRunning", true);
         }
         else
         {
             animController.SetBool("isRunning", false);
         }
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.LeftShift))
         {
             animController.SetBool("isWalking", true);
         }
