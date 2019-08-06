@@ -43,10 +43,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 270f, 0f);
         }
-        else if (Input.GetKey(KeyCode.P))
-        {
-            health = 0;
-        }
 
         //Player dies
         else if (!dead && health <= 0)
@@ -54,8 +50,6 @@ public class PlayerController : MonoBehaviour
             dead = true;
             Debug.Log("isDead set");
             animController.SetBool("isDead", true);
-            
-            //animController.SetBool("isDead", false);
         }
 
         

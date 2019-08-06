@@ -207,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64fb770228dc2e479c62e5538aa6482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
-  zoom: 1
+  speed: 0
+  zoom: 0
 --- !u!4 &321340360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 537103726, guid: fa36f1a261d257748bc157adb7e20dff,
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 0}
   dead: 0
-  health: 10
+  health: 0
 --- !u!54 &1195442779
 Rigidbody:
   m_ObjectHideFlags: 0
