@@ -57,28 +57,62 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     public void OnUpdate()
     {
+        //Movements common to both
+        /*
+         * JUMPING
+         */
+
+        /*
+        //jumping down
+        if (Input.GetKey(jump) && Input.GetKey(south))
+        {
+            animController.SetBool("jump", true);
+            animController.SetBool("jumpingOnto", false);
+        }
+        //jumping onto
+        else if (Input.GetKey(jump) && Input.GetKey(north))
+        {
+            animController.SetBool("jump", true);
+            animController.SetBool("jumpingOnto", true);
+        }
+        */
+        if (Input.GetKey(jump))
+        {
+            if (transform.position.y == 0) //jump up
+            {
+                animController.SetBool("jump", true);
+                animController.SetBool("jumpingOnto", true);
+            }
+            else
+            {
+                animController.SetBool("jump", true);
+                animController.SetBool("jumpingOnto", false);
+            }
+        }
+        //not jumping
+        else
+        {
+            animController.SetBool("jump", false);
+        }
+
         //4 directional turning
         //change direction
         //OBVIOUSLY TURNS ARE RELATIVE TO CAMERA SO DEPENDS HOW YOU SET UP CAMERA IF MAPPING IS LOGICAL
         if (Input.GetKey(north))
         {
             transform.eulerAngles = new Vector3(0f, 90f, 0f);
-            // transform.rotation = transform.rotation = Quaternion.FromToRotation(transform.forward, Vector3.left);
         }
         else if (Input.GetKey(west))
         {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            //transform.rotation = transform.rotation = Quaternion.FromToRotation(transform.forward, Vector3.right);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
         else if (Input.GetKey(south))
         {
             transform.eulerAngles = new Vector3(0f, 270f, 0f);
-            //transform.rotation = transform.rotation = Quaternion.FromToRotation(transform.forward, Vector3.forward);
         }
         else if (Input.GetKey(east))
         {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            //transform.rotation = transform.rotation = Quaternion.FromToRotation(transform.forward, Vector3.back);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
         /*
          * 360 rotation
@@ -104,28 +138,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Movements common to both
-        /*
-         * JUMPING
-         */
-        //jumping down
-        if (Input.GetKey(jump) && Input.GetKey(south))
-        {
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", false);
-        }
-        //jumping onto
-        else if (Input.GetKey(jump) && Input.GetKey(north))
-        {
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", true);
-        }
-        //not jumping
-        else
-        {
-            animController.SetBool("jump", false);
-        }
-
         /*
          * PUSH
          */
@@ -147,6 +159,14 @@ public class PlayerController : MonoBehaviour
             {
                 animController.SetBool("isRunning", true);
                 animController.SetBool("isWalking", false);
+                if (Input.GetKey(jump))
+                {
+                    animController.SetBool("jumping", true);
+                }
+                else
+                {
+                    animController.SetBool("jumping", false);
+                }
             }
             else
             {
