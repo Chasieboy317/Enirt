@@ -7,9 +7,11 @@ public class CameraController : MonoBehaviour
     public float speed;
     public float zoom;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        
         /*
          * TO DO:
          * the zoom should be a percentage of the distance between the player and the camera

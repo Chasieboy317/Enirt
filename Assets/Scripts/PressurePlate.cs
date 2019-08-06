@@ -6,7 +6,6 @@ public class PressurePlate : MonoBehaviour
 {
     public GameObject Gate;
     public float Speed;
-    public float active;
 
     public static bool triggered = false;
 
@@ -27,11 +26,13 @@ public class PressurePlate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         triggered = true;
+        this.transform.position += new Vector3(0.0f, -0.04f, 0.0f);
     }
 
     private void OnTriggerExit(Collider other)
     {
         triggered = false;
+        this.transform.position += new Vector3(0.0f, 0.04f, 0.0f);
     }
 
     private void OnTriggerStay(Collider other)
