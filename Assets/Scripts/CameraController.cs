@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public float speed;
     public float zoom;
+
     // Start is called before the first frame update
     void Start()
     {

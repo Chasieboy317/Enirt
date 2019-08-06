@@ -27,14 +27,34 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
-        
+        else if (Input.GetKey(KeyCode.X))
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        else if (Input.GetKey(KeyCode.Z))
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            transform.eulerAngles = new Vector3(0f, 270f, 0f);
+        }
+        else if (Input.GetKey(KeyCode.P))
+        {
+            health = 0;
+        }
 
         //Player dies
-        if (!dead && health <= 0)
+        else if (!dead && health <= 0)
         {
+            dead = true;
             Debug.Log("isDead set");
             animController.SetBool("isDead", true);
-            dead = true;
+            
             //animController.SetBool("isDead", false);
         }
 
