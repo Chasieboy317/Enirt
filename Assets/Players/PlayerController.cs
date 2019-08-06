@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animController;
     public bool dead = false;
-    public int health;
+    public int health =10;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
         /*
          * CHECK IF PLAYER DIES
-         */
+         
         if (!dead && health <= 0)
         {
             Debug.Log("isDead set");
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             dead = true;
             //animController.SetBool("isDead", false);
         }
-
+        */
         
     }
 
