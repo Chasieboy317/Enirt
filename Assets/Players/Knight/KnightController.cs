@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 /*
  * Knight uses WASD controls
+ * Space+W to jump onto
+ * Space+S to jump off
  * Q to Push
- * E to jump 
+ * E to block 
  * R to slash
  * T to dual attack 
- * Z to walk
- * X to run
  */
 public class KnightController : PlayerController
 {
-    /*bools in animator controller:
-     * isWalking
-     * isRunning
-     * climbUp
-     * isAttacking
-     * jump
-     * jumpingOnto
-     * isPushing
-     * slash
-     * isDead 
-     */
-    
+   
+    //Key codes for actions unique to knight
+    public KeyCode blocking;
+    public KeyCode dualAttack;
+    public KeyCode slash;
+
     // Start is called before the first frame update
     void Start() 
     {
         OnStart(); //base class (PlayerController)
+
+        //UNLESS OTHERWISE CONFIGURED
+        blocking = KeyCode.E;
+        dualAttack = KeyCode.T;
+        slash = KeyCode.R;
     }
 
     // Update is called once per frame
@@ -35,30 +34,10 @@ public class KnightController : PlayerController
     {
         OnUpdate(); //base class (PlayerController)
 
-
-        /*
-         * JUMPING
-         */
-        //jumping down
-        if(Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S)){
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", false);
-        }
-        //jumping onto
-        else if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.W))
-        {
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", true);
-        }
-        //not jumping
-        else
-        {
-            animController.SetBool("jump", false);
-        }
         /*
          * SLASH
          */
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(slash))
         {
             animController.SetBool("slash", true);
         }
@@ -69,7 +48,7 @@ public class KnightController : PlayerController
         /*
          * DUAL ATTACK
          */
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(dualAttack))
         {
             animController.SetBool("isAttacking", true);
         }
@@ -77,39 +56,21 @@ public class KnightController : PlayerController
         {
             animController.SetBool("isAttacking", false);
         }
+
         /*
-         * PUSH
+         * Blocking
          */
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(blocking))
         {
-            animController.SetBool("isPushing", true);
+            animController.SetBool("isBlocking", true);
         }
         else
         {
-            animController.SetBool("isPushing", false);
-        }
-        /*
-         * WALKING AND RUNNING
-         */
-        if (Input.GetKey(KeyCode.X))
-        {
-            animController.SetBool("isRunning", true);
-        }
-        else
-        {
-            animController.SetBool("isRunning", false);
-        }
-        if (Input.GetKey(KeyCode.Z))
-        {
-            animController.SetBool("isWalking", true);
-        }
-        else
-        {
-            animController.SetBool("isWalking", false);
+            animController.SetBool("isBlocking", false);
         }
 
         //transform.rotation = Quaternion.FromToRotation(transform.up, Vector3.up) * transform.rotation;
-        
+
         //transform.rotation = Quaternion.FromToRotation(transform.up,Vector3.up);
         //transform.eulerAngles.Set(transform.eulerAngles.x, 0f, transform.eulerAngles.z) = 0f;// = new Vector3(transform.eulerAngles.x, 0f,transform.eulerAngles.z);
     }
