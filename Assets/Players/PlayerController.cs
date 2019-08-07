@@ -43,14 +43,14 @@ public class PlayerController : MonoBehaviour
         else// if(this.tag == "Robot")
         {
             north = KeyCode.UpArrow;
-            west = KeyCode.RightArrow;
+            west = KeyCode.LeftArrow;
             south = KeyCode.DownArrow;
-            east = KeyCode.LeftArrow;
+            east = KeyCode.RightArrow;
 
             push = KeyCode.I;//KeyCode.Question;
             jump = KeyCode.RightShift;
 
-            toggle = KeyCode.KeypadEnter;
+            toggle = KeyCode.L; //KeyCode.KeypadEnter
         }
     }
 

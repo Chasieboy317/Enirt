@@ -43,13 +43,13 @@ public class RobotController : PlayerController
          */
         if (Input.GetKey(aim))
         {
-            animController.SetBool("isAiming", true);
+            animController.SetBool("isShooting", true);
 
             //implement shooting and bomb launching
         }
         else
         {
-            animController.SetBool("isAiming", false);
+            animController.SetBool("isShooting", false);
         }
     }
 }
