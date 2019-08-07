@@ -103,20 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 270f, 0f);
         }
-<<<<<<< HEAD
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }
-        if (Input.GetKey(KeyCode.W)) {
-            transform.eulerAngles = new Vector3(0f, 270f, 0f);
-        }
-        if (Input.GetKey(KeyCode.S)) {
-            transform.eulerAngles = new Vector3(0f, 90f, 0f);
-        }
-
-
-=======
         else if (Input.GetKey(west))
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
@@ -194,8 +180,6 @@ public class PlayerController : MonoBehaviour
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
         }
->>>>>>> bf0a7fe78c429a46125d8e84e77598c01c913db8
-
         /*
          * CHECK IF PLAYER DIES
          */
