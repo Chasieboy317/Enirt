@@ -23,11 +23,18 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
-        
+        if (Input.GetKey(KeyCode.W)) {
+            transform.eulerAngles = new Vector3(0f, 270f, 0f);
+        }
+        if (Input.GetKey(KeyCode.S)) {
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+        }
+
+
 
         //Player dies
         if (!dead && health <= 0)

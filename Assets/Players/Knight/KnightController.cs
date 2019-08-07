@@ -91,21 +91,16 @@ public class KnightController : PlayerController
         /*
          * WALKING AND RUNNING
          */
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S))
         {
             //transform.Rotate(Vector3.up);
-            animController.SetBool("isRunning", true);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            //transform.Rotate(-Vector3.up);
             animController.SetBool("isRunning", true);
         }
         else
         {
             animController.SetBool("isRunning", false);
         }
-        if (Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.X))
         {
             animController.SetBool("isWalking", true);
         }
