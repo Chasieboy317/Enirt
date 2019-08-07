@@ -15,10 +15,10 @@ public class RobotController : PlayerController
     {
         OnStart(); //base class
 
-        aim = KeyCode.Greater;
+        aim = KeyCode.O;// KeyCode.Greater;
         shoot = KeyCode.Mouse0; //left mouse
         launchBomb = KeyCode.Mouse1; //right click
-        crawling = KeyCode.Less; 
+        crawling = KeyCode.P;// KeyCode.Less; 
     }
 
     // Update is called once per frame

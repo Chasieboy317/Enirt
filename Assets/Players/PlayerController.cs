@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             south = KeyCode.DownArrow;
             east = KeyCode.LeftArrow;
 
-            push = KeyCode.Question;
+            push = KeyCode.I;//KeyCode.Question;
             jump = KeyCode.RightShift;
 
             toggle = KeyCode.KeypadEnter;
