@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Knight
   - Robot
+  - KnightJumpOnto
+  - RobotClimbOnto
   layers:
   - Default
   - TransparentFX

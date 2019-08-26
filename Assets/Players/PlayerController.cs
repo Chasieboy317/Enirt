@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animController;
+    public Rigidbody rigBody;
+
     public bool dead = false;
     public int health =10;
+
+    //This will be used to determine whether 'jump' should be enabled for the player
+    public string climbableTag;
+    public float climableMaxDixtance;
+    public float climableMinDistance;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -26,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public void OnStart()
     {
         animController = GetComponent<Animator>();
+        rigBody = GetComponent<Rigidbody>();
+
 
         //Maybe use a variable to check whether configured or not?
         if(this.tag == "Knight")
@@ -39,6 +48,10 @@ public class PlayerController : MonoBehaviour
             jump = KeyCode.Space;
 
             toggle = KeyCode.LeftShift;
+
+            climbableTag = "KnightJumpOnto";
+            climableMaxDixtance = 1.8f;
+            climableMinDistance = 1.2f;
         }
         else// if(this.tag == "Robot")
         {
@@ -51,12 +64,17 @@ public class PlayerController : MonoBehaviour
             jump = KeyCode.RightShift;
 
             toggle = KeyCode.L; //KeyCode.KeypadEnter
+
+            climbableTag = "RobotClimbOnto";
+            climableMaxDixtance = 1.1f;
+            climableMinDistance = 0.8f;
         }
     }
 
     // Update is called once per frame
     public void OnUpdate()
     {
+        
         //Movements common to both
         /*
          * JUMPING
@@ -76,10 +94,44 @@ public class PlayerController : MonoBehaviour
             animController.SetBool("jumpingOnto", true);
         }
         */
-        if (Input.GetKey(jump))
+        if (!running && Input.GetKey(jump))
         {
-            if (transform.position.y == 0) //jump up
+            //only enable jump if it is an object the player can jump onto 
+            Vector3 start = this.transform.position + new Vector3(0,0.9f,0);
+            Vector3 direction = this.transform.forward;
+            RaycastHit hit;
+            if (Physics.Raycast(start, direction, out hit))
             {
+                Debug.DrawRay(start, direction * 10, Color.green);
+                if(climbableTag == hit.transform.tag) //climbable object
+                {
+                    float distance = Vector3.Distance(hit.point, transform.position);
+
+                    Debug.Log(distance);
+                    //close enough
+                    if (distance >= climableMinDistance && distance <= climableMaxDixtance)
+                    {
+                        animController.SetBool("jump", true);
+                        animController.SetBool("jumpingOnto", true);
+                    }
+                }
+                //hit.collider.gameObject.SetActive(false);
+            }
+            else
+            {
+                if (this.transform.position.y >= 0.5)
+                {
+                    animController.SetBool("jump", true);
+                    animController.SetBool("jumpingOnto", false);
+                }
+            }
+
+            /*
+            if (transform.position.y <= 2) //jump up
+            {
+                
+                this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+
                 animController.SetBool("jump", true);
                 animController.SetBool("jumpingOnto", true);
             }
@@ -87,7 +139,9 @@ public class PlayerController : MonoBehaviour
             {
                 animController.SetBool("jump", true);
                 animController.SetBool("jumpingOnto", false);
+                //reset position
             }
+            */
         }
         //not jumping
         else
