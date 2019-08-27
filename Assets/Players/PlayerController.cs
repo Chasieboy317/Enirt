@@ -211,10 +211,7 @@ public class PlayerController : MonoBehaviour
         {
             animController.SetBool("isPushing", false);
         }
-        //if (startPushTime - Time.time > totalPushTime)
-        //{
-        //    pushing = false;
-        //}
+     
         /*
          * WALKING AND RUNNING
          */
@@ -266,12 +263,4 @@ public class PlayerController : MonoBehaviour
         health -= 1;
     }
 
-    //needed for pushable script
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        collision.gameObject.SendMessage("wasPushed", this.transform.forward,SendMessageOptions.DontRequireReceiver);
-        Debug.Log("Message sent");
-    }
-    */
 }
