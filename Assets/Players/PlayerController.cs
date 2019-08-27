@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public void OnStart()
     {
+       
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<Collider>();
@@ -127,6 +128,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                //renable box collider when jump time has passed
+                
                 if (this.transform.position.y >= 0.5)
                 {
                     animController.SetBool("jump", true);
@@ -134,26 +137,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            
-            /*
-            if (transform.position.y <= 2) //jump up
-            {
-                
-                this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
-
-                animController.SetBool("jump", true);
-                animController.SetBool("jumpingOnto", true);
-            }
-            else
-            {
-                animController.SetBool("jump", true);
-                animController.SetBool("jumpingOnto", false);
-                //reset position
-            }
-            */
         }
-        //renable box collider when jump time has passed
-        if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
+        else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
         {
             boxCollider.enabled = true;
         }
