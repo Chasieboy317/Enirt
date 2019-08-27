@@ -202,8 +202,13 @@ public class PlayerController : MonoBehaviour
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
-                hitObj.transform.gameObject.SendMessage("wasPushed", this.transform.forward, SendMessageOptions.DontRequireReceiver);
-                animController.SetBool("isPushing", true);
+                float dist = Vector3.Distance(hitObj.point, transform.position);
+                if (dist <= 2.5)
+                {
+                    hitObj.transform.gameObject.SendMessage("wasPushed", this.transform.forward, SendMessageOptions.DontRequireReceiver);
+                    animController.SetBool("isPushing", true);
+                }
+                
             }
          
         }
