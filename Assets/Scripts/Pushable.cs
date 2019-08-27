@@ -6,13 +6,13 @@ public class Pushable : MonoBehaviour
 {
     
     bool pushed = false;
-    private float speed = 0.2f;
+    private float speed = 0.1f;
     Vector3 direction;
 
     public Transform start;
     public Transform end;
     public float startTime;
-    private float pushDistance = 0.86f;
+    private float pushDistance = 0.5f;// 0.86f;
     Vector3 endPoint;
 
     // Update is called once per frame
@@ -38,27 +38,6 @@ public class Pushable : MonoBehaviour
         }
         
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("reached OnTriggerEnter");
-
-        if (other.tag == "Robot" || other.tag == "Knight")
-        {
-            Debug.Log("Either player or robot");
-
-            if (pushed)
-            {
-                Debug.Log("Object being pushed");
-                //pushed = true;
-                //direction = other.transform.forward;
-                endPoint = this.transform.position + (direction * pushDistance);
-                startTime = Time.time;
-
-            }
-        }
-    }
-    */
     public void wasPushed(Vector3 direction)
     {
         Debug.Log("Message received");
