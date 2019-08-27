@@ -197,12 +197,24 @@ public class PlayerController : MonoBehaviour
          */
         if (Input.GetKey(push))
         {
-            animController.SetBool("isPushing", true);
+            Vector3 startPos = this.transform.position + new Vector3(0, 0.9f, 0);
+            Vector3 dir = this.transform.forward;
+            RaycastHit hitObj;
+            if (Physics.Raycast(startPos, dir, out hitObj))
+            {
+                hitObj.transform.gameObject.SendMessage("wasPushed", this.transform.forward, SendMessageOptions.DontRequireReceiver);
+                animController.SetBool("isPushing", true);
+            }
+         
         }
         else
         {
             animController.SetBool("isPushing", false);
         }
+        //if (startPushTime - Time.time > totalPushTime)
+        //{
+        //    pushing = false;
+        //}
         /*
          * WALKING AND RUNNING
          */
@@ -253,4 +265,13 @@ public class PlayerController : MonoBehaviour
     {
         health -= 1;
     }
+
+    //needed for pushable script
+    /*
+    private void OnCollisionEnter(Collision collision)
+    {
+        collision.gameObject.SendMessage("wasPushed", this.transform.forward,SendMessageOptions.DontRequireReceiver);
+        Debug.Log("Message sent");
+    }
+    */
 }
