@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animController;
     public Rigidbody rigBody;
+    public Collider boxCollider;
 
     public bool dead = false;
     public int health =10;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public string climbableTag;
     public float climableMaxDixtance;
     public float climableMinDistance;
+    public float climbTime;
+    public float climbStartTime;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -34,7 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
-
+        boxCollider = GetComponent<Collider>();
 
         //Maybe use a variable to check whether configured or not?
         if(this.tag == "Knight")
@@ -52,6 +55,7 @@ public class PlayerController : MonoBehaviour
             climbableTag = "KnightJumpOnto";
             climableMaxDixtance = 1.8f;
             climableMinDistance = 1.2f;
+            climbTime = 2.1f;
         }
         else// if(this.tag == "Robot")
         {
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
             climbableTag = "RobotClimbOnto";
             climableMaxDixtance = 1.1f;
             climableMinDistance = 0.8f;
+            climbTime = 3.5f;
         }
     }
 
@@ -111,6 +116,9 @@ public class PlayerController : MonoBehaviour
                     //close enough
                     if (distance >= climableMinDistance && distance <= climableMaxDixtance)
                     {
+                        climbStartTime = Time.time;
+                        boxCollider.enabled = false;
+                        
                         animController.SetBool("jump", true);
                         animController.SetBool("jumpingOnto", true);
                     }
@@ -126,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            
             /*
             if (transform.position.y <= 2) //jump up
             {
@@ -142,6 +151,11 @@ public class PlayerController : MonoBehaviour
                 //reset position
             }
             */
+        }
+        //renable box collider when jump time has passed
+        if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
+        {
+            boxCollider.enabled = true;
         }
         //not jumping
         else
@@ -197,7 +211,7 @@ public class PlayerController : MonoBehaviour
          */
         if (Input.GetKey(push))
         {
-            Vector3 startPos = this.transform.position + new Vector3(0, 0.9f, 0);
+            Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0);
             Vector3 dir = this.transform.forward;
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
