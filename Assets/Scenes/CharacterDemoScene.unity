@@ -486,6 +486,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9108721726229297636, guid: 7ba491759ce388c48a9d24508bec1c14,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108721726229297636, guid: 7ba491759ce388c48a9d24508bec1c14,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641265299577403455, guid: 7ba491759ce388c48a9d24508bec1c14,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 244567602, guid: 7ba491759ce388c48a9d24508bec1c14, type: 3}
       propertyPath: m_Name
       value: ROBOT

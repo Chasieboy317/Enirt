@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float climableMinDistance;
     public float climbTime;
     public float climbStartTime;
+    public float jumpDownTime = 0.5f;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -71,9 +72,9 @@ public class PlayerController : MonoBehaviour
             toggle = KeyCode.L; //KeyCode.KeypadEnter
 
             climbableTag = "RobotClimbOnto";
-            climableMaxDixtance = 1.1f;
-            climableMinDistance = 0.8f;
-            climbTime = 3.5f;
+            climableMaxDixtance = 1.7f;// 1.5f;
+            climableMinDistance = 0f; //0.5f;
+            climbTime = 4.1f;
         }
     }
 
@@ -128,7 +129,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //renable box collider when jump time has passed
                 
                 if (this.transform.position.y >= 0.5)
                 {
@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+        //renable box collider when jump time has passed
         else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
         {
             boxCollider.enabled = true;
