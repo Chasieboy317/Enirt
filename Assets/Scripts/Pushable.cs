@@ -6,28 +6,30 @@ public class Pushable : MonoBehaviour
 {
     
     bool pushed = false;
-    private float speed = 0.1f;
+    private float speed = 0.01f;
     Vector3 direction;
 
     public Transform start;
     public Transform end;
     public float startTime;
-    private float pushDistance = 0.5f;// 0.86f;
+    private float pushDistance;// = 0.3f;// 0.86f;
     Vector3 endPoint;
+
+    private float distCovered;
 
     // Update is called once per frame
     void Update()
     {
         if (pushed)
         {
-            float distCovered = (Time.time - startTime) * speed;
+            distCovered = (Time.time - startTime) * speed;
             //fraction of journey completed
             float fracJourney = distCovered / pushDistance;
 
             //move in direction of push
             transform.position = Vector3.Lerp(this.transform.position,endPoint, fracJourney);
             
-            if (distCovered >= pushDistance)
+            if (distCovered >= pushDistance || Time.time-startTime>1.2f)
             {
                 pushed = false;
             }
@@ -43,6 +45,7 @@ public class Pushable : MonoBehaviour
         endPoint = this.transform.position + (direction * pushDistance);
         startTime = Time.time;
         pushDistance = 05f;
+        distCovered = 0f;
         //check if it would be pushed into something
         /*
         RaycastHit obstacle;

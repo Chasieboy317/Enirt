@@ -203,18 +203,19 @@ public class PlayerController : MonoBehaviour
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
-                Debug.DrawRay(startPos, dir*10, Color.red);
-                float dist = Vector3.Distance(hitObj.point, transform.position);
-                Debug.Log(dist);
-                if (dist <= 3.3f)
+                if (hitObj.transform.gameObject.GetComponent("Pushable") != null)
                 {
-                    Debug.Log("transform.forward" + dir);
-                    hitObj.transform.gameObject.SendMessage("wasPushed", dir, SendMessageOptions.DontRequireReceiver);
-                    animController.SetBool("isPushing", true);
-                }
-                
+                    Debug.DrawRay(startPos, dir * 10, Color.red);
+                    float dist = Vector3.Distance(hitObj.point, transform.position);
+                    Debug.Log(dist);
+                    if (dist <= 3.3f)
+                    {
+                        Debug.Log("transform.forward" + dir);
+                        hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
+                        animController.SetBool("isPushing", true);
+                    }
+                }   
             }
-         
         }
         else
         {
@@ -233,11 +234,11 @@ public class PlayerController : MonoBehaviour
                 animController.SetBool("isWalking", false);
                 if (Input.GetKey(jump))
                 {
-                    animController.SetBool("jumping", true);
+                    animController.SetBool("jump", true);
                 }
                 else
                 {
-                    animController.SetBool("jumping", false);
+                    animController.SetBool("jump", false);
                 }
             }
             else
