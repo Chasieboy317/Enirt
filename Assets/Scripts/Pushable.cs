@@ -46,19 +46,6 @@ public class Pushable : MonoBehaviour
         startTime = Time.time;
         pushDistance = 05f;
         distCovered = 0f;
-        //check if it would be pushed into something
-        /*
-        RaycastHit obstacle;
-        if(Physics.Raycast(this.transform.position, direction * 0.5f, out obstacle))
-        {
-            pushDistance = Vector3.Distance(obstacle.point, this.transform.position);
-                //float dist = Vector3.Distance(hitObj.point, transform.position);
-        }
-        else
-        {
-            pushDistance = 0.5f;
-        }
-        */
     }
 
     private void OnCollisionEnter(Collision collision)
