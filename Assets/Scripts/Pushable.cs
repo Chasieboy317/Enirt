@@ -26,11 +26,7 @@ public class Pushable : MonoBehaviour
 
             //move in direction of push
             transform.position = Vector3.Lerp(this.transform.position,endPoint, fracJourney);
-
-            Debug.Log("x and z");
-            Debug.Log(this.transform.position.x);
-            Debug.Log(this.transform.position.z);
-
+            
             if (distCovered >= pushDistance)
             {
                 pushed = false;
@@ -42,8 +38,28 @@ public class Pushable : MonoBehaviour
     {
         Debug.Log("Message received");
         this.direction = direction;
+        Debug.Log(direction);
         pushed = true;
         endPoint = this.transform.position + (direction * pushDistance);
         startTime = Time.time;
+        pushDistance = 05f;
+        //check if it would be pushed into something
+        /*
+        RaycastHit obstacle;
+        if(Physics.Raycast(this.transform.position, direction * 0.5f, out obstacle))
+        {
+            pushDistance = Vector3.Distance(obstacle.point, this.transform.position);
+                //float dist = Vector3.Distance(hitObj.point, transform.position);
+        }
+        else
+        {
+            pushDistance = 0.5f;
+        }
+        */
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision");
     }
 }

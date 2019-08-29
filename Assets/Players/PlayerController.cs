@@ -199,13 +199,17 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0);
             Vector3 dir = this.transform.forward;
+            
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
+                Debug.DrawRay(startPos, dir*10, Color.red);
                 float dist = Vector3.Distance(hitObj.point, transform.position);
-                if (dist <= 2.5)
+                Debug.Log(dist);
+                if (dist <= 3.3f)
                 {
-                    hitObj.transform.gameObject.SendMessage("wasPushed", this.transform.forward, SendMessageOptions.DontRequireReceiver);
+                    Debug.Log("transform.forward" + dir);
+                    hitObj.transform.gameObject.SendMessage("wasPushed", dir, SendMessageOptions.DontRequireReceiver);
                     animController.SetBool("isPushing", true);
                 }
                 
