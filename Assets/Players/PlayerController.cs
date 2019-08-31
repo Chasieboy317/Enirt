@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animController;
     public Rigidbody rigBody;
-    public Collider boxCollider;
+    public BoxCollider boxCollider;
 
     public bool dead = false;
     public int health =10;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
        
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<Collider>();
+        boxCollider = GetComponent<BoxCollider>();
 
         //Maybe use a variable to check whether configured or not?
         if(this.tag == "Knight")
@@ -87,20 +87,6 @@ public class PlayerController : MonoBehaviour
          * JUMPING
          */
 
-        /*
-        //jumping down
-        if (Input.GetKey(jump) && Input.GetKey(south))
-        {
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", false);
-        }
-        //jumping onto
-        else if (Input.GetKey(jump) && Input.GetKey(north))
-        {
-            animController.SetBool("jump", true);
-            animController.SetBool("jumpingOnto", true);
-        }
-        */
         if (!running && Input.GetKey(jump))
         {
             //only enable jump if it is an object the player can jump onto 
@@ -255,6 +241,7 @@ public class PlayerController : MonoBehaviour
 
         /*
          * CHECK IF PLAYER DIES
+         * move to Destructable?
          
         if (!dead && health <= 0)
         {
@@ -265,12 +252,6 @@ public class PlayerController : MonoBehaviour
         }
         */
         
-    }
-
-    //function used to decrease health. Can be called from onTriggerEnter or something
-    void takeDamage()
-    {
-        health -= 1;
     }
 
 }
