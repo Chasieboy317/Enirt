@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hitObj.transform.gameObject.GetComponent("Pushable") != null)
                 {
-                    Debug.DrawRay(startPos, dir * 10, Color.red);
+                    //Debug.DrawRay(startPos, dir * 10, Color.red);
                     float dist = Vector3.Distance(hitObj.point, transform.position);
                     Debug.Log(dist);
                     if (dist <= 3.3f)

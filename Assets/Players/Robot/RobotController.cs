@@ -50,15 +50,20 @@ public class RobotController : PlayerController
         }
         else
         {
-            //check that the player can't stand up while under something?
-            animController.SetBool("isCrawling", false);
-            if (Time.time - climbStartTime > climbTime)
-            {
-                boxCollider.enabled = false;
-                boxCollider.size = size;
-                boxCollider.center = center;
-                boxCollider.enabled = true;
+            //check that the player can't stand up while under something
+            //Debug.DrawRay(this.transform.position, Vector3.up* 10, Color.red);
+            if (!Physics.Raycast(this.transform.position,Vector3.up)){
+                
+                animController.SetBool("isCrawling", false);
+                if (Time.time - climbStartTime > climbTime)
+                {
+                    boxCollider.enabled = false;
+                    boxCollider.size = size;
+                    boxCollider.center = center;
+                    boxCollider.enabled = true;
+                }
             }
+            
         }
 
         /*
