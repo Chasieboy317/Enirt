@@ -34,13 +34,12 @@ public class Pushable : MonoBehaviour
                 pushed = false;
             }
         }
-        
     }
     public void wasPushed(Vector3 direction)
     {
-        Debug.Log("Message received");
+        //Debug.Log("Message received");
         this.direction = direction;
-        Debug.Log(direction);
+        //Debug.Log(direction);
         pushed = true;
         endPoint = this.transform.position + (direction * pushDistance);
         startTime = Time.time;
@@ -48,8 +47,4 @@ public class Pushable : MonoBehaviour
         distCovered = 0f;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision");
-    }
 }

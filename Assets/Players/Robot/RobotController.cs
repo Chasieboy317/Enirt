@@ -26,7 +26,6 @@ public class RobotController : PlayerController
 
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
-        //launchBomb = KeyCode.Mouse1; //right click
         crawling = KeyCode.P;
     }
 
@@ -51,7 +50,6 @@ public class RobotController : PlayerController
         else
         {
             //check that the player can't stand up while under something
-            //Debug.DrawRay(this.transform.position, Vector3.up* 10, Color.red);
             if (!Physics.Raycast(this.transform.position,Vector3.up)){
                 
                 animController.SetBool("isCrawling", false);
@@ -72,8 +70,7 @@ public class RobotController : PlayerController
         if (Input.GetKey(aim))
         {
             animController.SetBool("isShooting", true);
-
-            //implement shooting and bomb launching
+            //implement shooting
         }
         else
         {

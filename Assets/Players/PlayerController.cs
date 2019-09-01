@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
             toggle = KeyCode.L; //KeyCode.KeypadEnter
 
             climbableTag = "RobotClimbOnto";
-            climableMaxDixtance = 1.7f;// 1.5f;
+            climableMaxDixtance = 1.6f;// 1.5f;
             climableMinDistance = 0f; //0.5f;
             climbTime = 4.1f;
         }
@@ -81,7 +81,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     public void OnUpdate()
     {
-        
+        if (this.transform.position.y < 0)
+        {
+            this.transform.position = new Vector3(this.transform.position.x,0,this.transform.position.z);
+        }
+
         //Movements common to both
         /*
          * JUMPING

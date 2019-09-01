@@ -339,7 +339,12 @@ MonoBehaviour:
   crawling: 0
   aim: 0
   shoot: 0
-  launchBomb: 0
+  crawlTime: 2.2
+  startCrawlTime: 0
+  center: {x: 0, y: 1, z: 0.35}
+  size: {x: 0.5, y: 2, z: 0.7}
+  crawlCenter: {x: 0, y: 0.4, z: 0.35}
+  crawlSize: {x: 0.5, y: 0.8, z: 2}
 --- !u!65 &7641265299577403455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -361,7 +366,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244567602}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
