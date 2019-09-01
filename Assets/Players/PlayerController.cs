@@ -200,12 +200,4 @@ public class PlayerController : MonoBehaviour
         health -= 1;
     }
 
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Knight" || collision.gameObject.tag == "Robot") {
-            if (running) {
-                animController.SetBool("isRunning", false);
-            }
-            else { animController.SetBool("isWalking", false); }
-        }
-    }
 }
