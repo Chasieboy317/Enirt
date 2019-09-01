@@ -10,7 +10,7 @@ Material:
   m_Name: castle_ceiling
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _DETAIL_MULX2 _NORMALMAP
-  m_LightmapFlags: 4
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: a5b165bda7d56514b9c8a6926d3147f5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 812ad852ee6b33d48881d21453f37758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 2800000, guid: a5b165bda7d56514b9c8a6926d3147f5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 812ad852ee6b33d48881d21453f37758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 2, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 851e731166e559e45967280353d1ad44, type: 3}
+        m_Texture: {fileID: 2800000, guid: e40f9061ed6cd964ea73225897a65dc1, type: 3}
         m_Scale: {x: 2, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
