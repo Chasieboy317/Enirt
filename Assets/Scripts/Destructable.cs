@@ -12,8 +12,13 @@ public class Destructable : MonoBehaviour
 
         if (d < 0)
         {
+            //play destruction effect //haven't tested this yet
+            if (this.transform.gameObject.GetComponent<ParticleSystem>())
+            {
+                this.transform.gameObject.GetComponent<ParticleSystem>().Play();
+            }
+            Destroy(this.gameObject);
             Debug.Log("Destroyed");
-            // Destroy object - might want to call specific script so that you can have particle effect
         }
     }
 }

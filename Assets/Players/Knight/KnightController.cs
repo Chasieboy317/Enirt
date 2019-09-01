@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KnightController : PlayerController
 {
-   
     //Key codes for actions unique to knight
     public KeyCode blocking;
     public KeyCode dualAttack;
