@@ -19,6 +19,7 @@ public class RobotController : PlayerController
     public Vector3 crawlSize = new Vector3(0.5f, 0.8f, 2);
 
     public Transform firePoint;
+    public GameObject BulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class RobotController : PlayerController
     {
         OnStart(); //base class
 
-        //firePoint = 
+        //firePoint = transform.Find("FirePoint");
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
         crawling = KeyCode.P;
@@ -82,6 +83,10 @@ public class RobotController : PlayerController
         {
             animController.SetBool("isShooting", true);
             //implement shooting
+            if (Input.GetKey(shoot))
+            {
+                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+            }
         }
         else
         {
