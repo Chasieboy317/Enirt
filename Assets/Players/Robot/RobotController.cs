@@ -20,6 +20,8 @@ public class RobotController : PlayerController
 
     public Transform firePoint;
     public GameObject BulletPrefab;
+    public float fireRate = 1f;
+    public float fireTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class RobotController : PlayerController
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
         crawling = KeyCode.P;
+
+        fireTime = Time.time;
     }
 
     // Update is called once per frame
@@ -85,7 +89,12 @@ public class RobotController : PlayerController
             //implement shooting
             if (Input.GetKey(shoot))
             {
-                Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+                if (Time.time - fireTime > fireRate)
+                {
+                    Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
+                    fireTime = Time.time;
+                }
+                
             }
         }
         else
