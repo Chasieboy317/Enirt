@@ -1,15 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
- * Knight uses WASD controls
- * Space+W to jump onto
- * Space+S to jump off
- * Q to Push
- * E to block 
- * R to slash
- * T to dual attack 
- */
+
 public class KnightController : PlayerController
 {
    
@@ -21,6 +13,11 @@ public class KnightController : PlayerController
     // Start is called before the first frame update
     void Start() 
     {
+        SetControls();
+    }
+
+    public void SetControls()
+    {
         OnStart(); //base class (PlayerController)
 
         //UNLESS OTHERWISE CONFIGURED
@@ -31,6 +28,11 @@ public class KnightController : PlayerController
 
     // Update is called once per frame
     void Update()
+    {
+        playerMovement();
+    }
+
+    public void playerMovement()
     {
         OnUpdate(); //base class (PlayerController)
 
@@ -69,9 +71,5 @@ public class KnightController : PlayerController
             animController.SetBool("isBlocking", false);
         }
 
-        //transform.rotation = Quaternion.FromToRotation(transform.up, Vector3.up) * transform.rotation;
-
-        //transform.rotation = Quaternion.FromToRotation(transform.up,Vector3.up);
-        //transform.eulerAngles.Set(transform.eulerAngles.x, 0f, transform.eulerAngles.z) = 0f;// = new Vector3(transform.eulerAngles.x, 0f,transform.eulerAngles.z);
     }
 }
