@@ -8,6 +8,7 @@ TagManager:
   - Robot
   - KnightJumpOnto
   - RobotClimbOnto
+  - FirePoint
   layers:
   - Default
   - TransparentFX

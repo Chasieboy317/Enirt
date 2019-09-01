@@ -15,15 +15,21 @@ public class RobotController : PlayerController
     //box collider - gets changed for crawling and then changed back
     public Vector3 center = new Vector3( 0, 1, 0.35f );
     public Vector3 size = new Vector3( 0.5f, 2, 0.7f);
-
     public Vector3 crawlCenter = new Vector3(0, 0.4f, 0.35f);
     public Vector3 crawlSize = new Vector3(0.5f, 0.8f, 2);
 
+    public Transform firePoint;
     // Start is called before the first frame update
     void Start()
     {
+        SetControls();
+    }
+
+    public void SetControls()
+    {
         OnStart(); //base class
 
+        //firePoint = 
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
         crawling = KeyCode.P;
@@ -31,6 +37,11 @@ public class RobotController : PlayerController
 
     // Update is called once per frame
     void Update()
+    {
+        playerMovement();
+    }
+
+    public void playerMovement()
     {
         OnUpdate(); //base class
 
@@ -41,7 +52,7 @@ public class RobotController : PlayerController
         {
             startCrawlTime = Time.time;
             boxCollider.enabled = false;
-            boxCollider.size = crawlSize; 
+            boxCollider.size = crawlSize;
             boxCollider.center = crawlCenter;
             boxCollider.enabled = true;
 
@@ -50,8 +61,9 @@ public class RobotController : PlayerController
         else
         {
             //check that the player can't stand up while under something
-            if (!Physics.Raycast(this.transform.position,Vector3.up)){
-                
+            if (!Physics.Raycast(this.transform.position, Vector3.up))
+            {
+
                 animController.SetBool("isCrawling", false);
                 if (Time.time - climbStartTime > climbTime)
                 {
@@ -61,7 +73,6 @@ public class RobotController : PlayerController
                     boxCollider.enabled = true;
                 }
             }
-            
         }
 
         /*
