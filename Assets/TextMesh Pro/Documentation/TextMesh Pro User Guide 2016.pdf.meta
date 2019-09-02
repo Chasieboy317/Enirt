@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 fileFormatVersion: 2
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 DefaultImporter:
@@ -6,12 +5,3 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-=======
-fileFormatVersion: 2
-guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
->>>>>>> CharacterAnimation

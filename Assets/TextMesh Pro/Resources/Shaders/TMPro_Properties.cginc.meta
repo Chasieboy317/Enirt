@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 fileFormatVersion: 2
 guid: 3997e2241185407d80309a82f9148466
 ShaderImporter:
@@ -6,12 +5,3 @@ ShaderImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-=======
-fileFormatVersion: 2
-guid: 3997e2241185407d80309a82f9148466
-ShaderImporter:
-  defaultTextures: []
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
->>>>>>> CharacterAnimation
