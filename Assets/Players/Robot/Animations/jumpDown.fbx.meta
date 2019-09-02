@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1e76c952f7bf7414fa5861c8852b84a4
+=======
+guid: 6e174cfc0e1bd804ea1fdbfe06d0ac83
+>>>>>>> CharacterAnimation
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:

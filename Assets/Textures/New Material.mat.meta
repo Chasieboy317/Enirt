@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fileFormatVersion: 2
 guid: 34106ba9dfc53374cbd190f840e65311
 NativeFormatImporter:
@@ -6,3 +7,13 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: a8ff653188637e04b86d92f6a0433838
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> CharacterAnimation

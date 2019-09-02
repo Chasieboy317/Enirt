@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ffac67018742a6443a1568d03a605a5c
+=======
+guid: 2157372f299c4a7439eca2b6483fee4b
+>>>>>>> CharacterAnimation
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
