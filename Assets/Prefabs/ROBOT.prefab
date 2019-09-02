@@ -346,7 +346,10 @@ MonoBehaviour:
   crawlCenter: {x: 0, y: 0.4, z: 0.35}
   crawlSize: {x: 0.5, y: 0.8, z: 2}
   firePoint: {fileID: 2499853787432011558}
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 6566211144253445321, guid: 43bba00490911294d88e54bb1a45efa4,
+    type: 3}
+  fireRate: 1
+  fireTime: 0
 --- !u!65 &7641265299577403455
 BoxCollider:
   m_ObjectHideFlags: 0
