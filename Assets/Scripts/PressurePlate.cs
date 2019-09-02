@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public GameObject Gate;
-    public float Speed;
+    public bool triggered;
 
-    public static bool triggered = false;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        triggered = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!triggered && Gate.transform.position.y > 2f)
-        {
-            Debug.Log("should be closing");
-            Gate.transform.position += new Vector3(0.0f, -1.0f, 0.0f) * Time.deltaTime * Speed;
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         triggered = true;
@@ -33,13 +21,5 @@ public class PressurePlate : MonoBehaviour
     {
         triggered = false;
         this.transform.position += new Vector3(0.0f, 0.04f, 0.0f);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (Gate.transform.position.y<6.0f)
-        {
-            Gate.transform.position += new Vector3(0.0f, 1.0f, 0.0f) * Time.deltaTime * Speed;
-        }
     }
 }
