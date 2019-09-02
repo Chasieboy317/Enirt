@@ -6,7 +6,8 @@ public class PressurePlate : MonoBehaviour
 {
     public bool triggered;
 
-    private void Start()
+    void Start()
+
     {
         triggered = false;
     }
