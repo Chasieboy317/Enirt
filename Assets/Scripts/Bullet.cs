@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - startTime > 4f)
+        if (Time.time - startTime > 2.5f)
         {
             Destroy(this.gameObject);
         }
