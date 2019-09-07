@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public void OnStart()
     {
-       
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
