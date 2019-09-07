@@ -187,23 +187,22 @@ public class PlayerController : MonoBehaviour
          */
         if (Input.GetKey(push))
         {
-            Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0);
             Vector3 dir = this.transform.forward;
+            Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0) + 0.3f*dir;
             
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
-                if (hitObj.transform.gameObject.GetComponent("Pushable") != null)
+                float dist = Vector3.Distance(hitObj.point, transform.position);
+                Debug.DrawRay(startPos, dir * 10, Color.red);
+                Debug.Log(dist);
+                if (dist <= 3.3f && hitObj.transform.gameObject.GetComponent("Pushable") != null)
                 {
-                    Debug.DrawRay(startPos, dir * 10, Color.red);
-                    float dist = Vector3.Distance(hitObj.point, transform.position);
-                    Debug.Log(dist);
-                    if (dist <= 3.3f)
-                    {
-                        Debug.Log("transform.forward" + dir);
-                        hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
-                        animController.SetBool("isPushing", true);
-                    }
+                    
+                    Debug.Log("transform.forward" + dir);
+                    hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
+                    animController.SetBool("isPushing", true);
+                    
                 }   
             }
         }

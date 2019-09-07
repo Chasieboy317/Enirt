@@ -86,6 +86,8 @@ public class RobotController : PlayerController
         if (Input.GetKey(aim))
         {
             animController.SetBool("isShooting", true);
+            //rotate towards mouse y
+
             //implement shooting
             if (Input.GetKey(shoot))
             {
