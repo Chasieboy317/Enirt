@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //send damage message to collision
-        if (collision.transform.gameObject.GetComponent("Destructible"))
+        if (collision.transform.gameObject.GetComponent("Destructable"))
         {
             collision.transform.gameObject.SendMessage("takeDamage", damage);
         }
