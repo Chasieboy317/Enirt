@@ -94,26 +94,26 @@ public class PlayerController : MonoBehaviour
         if (!running && Input.GetKey(jump))
         {
             //only enable jump if it is an object the player can jump onto 
-            Vector3 start = this.transform.position + new Vector3(0,0.9f,0);
             Vector3 direction = this.transform.forward;
+            Vector3 start = this.transform.position + new Vector3(0,0.9f,0) + 0.5f * direction;
+
             RaycastHit hit;
             if (Physics.Raycast(start, direction, out hit))
             {
                 Debug.DrawRay(start, direction * 10, Color.green);
-                if(climbableTag == hit.transform.tag) //climbable object
-                {
-                    float distance = Vector3.Distance(hit.point, transform.position);
+                Debug.Log(hit.transform.tag);
 
-                    Debug.Log(distance);
-                    //close enough
-                    if (distance >= climableMinDistance && distance <= climableMaxDixtance)
-                    {
-                        climbStartTime = Time.time;
-                        boxCollider.enabled = false;
+                float distance = Vector3.Distance(hit.point, transform.position);
+                Debug.Log(distance);
+                if (climbableTag == hit.transform.tag && distance >= climableMinDistance && distance <= climableMaxDixtance) //climbable object
+                {
+                    
+                    climbStartTime = Time.time;
+                    boxCollider.enabled = false;
                         
-                        animController.SetBool("jump", true);
-                        animController.SetBool("jumpingOnto", true);
-                    }
+                    animController.SetBool("jump", true);
+                    animController.SetBool("jumpingOnto", true);
+                    
                 }
                 //hit.collider.gameObject.SetActive(false);
             }
