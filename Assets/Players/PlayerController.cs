@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
             toggle = KeyCode.L; //KeyCode.KeypadEnter
 
             climbableTag = "RobotClimbOnto";
-            climableMaxDixtance = 1.6f;// 1.5f;
-            climableMinDistance = 0f; //0.5f;
+            climableMaxDixtance = 1.5f;
+            climableMinDistance = 0.5f; 
             climbTime = 4.1f;
         }
     }
