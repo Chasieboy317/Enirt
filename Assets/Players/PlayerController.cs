@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 }
                 //hit.collider.gameObject.SetActive(false);
             }
+            /*
             else
             {
                 
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
                     animController.SetBool("jumpingOnto", false);
                 }
             }
-
+            */
         }
         //renable box collider when jump time has passed
         else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
