@@ -21,4 +21,5 @@ public class Destructable : MonoBehaviour
             Debug.Log("Destroyed");
         }
     }
+
 }
