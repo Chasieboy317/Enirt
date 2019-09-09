@@ -66,15 +66,10 @@ public class RobotController : PlayerController
         else 
         {
             //check that the player can't stand up while under something
-<<<<<<< HEAD
-            /*if (!Physics.Raycast(this.transform.position, Vector3.up))
-=======
             RaycastHit objAbove;
             
             if (!Physics.Raycast(this.transform.position, Vector3.up,out objAbove) || Vector3.Distance(objAbove.point, transform.position)<2.0f)
->>>>>>> bbb1ff6886689eaf43adc187c942b8c9ac99c1d7
             {
-
                 animController.SetBool("isCrawling", false);
                 if (Time.time - startCrawlTime > crawlTime && !(Time.time > startCrawlTime + crawlTime + 2f))
                 {
@@ -84,16 +79,9 @@ public class RobotController : PlayerController
                     }
                     boxCollider.size = size;
                     boxCollider.center = center;
-                    boxCollider.enabled = true;
-                    
-                    
+                    boxCollider.enabled = true;   
                 }
-<<<<<<< HEAD
-            }*/
-=======
             }
-            
->>>>>>> bbb1ff6886689eaf43adc187c942b8c9ac99c1d7
         }
 
         /*
