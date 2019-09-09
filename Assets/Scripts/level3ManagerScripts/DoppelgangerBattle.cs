@@ -24,7 +24,7 @@ public class DoppelgangerBattle : MonoBehaviour
 
     public GameObject respawnEffect;
     float spawnTime;
-    float spawnTimeTotal = 2.0f;
+    float spawnTimeTotal = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,7 @@ public class DoppelgangerBattle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Pressure plates used to spawn scene elements
         if(PPLeft !=null && PPRight != null)
         {
             if (ppLeft.triggered && ppRight.triggered) //spawn doppelgangers
