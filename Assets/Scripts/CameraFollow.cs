@@ -7,17 +7,23 @@ public class CameraFollow : MonoBehaviour
     public float speed;
     public GameObject player;
 
-    private float deltaPos;
-    private float lastPos;
+    private float deltazPos;
+    private float lastzPos;
+
+    //private float deltayPos;
+    //private float lastyPos;
     void Start()
     {
-        lastPos = player.transform.position.z;
+        lastzPos = player.transform.position.z;
+        //lastyPos = player.transform.position.y;
     }
     // Update is called once per frame
     void Update()
     {
-        deltaPos = player.transform.position.z - lastPos;
-        transform.position += new Vector3(0.0f, 0.0f, deltaPos);
-        lastPos = transform.position.z;
+        deltazPos = player.transform.position.z - lastzPos;
+        //deltayPos = player.transform.position.y - lastyPos;
+        transform.position += new Vector3(0.0f, 0.0f, deltazPos);
+        lastzPos = transform.position.z;
+        //lastyPos = transform.position.z;
     }
 }
