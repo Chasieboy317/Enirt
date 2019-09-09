@@ -20,7 +20,7 @@ public class PressurePlate : MonoBehaviour
             triggered = true;
             this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
         }
-        //Debug.Log("OnTriggerEnter " + triggered);
+        Debug.Log("OnTriggerEnter " + triggered);
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,6 +30,6 @@ public class PressurePlate : MonoBehaviour
             triggered = false;
             this.transform.position += new Vector3(0.0f, downHeight, 0.0f); //move the pressure plate back up
         }
-        //Debug.Log("OnTriggerExit " + triggered);
+        Debug.Log("OnTriggerExit " + triggered);
     }
 }
