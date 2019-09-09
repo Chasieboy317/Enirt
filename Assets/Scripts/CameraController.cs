@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float speed;
-    public GameObject player;
+    public Camera robot;
+    public Camera knight;
+    public Camera main;
+    private GameObject r;
+    private GameObject k;
 
-    private float deltaPos;
-    private float lastPos;
+    public float distance;
+
+    // Start is called before the first frame update
     void Start()
     {
-        lastPos = player.transform.position.z;
+        //find the players
+        r = GameObject.FindWithTag("Robot");
+        k = GameObject.FindWithTag("Knight");
     }
+
     // Update is called once per frame
     void Update()
     {
-        deltaPos = player.transform.position.z - lastPos;
-        Debug.Log("Delta is now: " + deltaPos);
-        transform.position += new Vector3(0.0f, 0.0f, deltaPos);
-        lastPos = transform.position.z;
+        //if the distance between the players is greater than the distance specified, disable the main camera and enable splitscreen
+        if (Mathf.Abs(k.transform.position.z-r.transform.position.z)>distance)
+        {
+            robot.enabled = true;
+            knight.enabled = true;
+            main.enabled = false;
+        }
+        //else if the distance between the players is less than the distance specified, disable splitscreen and enable the main camera
+        else if (Mathf.Abs(k.transform.position.z - r.transform.position.z) < distance)
+        {
+            robot.enabled = false;
+            knight.enabled = false;
+            main.enabled = true;
+        }
+        
     }
 }
