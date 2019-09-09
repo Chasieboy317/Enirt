@@ -20,6 +20,8 @@ public class DoppelgangerBattle : MonoBehaviour
     GameObject spawn1;
     GameObject spawn2;
 
+    public GameObject GasEffect;
+
     public GameObject respawnEffect;
     float spawnTime;
     float spawnTimeTotal = 2.0f;
@@ -59,6 +61,7 @@ public class DoppelgangerBattle : MonoBehaviour
                     Destroy(PPRight);
 
                     Gem.SetActive(true);
+                    GasEffect.SetActive(true);
                 }
             }
         }
