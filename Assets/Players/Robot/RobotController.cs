@@ -66,7 +66,7 @@ public class RobotController : PlayerController
         else
         {
             //check that the player can't stand up while under something
-            if (!Physics.Raycast(this.transform.position, Vector3.up))
+            /*if (!Physics.Raycast(this.transform.position, Vector3.up))
             {
 
                 animController.SetBool("isCrawling", false);
@@ -77,7 +77,7 @@ public class RobotController : PlayerController
                     boxCollider.center = center;
                     boxCollider.enabled = true;
                 }
-            }
+            }*/
         }
 
         /*

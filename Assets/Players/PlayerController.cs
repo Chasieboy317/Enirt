@@ -257,4 +257,19 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health<=0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("player died");
+        animController.SetBool("isDead", true);
+    }
+
 }
