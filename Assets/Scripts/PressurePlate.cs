@@ -32,6 +32,7 @@ public class PressurePlate : MonoBehaviour
         if (triggered)
         {
             triggered = false;
+            triggerEntity = null;
             this.transform.position += new Vector3(0.0f, downHeight, 0.0f); //move the pressure plate back up
         }
         Debug.Log("OnTriggerExit " + triggered);
