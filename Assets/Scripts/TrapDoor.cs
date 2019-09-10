@@ -7,6 +7,7 @@ public class TrapDoor : MonoBehaviour
     public float open;
     public float speed;
     public GameObject Door;
+    public int direction;
 
     private bool triggered;
     private float startPos;
@@ -18,16 +19,26 @@ public class TrapDoor : MonoBehaviour
         startPos = Door.transform.position.z;
     }
 
-    // Update is called once per frame
+    //Direction: 1 means the door will open in the negative z direction
+    //           -1 means the door will open in the positive z direction
     void Update()
     {
-        Debug.Log(Door.transform.position.z);
         if (triggered)
         {
-            if (Door.transform.position.z > startPos - open)
-            {
-                Door.transform.position += new Vector3(0.0f, 0.0f, -0.1f) * Time.deltaTime * speed;
+            if (direction==1) {
+                if (Door.transform.position.z < startPos + open)
+                {
+                    Door.transform.position += new Vector3(0.0f, 0.0f, 0.1f) * Time.deltaTime * speed;
+                }
             }
+            else if (direction==-1)
+            {
+                if (Door.transform.position.z > startPos - open)
+                {
+                    Door.transform.position += new Vector3(0.0f, 0.0f, -0.1f) * Time.deltaTime * speed;
+                }
+            }
+            
         }
     }
 
