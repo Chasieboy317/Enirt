@@ -4,26 +4,39 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float speed;
-    public float zoom;
-    public GameObject[] targets; // List of targets to track
+    public Camera robot;
+    public Camera knight;
+    public Camera main;
+    private GameObject r;
+    private GameObject k;
+
+    public float distance;
+
     // Start is called before the first frame update
     void Start()
     {
-        /*
-         * TO DO:
-         * the zoom should be a percentage of the distance between the player and the camera
-         * so you should be able to do something like
-         * distanceFromPlayer = (camera.x-player.x)*zoom
-         */
-        //apply the correct amount of zoom
-        transform.position += transform.forward * zoom;
+        //find the players
+        r = GameObject.FindWithTag("Robot");
+        k = GameObject.FindWithTag("Knight");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //TODO: clamp camera X  2>X>18
-        transform.position = (targets[0].transform.position+targets[1].transform.position)/2 - new Vector3(8.0f,-4.0f,0.0f);
+        //if the distance between the players is greater than the distance specified, disable the main camera and enable splitscreen
+        if (Mathf.Abs(k.transform.position.z-r.transform.position.z)>distance)
+        {
+            robot.enabled = true;
+            knight.enabled = true;
+            main.enabled = false;
+        }
+        //else if the distance between the players is less than the distance specified, disable splitscreen and enable the main camera
+        else if (Mathf.Abs(k.transform.position.z - r.transform.position.z) < distance)
+        {
+            robot.enabled = false;
+            knight.enabled = false;
+            main.enabled = true;
+        }
+        
     }
 }

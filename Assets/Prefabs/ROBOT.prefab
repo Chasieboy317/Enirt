@@ -259,9 +259,10 @@ GameObject:
   m_Component:
   - component: {fileID: 244567605}
   - component: {fileID: 244567603}
-  - component: {fileID: 244567604}
-  - component: {fileID: 7641265299577403455}
   - component: {fileID: 9108721726229297636}
+  - component: {fileID: 7641265299577403455}
+  - component: {fileID: 135574248895886934}
+  - component: {fileID: 1103381761289609011}
   m_Layer: 0
   m_Name: ROBOT
   m_TagString: Robot
@@ -305,7 +306,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &244567604
+--- !u!54 &9108721726229297636
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244567602}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &7641265299577403455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244567602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.7}
+  m_Center: {x: 0, y: 1, z: 0.35}
+--- !u!114 &135574248895886934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244567602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564eedd485fe5604abe48a6fad5abbf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &1103381761289609011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,7 +382,7 @@ MonoBehaviour:
   crawling: 0
   aim: 0
   shoot: 0
-  crawlTime: 2.2
+  crawlTime: 2
   startCrawlTime: 0
   center: {x: 0, y: 1, z: 0.35}
   size: {x: 0.5, y: 2, z: 0.7}
@@ -350,35 +393,6 @@ MonoBehaviour:
     type: 3}
   fireRate: 1
   fireTime: 0
---- !u!65 &7641265299577403455
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244567602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 2, z: 0.7}
-  m_Center: {x: 0, y: 1, z: 0.35}
---- !u!54 &9108721726229297636
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244567602}
-  serializedVersion: 2
-  m_Mass: 3
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &275267112
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - startTime > 4f)
+        if (Time.time - startTime > 2.5f)
         {
             Destroy(this.gameObject);
         }
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //send damage message to collision
-        if (collision.transform.gameObject.GetComponent("Destructible"))
+        if (collision.transform.gameObject.GetComponent("Destructable"))
         {
             collision.transform.gameObject.SendMessage("takeDamage", damage);
         }

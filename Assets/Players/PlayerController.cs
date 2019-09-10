@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public void OnStart()
     {
-       
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
@@ -72,8 +71,8 @@ public class PlayerController : MonoBehaviour
             toggle = KeyCode.L; //KeyCode.KeypadEnter
 
             climbableTag = "RobotClimbOnto";
-            climableMaxDixtance = 1.6f;// 1.5f;
-            climableMinDistance = 0f; //0.5f;
+            climableMaxDixtance = 1.5f;
+            climableMinDistance = 0.5f; 
             climbTime = 4.1f;
         }
     }
@@ -94,29 +93,30 @@ public class PlayerController : MonoBehaviour
         if (!running && Input.GetKey(jump))
         {
             //only enable jump if it is an object the player can jump onto 
-            Vector3 start = this.transform.position + new Vector3(0,0.9f,0);
             Vector3 direction = this.transform.forward;
+            Vector3 start = this.transform.position + new Vector3(0,0.9f,0) + 0.5f * direction;
+
             RaycastHit hit;
             if (Physics.Raycast(start, direction, out hit))
             {
                 Debug.DrawRay(start, direction * 10, Color.green);
-                if(climbableTag == hit.transform.tag) //climbable object
-                {
-                    float distance = Vector3.Distance(hit.point, transform.position);
+                Debug.Log(hit.transform.tag);
 
-                    Debug.Log(distance);
-                    //close enough
-                    if (distance >= climableMinDistance && distance <= climableMaxDixtance)
-                    {
-                        climbStartTime = Time.time;
-                        boxCollider.enabled = false;
+                float distance = Vector3.Distance(hit.point, transform.position);
+                Debug.Log(distance);
+                if (climbableTag == hit.transform.tag && distance >= climableMinDistance && distance <= climableMaxDixtance) //climbable object
+                {
+                    
+                    climbStartTime = Time.time;
+                    boxCollider.enabled = false;
                         
-                        animController.SetBool("jump", true);
-                        animController.SetBool("jumpingOnto", true);
-                    }
+                    animController.SetBool("jump", true);
+                    animController.SetBool("jumpingOnto", true);
+                    
                 }
                 //hit.collider.gameObject.SetActive(false);
             }
+            /*
             else
             {
                 
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                     animController.SetBool("jumpingOnto", false);
                 }
             }
-
+            */
         }
         //renable box collider when jump time has passed
         else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
@@ -187,23 +187,22 @@ public class PlayerController : MonoBehaviour
          */
         if (Input.GetKey(push))
         {
-            Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0);
             Vector3 dir = this.transform.forward;
+            Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0) + 0.3f*dir;
             
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
-                if (hitObj.transform.gameObject.GetComponent("Pushable") != null)
+                float dist = Vector3.Distance(hitObj.point, transform.position);
+                Debug.DrawRay(startPos, dir * 10, Color.red);
+                Debug.Log(dist);
+                if (dist <= 3.3f && hitObj.transform.gameObject.GetComponent("Pushable") != null)
                 {
-                    //Debug.DrawRay(startPos, dir * 10, Color.red);
-                    float dist = Vector3.Distance(hitObj.point, transform.position);
-                    Debug.Log(dist);
-                    if (dist <= 3.3f)
-                    {
-                        Debug.Log("transform.forward" + dir);
-                        hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
-                        animController.SetBool("isPushing", true);
-                    }
+                    
+                    Debug.Log("transform.forward" + dir);
+                    hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
+                    animController.SetBool("isPushing", true);
+                    
                 }   
             }
         }
@@ -256,6 +255,21 @@ public class PlayerController : MonoBehaviour
         }
         */
         
+    }
+
+    void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health<=0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("player died");
+        animController.SetBool("isDead", true);
     }
 
 }

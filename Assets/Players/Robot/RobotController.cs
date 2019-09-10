@@ -10,7 +10,7 @@ public class RobotController : PlayerController
     public KeyCode shoot;
     //public KeyCode launchBomb;
 
-    public float crawlTime = 2.20f;
+    public float crawlTime = 2f;
     public float startCrawlTime;
     //box collider - gets changed for crawling and then changed back
     public Vector3 center = new Vector3( 0, 1, 0.35f );
@@ -63,19 +63,23 @@ public class RobotController : PlayerController
 
             animController.SetBool("isCrawling", true);
         }
-        else
+        else 
         {
             //check that the player can't stand up while under something
-            if (!Physics.Raycast(this.transform.position, Vector3.up))
+            RaycastHit objAbove;
+            
+            if (!Physics.Raycast(this.transform.position, Vector3.up,out objAbove) || Vector3.Distance(objAbove.point, transform.position)<2.0f)
             {
-
                 animController.SetBool("isCrawling", false);
-                if (Time.time - climbStartTime > climbTime)
+                if (Time.time - startCrawlTime > crawlTime && !(Time.time > startCrawlTime + crawlTime + 2f))
                 {
-                    boxCollider.enabled = false;
+                    if(boxCollider.enabled == true)
+                    {
+                        boxCollider.enabled = false;
+                    }
                     boxCollider.size = size;
                     boxCollider.center = center;
-                    boxCollider.enabled = true;
+                    boxCollider.enabled = true;   
                 }
             }
         }
@@ -86,6 +90,8 @@ public class RobotController : PlayerController
         if (Input.GetKey(aim))
         {
             animController.SetBool("isShooting", true);
+            //rotate towards mouse y
+
             //implement shooting
             if (Input.GetKey(shoot))
             {

@@ -10,7 +10,7 @@ public class Destructable : MonoBehaviour
     {
         health -= d;
 
-        if (d < 0)
+        if (health < 0)
         {
             //play destruction effect //haven't tested this yet
             if (this.transform.gameObject.GetComponent<ParticleSystem>())
@@ -21,4 +21,5 @@ public class Destructable : MonoBehaviour
             Debug.Log("Destroyed");
         }
     }
+
 }

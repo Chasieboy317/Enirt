@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnightController : PlayerController
 {
+    public int damage = 2;
     //Key codes for actions unique to knight
     public KeyCode blocking;
     public KeyCode dualAttack;
@@ -68,6 +69,15 @@ public class KnightController : PlayerController
         else
         {
             animController.SetBool("isBlocking", false);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag != "Knight" && other.transform.gameObject.GetComponent("Destructable"))
+        {
+            other.transform.gameObject.SendMessage("takeDamage", damage);
         }
 
     }
