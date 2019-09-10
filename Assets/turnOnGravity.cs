@@ -17,7 +17,7 @@ public class turnOnGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rope.activeSelf == false) {
+        if (rope == null) {
             myRB.useGravity = true;
         }
         
