@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public float speed;
     public float zoom;
+    public GameObject[] targets; // List of targets to track
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += -transform.right * speed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
-        }
+        //TODO: clamp camera X  2>X>18
+        transform.position = (targets[0].transform.position+targets[1].transform.position)/2 - new Vector3(8.0f,-4.0f,0.0f);
     }
 }
