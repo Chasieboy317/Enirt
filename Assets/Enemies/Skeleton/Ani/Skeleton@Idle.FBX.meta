@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f57ee821486cd7b488adf1063a8dd207
+guid: a5ea117a2b123564a83a2dbd1c9ea4cf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -85,7 +85,7 @@ ModelImporter:
     400078: //RootNode
     4300000: Object02
     4300002: Object01
-    7400000: Run
+    7400000: Idle
     9500000: //RootNode
     13700000: Object01
     13700002: Object02
@@ -123,22 +123,22 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: Idle
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 170
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 1
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -181,7 +181,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
@@ -197,7 +197,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Object02
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
