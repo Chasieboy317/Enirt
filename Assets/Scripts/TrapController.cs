@@ -29,7 +29,7 @@ public class TrapController : MonoBehaviour
             if (pp.triggered) { triggered = true; break; }
         }
 
-        if (triggered && currentPos < upHeight) //if the trap is triggered and the trap is lower than the specified height, move it up
+        if (triggered && currentPos < upHeight + startPos) //if the trap is triggered and the trap is lower than the specified height, move it up
         {
             Gate.transform.position += new Vector3(0.0f, 0.1f, 0.0f) * Time.deltaTime * Speed;
         }

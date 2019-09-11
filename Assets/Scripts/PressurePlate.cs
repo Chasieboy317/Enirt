@@ -16,25 +16,17 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        triggered = true;
         triggerEntity = other.gameObject;
-        this.transform.position += new Vector3(0.0f, -0.04f, 0.0f);
-        if (!triggered)
-        {
-            triggered = true;
-            this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
-        }
+        triggered = true;
+        this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
         Debug.Log("OnTriggerEnter " + triggered);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (triggered)
-        {
-            triggered = false;
-            triggerEntity = null;
-            this.transform.position += new Vector3(0.0f, downHeight, 0.0f); //move the pressure plate back up
-        }
+        triggered = false;
+        triggerEntity = null;
+        this.transform.position += new Vector3(0.0f, downHeight, 0.0f); //move the pressure plate back up
         Debug.Log("OnTriggerExit " + triggered);
     }
 }

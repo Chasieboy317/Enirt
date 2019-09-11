@@ -79,6 +79,5 @@ public class KnightController : PlayerController
         {
             other.transform.gameObject.SendMessage("takeDamage", damage);
         }
-
     }
 }

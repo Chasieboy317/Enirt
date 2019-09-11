@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     //keys for actions both players have
     public KeyCode push;
     public KeyCode jump;
+    public KeyCode pullLever;
 
     //toggle for walking/running
     public KeyCode toggle; //sets running true or false
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
             push = KeyCode.Q;
             jump = KeyCode.Space;
+            pullLever = KeyCode.Z;
 
             toggle = KeyCode.LeftShift;
 
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
             push = KeyCode.I;//KeyCode.Question;
             jump = KeyCode.RightShift;
+            pullLever = KeyCode.K;
 
             toggle = KeyCode.L; //KeyCode.KeypadEnter
 
@@ -210,7 +213,25 @@ public class PlayerController : MonoBehaviour
         {
             animController.SetBool("isPushing", false);
         }
-     
+
+        /*
+         * PULL LEVER
+         */
+
+        if (Input.GetKey(pullLever))
+        {
+            RaycastHit lever;
+            if(Physics.Raycast(this.transform.position + new Vector3(0, 1, 0), transform.forward,out lever))
+            {
+                //object is lever and is close enough
+                if(lever.transform.gameObject.GetComponent("lever")!=null && Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 0.5f)
+                {
+                    lever.transform.gameObject.GetComponent("lever").SendMessage("activate");
+                    animController.SetBool("pullLever", true);
+                }
+            }
+        }
+
         /*
          * WALKING AND RUNNING
          */

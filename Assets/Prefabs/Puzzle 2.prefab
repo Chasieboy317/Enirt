@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 753704179636287691}
   Gate: {fileID: 2011264028904166845}
   Speed: 15
-  upHeight: 1.5
+  upHeight: 1
 --- !u!1 &2011264028904166465
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 1854137298707854401}
   Gate: {fileID: 4021797144486367790}
   Speed: 15
-  upHeight: 1.5
+  upHeight: 1
 --- !u!1001 &1118387789048684913
 PrefabInstance:
   m_ObjectHideFlags: 0
