@@ -204,9 +204,15 @@ public class PlayerController : MonoBehaviour
                     
                     Debug.Log("transform.forward" + dir);
                     hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
+                    animController.SetBool("isPushing", true);                    
+                }
+                //code for turnstile Level 3 (doesn't affect anything else)
+                GameObject turnstile = hitObj.transform.parent.gameObject;
+                if (dist <=3.3f && turnstile.GetComponent("Turnstile")!=null)//hitObj.transform.gameObject.GetComponentInParent("Turnstile") != null)
+                {
+                    turnstile.GetComponent("Turnstile").SendMessage("playerPushing", 1);
                     animController.SetBool("isPushing", true);
-                    
-                }   
+                }
             }
         }
         else
