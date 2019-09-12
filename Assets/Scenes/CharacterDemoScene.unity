@@ -629,6 +629,7 @@ MonoBehaviour:
   west: 0
   push: 0
   jump: 0
+  pullLever: 0
   toggle: 0
   running: 0
   crawling: 0
