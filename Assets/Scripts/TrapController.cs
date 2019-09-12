@@ -9,6 +9,7 @@ public class TrapController : MonoBehaviour
     public GameObject Gate;
     public float Speed;
     public float upHeight;
+    public int triggersNeeded;
     private float startPos;
     private float currentPos;
 
@@ -24,9 +25,11 @@ public class TrapController : MonoBehaviour
     void Update()
     {
         currentPos = Gate.transform.transform.position.y;
+        int triggers = 0;
         foreach (PressurePlate pp in pressurePlates) //check if any of the pressure plates are triggered
         {
-            if (pp.triggered) { triggered = true; break; }
+            if (pp.triggered) { triggers++; }
+            if (triggers >= triggersNeeded) { triggered = true; }
         }
 
         if (triggered && currentPos < upHeight + startPos) //if the trap is triggered and the trap is lower than the specified height, move it up

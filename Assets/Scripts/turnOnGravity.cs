@@ -5,8 +5,11 @@ using UnityEngine;
 public class turnOnGravity : MonoBehaviour
 {
 
-    public GameObject rope; // Rope keeping this bad boy hoisted
-    Rigidbody myRB;
+    public GameObject[] suspenders; // Rope keeping this bad boy hoisted
+
+    private Rigidbody myRB;
+    public bool enableGravity = false;
+    public int destroyedSuspenders;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +20,17 @@ public class turnOnGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rope == null) {
-            myRB.useGravity = true;
+        if (!enableGravity) {
+            destroyedSuspenders = 0;
+            foreach (GameObject obj in suspenders) {
+                if (obj == null) {
+                    destroyedSuspenders++;
+                }
+                if (destroyedSuspenders == suspenders.Length) {
+                    enableGravity = true;
+                    myRB.useGravity = true;
+                }
+            }
         }
-        
     }
 }
