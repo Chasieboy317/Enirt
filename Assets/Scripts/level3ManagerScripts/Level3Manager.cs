@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level3Manager : MonoBehaviour
 {
     public bool gameOver;
-    
+    public bool successfulCompletion;
 
     //start timer?
     //win/lose conditions
@@ -25,8 +25,9 @@ public class Level3Manager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver(bool success)
     {
         gameOver = true;
+        successfulCompletion = success;
     }
 }
