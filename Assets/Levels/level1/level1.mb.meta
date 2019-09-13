@@ -216,6 +216,17 @@ ModelImporter:
     100420: transform35
     100422: transform36
     100424: transform37
+    100426: polySurface44 1
+    100428: polySurface45 1
+    100430: transform38
+    100432: transform39
+    100434: transform40
+    100436: transform41
+    100438: transform42
+    100440: transform43
+    100442: transform44
+    100444: transform45
+    100446: transform46
     400000: ambientLight1
     400002: left
     400004: //RootNode
@@ -429,6 +440,17 @@ ModelImporter:
     400420: transform35
     400422: transform36
     400424: transform37
+    400426: polySurface44 1
+    400428: polySurface45 1
+    400430: transform38
+    400432: transform39
+    400434: transform40
+    400436: transform41
+    400438: transform42
+    400440: transform43
+    400442: transform44
+    400444: transform45
+    400446: transform46
     2000000: left
     2100000: portao_portao1
     2100002: lambert3

@@ -93,6 +93,63 @@ ModelImporter:
     100174: transform27
     100176: transform28
     100178: transform29
+    100180: beginningCeilingCorner
+    100182: beginningWall
+    100184: Block1
+    100186: Block1_1
+    100188: Block1_2
+    100190: Block1_3
+    100192: Block1_4
+    100194: Block2
+    100196: Deathtrap1
+    100198: Deathtrap2
+    100200: Deathtrap3
+    100202: door
+    100204: endCeilingCorner
+    100206: lantern1
+    100208: lantern10
+    100210: lantern11
+    100212: lantern12
+    100214: lantern13
+    100216: lantern2
+    100218: lantern3
+    100220: lantern4
+    100222: lantern5
+    100224: lantern6
+    100226: lantern7
+    100228: lantern8
+    100230: lantern9
+    100232: lanterns
+    100234: Level1
+    100236: Point_Light__10_
+    100238: Point_Light__1_
+    100240: Point_Light__1__1
+    100242: Point_Light__2_
+    100244: Point_Light__3_
+    100246: Point_Light__4_
+    100248: Point_Light__5_
+    100250: Point_Light__6_
+    100252: Point_Light__7_
+    100254: Point_Light__7__1
+    100256: Point_Light__7__2
+    100258: Point_Light__8_
+    100260: Point_Light__9_
+    100262: polySurface44
+    100264: polySurface45
+    100266: polySurface47
+    100268: PressurePlate
+    100270: pressurePlate1
+    100272: pressurePlate2
+    100274: PressurePlate_1
+    100276: Puzzle1
+    100278: Puzzle2
+    100280: Puzzle3
+    100282: ramp1
+    100284: ramp2
+    100286: topLevels
+    100288: topWalls
+    100290: Trapdoor
+    100292: Wall
     400000: //RootNode
     400002: pCube1
     400004: polySurface10
@@ -183,6 +240,63 @@ ModelImporter:
     400174: transform27
     400176: transform28
     400178: transform29
+    400180: beginningCeilingCorner
+    400182: beginningWall
+    400184: Block1
+    400186: Block1_1
+    400188: Block1_2
+    400190: Block1_3
+    400192: Block1_4
+    400194: Block2
+    400196: Deathtrap1
+    400198: Deathtrap2
+    400200: Deathtrap3
+    400202: door
+    400204: endCeilingCorner
+    400206: lantern1
+    400208: lantern10
+    400210: lantern11
+    400212: lantern12
+    400214: lantern13
+    400216: lantern2
+    400218: lantern3
+    400220: lantern4
+    400222: lantern5
+    400224: lantern6
+    400226: lantern7
+    400228: lantern8
+    400230: lantern9
+    400232: lanterns
+    400234: Level1
+    400236: Point_Light__10_
+    400238: Point_Light__1_
+    400240: Point_Light__1__1
+    400242: Point_Light__2_
+    400244: Point_Light__3_
+    400246: Point_Light__4_
+    400248: Point_Light__5_
+    400250: Point_Light__6_
+    400252: Point_Light__7_
+    400254: Point_Light__7__1
+    400256: Point_Light__7__2
+    400258: Point_Light__8_
+    400260: Point_Light__9_
+    400262: polySurface44
+    400264: polySurface45
+    400266: polySurface47
+    400268: PressurePlate
+    400270: pressurePlate1
+    400272: pressurePlate2
+    400274: PressurePlate_1
+    400276: Puzzle1
+    400278: Puzzle2
+    400280: Puzzle3
+    400282: ramp1
+    400284: ramp2
+    400286: topLevels
+    400288: topWalls
+    400290: Trapdoor
+    400292: Wall
     2100000: lambert3
     2100002: phong1
     2100004: phong2
@@ -195,6 +309,7 @@ ModelImporter:
     2100018: phong4
     2100020: lambert6
     2100022: single_gate1_portao1
+    2100024: Default_Material
     2300000: polySurface12
     2300002: polySurface13
     2300004: polySurface15
@@ -235,6 +350,37 @@ ModelImporter:
     2300074: polySurface62
     2300076: portao:Mesh
     2300078: single_gate1:polySurface2
+    2300080: beginningCeilingCorner
+    2300082: Block1
+    2300084: Block1_1
+    2300086: Block1_2
+    2300088: Block1_3
+    2300090: Block1_4
+    2300092: Block2
+    2300094: door
+    2300096: endCeilingCorner
+    2300098: lantern1
+    2300100: lantern10
+    2300102: lantern11
+    2300104: lantern12
+    2300106: lantern13
+    2300108: lantern2
+    2300110: lantern3
+    2300112: lantern4
+    2300114: lantern5
+    2300116: lantern6
+    2300118: lantern7
+    2300120: lantern8
+    2300122: lantern9
+    2300124: polySurface44
+    2300126: polySurface45
+    2300128: polySurface47
+    2300130: PressurePlate
+    2300132: pressurePlate1
+    2300134: pressurePlate2
+    2300136: PressurePlate_1
+    2300138: ramp2
+    2300140: Wall
     3300000: polySurface12
     3300002: polySurface13
     3300004: polySurface15
@@ -275,6 +421,37 @@ ModelImporter:
     3300074: polySurface62
     3300076: portao:Mesh
     3300078: single_gate1:polySurface2
+    3300080: beginningCeilingCorner
+    3300082: Block1
+    3300084: Block1_1
+    3300086: Block1_2
+    3300088: Block1_3
+    3300090: Block1_4
+    3300092: Block2
+    3300094: door
+    3300096: endCeilingCorner
+    3300098: lantern1
+    3300100: lantern10
+    3300102: lantern11
+    3300104: lantern12
+    3300106: lantern13
+    3300108: lantern2
+    3300110: lantern3
+    3300112: lantern4
+    3300114: lantern5
+    3300116: lantern6
+    3300118: lantern7
+    3300120: lantern8
+    3300122: lantern9
+    3300124: polySurface44
+    3300126: polySurface45
+    3300128: polySurface47
+    3300130: PressurePlate
+    3300132: pressurePlate1
+    3300134: pressurePlate2
+    3300136: PressurePlate_1
+    3300138: ramp2
+    3300140: Wall
     4300000: polySurface12
     4300002: polySurface13
     4300004: polySurface16
@@ -315,6 +492,50 @@ ModelImporter:
     4300074: pCube11
     4300076: pCube12
     4300078: polySurface62
+    4300080: pressurePlate1
+    4300082: pressurePlate2
+    4300084: Wall
+    4300086: PressurePlate
+    4300088: Block1
+    4300090: Block1_1
+    4300092: Block2
+    4300094: Block1_2
+    4300096: Block1_3
+    4300098: Block1_4
+    4300100: ramp2
+    4300102: PressurePlate_1
+    4300104: lantern1
+    4300106: lantern2
+    4300108: lantern3
+    4300110: lantern4
+    4300112: lantern5
+    4300114: lantern6
+    4300116: lantern7
+    4300118: lantern8
+    4300120: lantern9
+    4300122: lantern10
+    4300124: lantern11
+    4300126: lantern12
+    4300128: lantern13
+    4300130: beginningCeilingCorner
+    4300132: endCeilingCorner
+    4300134: door
+    4300136: polySurface44
+    4300138: polySurface45
+    4300140: polySurface47
+    10800000: Point_Light__10_
+    10800002: Point_Light__1_
+    10800004: Point_Light__1__1
+    10800006: Point_Light__2_
+    10800008: Point_Light__3_
+    10800010: Point_Light__4_
+    10800012: Point_Light__5_
+    10800014: Point_Light__6_
+    10800016: Point_Light__7_
+    10800018: Point_Light__7__1
+    10800020: Point_Light__7__2
+    10800022: Point_Light__8_
+    10800024: Point_Light__9_
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

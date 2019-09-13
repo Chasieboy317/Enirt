@@ -33,6 +33,7 @@ public class lever : MonoBehaviour
     // Update is called once per frame
     void toggle()
     {
+        Debug.Log("toggle called");
         activated = activated ? false : true;
         cycle = true;
         currentTime = 0.0f;
