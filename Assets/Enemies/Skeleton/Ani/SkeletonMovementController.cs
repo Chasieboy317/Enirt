@@ -18,7 +18,7 @@ public class SkeletonMovementController : MonoBehaviour
     public GameObject swordCollider;
 
     private float startAttack;
-    private float attackTime = 2.01f;
+    private float attackTime = 0.9f;
 
     // Start is called before the first frame update
     void Start()
