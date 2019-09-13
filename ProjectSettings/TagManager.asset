@@ -10,6 +10,7 @@ TagManager:
   - RobotClimbOnto
   - KnightJumpOnto
   - Enemy
+  - lever
   layers:
   - Default
   - TransparentFX
