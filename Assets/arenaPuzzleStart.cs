@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Script that controls the arena puzzle in level 2 */
 public class arenaPuzzleStart : MonoBehaviour
 {
 
-    public moveWall[] wallsToMove;
-    public GameObject[] players;
-    public float triggerPos;
-
-    public float startPosition;
+    public moveWall[] wallsToMove; // Set of walls that will move when the arena activates - sets up the arena
+    public GameObject[] players; // Both players need to be in a certain area for the arena to activate
+    public float triggerPos; // Position players need to pass to activate arena
+    // TODO: define the area for activating the arena better... replace forward wall with a gate
 
     // Start is called before the first frame update
     void Start()

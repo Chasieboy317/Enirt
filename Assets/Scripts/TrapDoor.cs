@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class TrapDoor : MonoBehaviour
 {
-    public float open;
-    public float speed;
+    public float open = 5f; // Offset from starting position that is considered the open position
+    public float speed = 1f;
     public GameObject Door;
-    public int direction;
+    public moveDirection direction; // Direection the object opens to (moving up or down for open)
+
+    public enum moveDirection {
+        UP,
+        DOWN
+    };
 
     private bool triggered;
     private float startPos;
@@ -25,13 +30,13 @@ public class TrapDoor : MonoBehaviour
     {
         if (triggered)
         {
-            if (direction==1) {
+            if (direction == moveDirection.UP) {
                 if (Door.transform.position.z < startPos + open)
                 {
                     Door.transform.position += new Vector3(0.0f, 0.0f, 0.1f) * Time.deltaTime * speed;
                 }
             }
-            else if (direction==-1)
+            else if (direction == moveDirection.DOWN)
             {
                 if (Door.transform.position.z > startPos - open)
                 {

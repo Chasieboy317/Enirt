@@ -6,13 +6,13 @@ public class TrapController : MonoBehaviour
 {
 
     public PressurePlate[] pressurePlates;
-    public GameObject Gate;
-    public float Speed;
-    public float upHeight;
-    public int triggersNeeded;
+    public GameObject Gate; // Default to self
+    public float Speed = 5; // Speed at which trap opens
+    public float upHeight = 5; // How far the trap moves from default position
+    public int triggersNeeded = 1; // How many pressureplates/levers neet to be pulled for this to activate
+
     private float startPos;
     private float currentPos;
-
     private bool triggered;
 
     private void Start()

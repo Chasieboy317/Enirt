@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class moveWall : MonoBehaviour
 {
-    public bool enabled;
-    public float moveSpeed;
-    public float openSize;
+    public bool enabled; // Is the wall alowed to move yet
+    public float moveSpeed = 1f; // Speed at which wall opens
+    public float openSize = 10f; // Offset from starting pos that is considered open
 
-    public moveDirection direction;
+    public moveDirection direction; // Direction the wall will open in
     
     public enum moveDirection {
         UP,
