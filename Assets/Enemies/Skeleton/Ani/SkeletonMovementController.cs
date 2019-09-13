@@ -14,10 +14,18 @@ public class SkeletonMovementController : MonoBehaviour
     private bool knockBack = false;
     private float knockBackTime = 0f;
     private float knockBackTotalTime = 2.10f;
+
+    public GameObject swordCollider;
+
+    private float startAttack;
+    private float attackTime = 2.01f;
+
     // Start is called before the first frame update
     void Start()
     {
         animController = GetComponent<Animator>();
+
+        swordCollider.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,6 +51,17 @@ public class SkeletonMovementController : MonoBehaviour
         {
             knockBack = false;
             this.transform.position -= transform.forward * knockBackDistance;
+        }
+
+        //activate sword collider on attack
+        if (animController.GetBool("attack"))
+        {
+            startAttack = Time.time;
+            swordCollider.SetActive(true);
+        }
+        else if (Time.time > startAttack + attackTime)
+        {
+            swordCollider.SetActive(false);
         }
     }
 
