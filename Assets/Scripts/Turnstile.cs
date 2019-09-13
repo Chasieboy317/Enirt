@@ -8,10 +8,16 @@ public class Turnstile : MonoBehaviour
     public int playerspushing;
     public Transform checkPoint;
     public bool turned;
+    public bool clockwise = false;
+    public float rotateStart;
+    public float rotateTime;
+
+    public GameObject level3Parent;
     void Start()
     {
         playerspushing = 0;
         turned = false;
+        rotateTime = 6.5f;
     }
 
     // Update is called once per frame
@@ -19,16 +25,35 @@ public class Turnstile : MonoBehaviour
     {
         if (!turned && playerspushing == 4)
         {
+            rotateStart = Time.time;
             if (Physics.Raycast(checkPoint.transform.position, Vector3.up))
             {
-                transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime * 0.1f);
                 turned = true;
+                clockwise = false;
             }
             else
             {
-                transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime * 0.1f);
                 turned = true;
+                clockwise = true;
             }
+        }
+        if (turned && (Time.time < rotateStart+rotateTime))
+        {
+            if (clockwise)
+            {
+                transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime * 0.1f);
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime * 0.1f);
+            }
+        }
+        else
+        {
+            //GameObject level3Parent = this.transform.parent.gameObject;
+            //Debug.Log(level3Parent);
+            level3Parent.GetComponent("Level3Manager").SendMessage("GameOver", true);
+            Debug.Log(level3Parent.GetComponent("Level3Manager"));
         }
         playerspushing = 0;
     }
