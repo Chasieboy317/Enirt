@@ -242,8 +242,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4021797144486367790}
   m_LocalRotation: {x: -0.00000011590383, y: -0.7071068, z: 0.7071068, w: -0.00000011590383}
-  m_LocalPosition: {x: 0.052334595, y: 0.73039985, z: -0.007557557}
-  m_LocalScale: {x: 12.528872, y: 7.5089326, z: 9.282937}
+  m_LocalPosition: {x: -0.286, y: 0.73039985, z: -0.007557557}
+  m_LocalScale: {x: 18.942505, y: 7.5089326, z: 9.282937}
   m_Children:
   - {fileID: 6254217185500309247}
   - {fileID: 7868514906505472089}
@@ -319,7 +319,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7485672438102192607}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.031963624, y: 6.16, z: 9.083077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -347,6 +347,7 @@ MonoBehaviour:
   Gate: {fileID: 4021797144486367790}
   Speed: 15
   upHeight: 1
+  triggersNeeded: 1
 --- !u!1 &7822065050931752090
 GameObject:
   m_ObjectHideFlags: 0
