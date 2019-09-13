@@ -10,10 +10,19 @@ public class KnightController : PlayerController
     public KeyCode dualAttack;
     public KeyCode slash;
 
+    public float startSlash;
+    public float slashTime = 1.15f;
+    public float startAttack;
+    public float attackTime = 3.16f;
+
+    public GameObject swordCollider;
+
     // Start is called before the first frame update
     void Start() 
     {
         SetControls();
+
+        swordCollider.SetActive(false);
     }
 
     public void SetControls()
@@ -41,22 +50,35 @@ public class KnightController : PlayerController
          */
         if (Input.GetKey(slash))
         {
+            startSlash = Time.time;
             animController.SetBool("slash", true);
+            swordCollider.SetActive(true);
+
         }
         else
         {
             animController.SetBool("slash", false);
+            if (Time.time > startSlash + slashTime && Time.time > startAttack + attackTime)
+            {
+                swordCollider.SetActive(false);
+            }
         }
         /*
          * DUAL ATTACK
          */
         if (Input.GetKey(dualAttack))
         {
+            startAttack= Time.time;
             animController.SetBool("isAttacking", true);
+            swordCollider.SetActive(true);
         }
         else
         {
             animController.SetBool("isAttacking", false);
+            if(Time.time > startAttack + attackTime && Time.time > startSlash + slashTime)
+            {
+                swordCollider.SetActive(false);
+            }
         }
 
         /*

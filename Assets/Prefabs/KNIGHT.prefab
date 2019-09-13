@@ -1450,6 +1450,11 @@ MonoBehaviour:
   blocking: 0
   dualAttack: 0
   slash: 0
+  startSlash: 0
+  slashTime: 1.17
+  startAttack: 0
+  attackTime: 3.16
+  swordCollider: {fileID: 1380544109506882341}
 --- !u!114 &2375949562845506107
 MonoBehaviour:
   m_ObjectHideFlags: 0
