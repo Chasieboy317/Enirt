@@ -1271,7 +1271,7 @@ PrefabInstance:
     - target: {fileID: 3765648070322011762, guid: e0640911bdce6c14382443679eef692c,
         type: 3}
       propertyPath: m_TagString
-      value: lever
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0640911bdce6c14382443679eef692c, type: 3}
