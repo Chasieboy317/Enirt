@@ -232,23 +232,14 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(this.transform.position + new Vector3(0, 0.7f, 0) + 0.3f * transform.forward, transform.forward,out lever))
             {
                 //object is lever and is close enough
-                Debug.Log("lever hit ");
-                Debug.Log(Vector3.Distance(lever.point, transform.position + new Vector3(0, 0.7f, 0)));
-                Debug.Log(lever.transform.tag);
-                if(lever.transform.tag == "lever" && Vector3.Distance(lever.point, transform.position + new Vector3(0, 0.7f, 0) + 0.3f * transform.forward) < 0.8f)
+                if(lever.transform.tag == "lever" && Vector3.Distance(lever.point, transform.position + new Vector3(0, 0.7f, 0) + 0.3f * transform.forward) < 0.7f)
                 {
-                    Debug.Log("inside if");
                     GameObject stick = lever.transform.GetChild(1).gameObject;
                     if (stick != null)
                     {
-                        Debug.Log("stick!=null");
+                        stick.GetComponent("lever").SendMessage("toggle");
+                        animController.SetBool("pullLever", true);
                     }
-                    else
-                    {
-                        Debug.Log("Stick==null");
-                    }
-                    stick.GetComponent("lever").SendMessage("toggle");
-                    animController.SetBool("pullLever", true);
                 }
             }
         }
