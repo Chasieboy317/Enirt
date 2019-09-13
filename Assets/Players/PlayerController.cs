@@ -232,8 +232,8 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(this.transform.position + new Vector3(0, 0.7f, 0), transform.forward,out lever))
             {
                 //object is lever and is close enough
-                Debug.Log(Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)));
-                if(lever.transform.gameObject.GetComponent("lever")!=null && Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 0.8f)
+                Debug.Log(Vector3.Distance(lever.point, transform.position + new Vector3(0, 0.5f, 0)));
+                if(lever.transform.gameObject.GetComponent("lever")!=null && Vector3.Distance(lever.point, transform.position + new Vector3(0, 0.5f, 0)) < 0.8f)
                 {
                     lever.transform.gameObject.GetComponent("lever").SendMessage("toggle");
                     animController.SetBool("pullLever", true);
