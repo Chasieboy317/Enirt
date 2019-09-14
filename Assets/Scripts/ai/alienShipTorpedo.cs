@@ -4,25 +4,16 @@ using UnityEngine;
 
 //This is for use in level 3
 //Alien ship torpedo desceneds and then heads for chest height of robot doppelganger
-public class alienShipTorpedo : MonoBehaviour
+public class alienShipTorpedo : LockTarget
 {
     // Start is called before the first frame update
-    public GameObject[] robots;
     public GameObject target;
     public float damage = 2f;
     public float fireTime;
     
     void Start()
     {
-        robots = GameObject.FindGameObjectsWithTag("Robot");
-        foreach(GameObject r in robots)
-        {            
-            if (r.transform.gameObject.GetComponent("RobotDoppelgangerScript") != null)
-            {
-                target = r;
-            }
-        }
-
+        target = getTarget("Robot", "RobotDoppelgangerScript");
         fireTime = Time.time;
     }
 

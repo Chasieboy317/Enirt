@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Planning to use this in level 3 doppelganger battle
 //Ship targets the RobotDoppelganger
-public class alienShip : MonoBehaviour
+public class alienShip : LockTarget
 {
     public Transform spawnPoint;
     public GameObject torpedoPrefab;
@@ -28,14 +28,7 @@ public class alienShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        robots = GameObject.FindGameObjectsWithTag("Robot");
-        foreach (GameObject r in robots)
-        {
-            if (r.transform.gameObject.GetComponent("RobotDoppelgangerScript") != null)
-            {
-                target = r;
-            }
-        }
+        target = getTarget("Robot", "RobotDoppelgangerScript");
 
         maxY = this.transform.position.y;
         minY = maxY - deltaY;
