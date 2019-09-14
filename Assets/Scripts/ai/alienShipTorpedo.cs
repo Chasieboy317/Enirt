@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This is for use in level 3
+//Alien ship torpedo desceneds and then heads for chest height of robot doppelganger
 public class alienShipTorpedo : MonoBehaviour
 {
     // Start is called before the first frame update
