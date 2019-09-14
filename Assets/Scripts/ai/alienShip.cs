@@ -8,7 +8,7 @@ public class alienShip : LockTarget
 {
     public Transform spawnPoint;
     public GameObject torpedoPrefab;
-    public float fireRate = 10f;
+    public float fireRate = 15f;
     public float fireTime;
 
     public GameObject[] robots;
@@ -64,11 +64,11 @@ public class alienShip : LockTarget
         }
         if (clockwise && target!=null) // rotate around doppelganger clockwise
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, 15 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, 9 * Time.deltaTime);
         }
         else if (target!=null) //rotate around doppelganger anticlockwise 
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, -15 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, -9 * Time.deltaTime);
         }
         if (target != null)
         {
@@ -83,7 +83,7 @@ public class alienShip : LockTarget
         {
             if(this.transform.position.y < maxY)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + deltaY * 0.5f * Time.deltaTime, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + deltaY * 0.3f * Time.deltaTime, this.transform.position.z);
             }
             else
             {
@@ -94,7 +94,7 @@ public class alienShip : LockTarget
         {
             if (this.transform.position.y > minY)
             {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - deltaY * 0.5f * Time.deltaTime, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - deltaY * 0.3f * Time.deltaTime, this.transform.position.z);
             }
             else
             {

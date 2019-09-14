@@ -26,18 +26,20 @@ public class RobotController : PlayerController
     //for aiming
     public int screenHeight;
     public GameObject gun;
-    
+    public int angle;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetControls();
-        screenHeight = Screen.height;
     }
 
     public void SetControls()
     {
         OnStart(); //base class
+
+        screenHeight = Screen.height;
 
         //firePoint = transform.Find("FirePoint");
         aim = KeyCode.O;
@@ -45,6 +47,23 @@ public class RobotController : PlayerController
         crawling = KeyCode.P;
 
         fireTime = Time.time;
+    }
+
+    //get gun angle corresponding to height on the screen
+    public int rotateGun(int h)
+    {
+        if (h < 0)
+        {
+            return 45;
+        }
+        else if (h >= 0 && h <= 6)
+        {
+            return 120 - h * 10;
+        }
+        else
+        {
+            return 135;
+        }
     }
 
     // Update is called once per frame
@@ -100,7 +119,7 @@ public class RobotController : PlayerController
             //rotate towards mouse y
             
             Debug.Log("mouse y / screenHeight * 10 " + (int)(((Input.mousePosition).y / screenHeight) * 10));
-            int angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
+            angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
             gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, angle, gun.transform.localEulerAngles.z); 
 
             //implement shooting
@@ -120,57 +139,4 @@ public class RobotController : PlayerController
         }
     }
 
-    public int rotateGun(int h)
-    {
-        if (h < 0)
-        {
-            return 45;
-        }
-        else if( h>=0 && h <= 6)
-        {
-            return 120 - h * 10;
-        }
-        else
-        {
-            return 135;
-        }
-        /*
-        if (h < 0)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 135, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 0)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 120, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 1)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 110, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 2)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 100, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 3)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 90, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 4)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 80, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 5)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 70, gun.transform.localEulerAngles.z);
-        }
-        else if (h == 6)
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 60, gun.transform.localEulerAngles.z);
-        }
-        else 
-        {
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 45, gun.transform.localEulerAngles.z);
-        }
-        */
-    }
 }

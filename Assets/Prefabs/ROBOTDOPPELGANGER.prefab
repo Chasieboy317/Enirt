@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 3982798846949427385}
   - component: {fileID: 5272888698044022638}
   - component: {fileID: 6723456691725549237}
-  - component: {fileID: 4877399279901713211}
+  - component: {fileID: 794303875339569824}
   - component: {fileID: 3937296699163373788}
   m_Layer: 0
   m_Name: ROBOTDOPPELGANGER
@@ -495,7 +495,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 0.7}
   m_Center: {x: 0, y: 1, z: 0.35}
---- !u!114 &4877399279901713211
+--- !u!114 &794303875339569824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
