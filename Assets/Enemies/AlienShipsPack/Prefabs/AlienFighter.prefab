@@ -95,6 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1435c6e2b6813f45bf9e501cd143c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 4890384304705356440}
+  torpedoPrefab: {fileID: 1906374043378120, guid: 79eac1308df01c1459d5833c9cb6055c,
+    type: 3}
+  fireRate: 3
+  fireTime: 0
+  instantiated: 0
 --- !u!1 &2690151819317564366
 GameObject:
   m_ObjectHideFlags: 0

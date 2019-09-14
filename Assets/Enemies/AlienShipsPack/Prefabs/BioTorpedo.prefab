@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4029445680763570}
   - component: {fileID: 33959892086348258}
   - component: {fileID: 23197084716274270}
+  - component: {fileID: 3767519400018470722}
+  - component: {fileID: 7525247938806289910}
+  - component: {fileID: 880445974237840444}
   m_Layer: 0
   m_Name: BioTorpedo
   m_TagString: Untagged
@@ -78,6 +81,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3767519400018470722
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906374043378120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25601998
+  m_Height: 0.51203996
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: -0.02912268}
+--- !u!114 &7525247938806289910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906374043378120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424754f645090dd4cb2ac9d50743bf56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robots: []
+  target: {fileID: 0}
+  damage: 2
+--- !u!114 &880445974237840444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906374043378120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564eedd485fe5604abe48a6fad5abbf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1001 &8264092402408394502
 PrefabInstance:
   m_ObjectHideFlags: 0
