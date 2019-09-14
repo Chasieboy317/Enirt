@@ -20,7 +20,7 @@ public class alienShipTorpedo : LockTarget
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.y > target.transform.position.y + 1.1f)
+        if (this.transform.position.y > target.transform.position.y + 1.2f)
         {
             this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y - (3f * Time.deltaTime), this.transform.position.z);
             this.transform.position = this.transform.position + this.transform.forward * 1f * Time.deltaTime;
@@ -30,7 +30,7 @@ public class alienShipTorpedo : LockTarget
             this.transform.position = this.transform.position + this.transform.forward * 3f * Time.deltaTime;
         }
 
-        if(target == null || Time.time - fireTime > 6f)
+        if(target == null || Time.time - fireTime > 5f)
         {
             Destroy(this.gameObject);
         }
