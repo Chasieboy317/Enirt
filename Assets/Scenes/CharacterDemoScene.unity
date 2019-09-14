@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 136680256}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.43
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -604,10 +604,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROBOTDOPPELGANGER
       objectReference: {fileID: 0}
+    - target: {fileID: 3982798846949427384, guid: ea0fc9c45813dfe4bb85d7d613800167,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3982798846949427391, guid: ea0fc9c45813dfe4bb85d7d613800167,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.95
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3982798846949427391, guid: ea0fc9c45813dfe4bb85d7d613800167,
         type: 3}
@@ -658,6 +663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877399279901713211, guid: ea0fc9c45813dfe4bb85d7d613800167,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0fc9c45813dfe4bb85d7d613800167, type: 3}

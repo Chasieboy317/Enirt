@@ -29,11 +29,15 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //send damage message to collision
-        if (collision.transform.gameObject.GetComponent("Destructable"))
+        if (collision.transform.tag!="Robot")
         {
-            collision.transform.gameObject.SendMessage("takeDamage", damage);
+            //send damage message to collision
+            if (collision.transform.gameObject.GetComponent("Destructable"))
+            {
+                collision.transform.gameObject.SendMessage("takeDamage", damage);
+            }
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+        
     }
 }

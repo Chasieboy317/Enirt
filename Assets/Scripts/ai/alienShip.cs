@@ -42,7 +42,7 @@ public class alienShip : LockTarget
     void Update()
     {
 
-        if(Time.time > fireTime + fireRate)
+        if(Time.time > fireTime + fireRate && target!=null)
         {
             fireTime = Time.time;
             Instantiate(torpedoPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -62,18 +62,22 @@ public class alienShip : LockTarget
             }
             lastRandomDir = Time.time;
         }
-        if (clockwise) // rotate around doppelganger clockwise
+        if (clockwise && target!=null) // rotate around doppelganger clockwise
         {
             this.transform.RotateAround(target.transform.position, Vector3.up, 15 * Time.deltaTime);
         }
-        else //rotate around doppelganger anticlockwise 
+        else if (target!=null) //rotate around doppelganger anticlockwise 
         {
             this.transform.RotateAround(target.transform.position, Vector3.up, -15 * Time.deltaTime);
         }
-        Vector3 delta = this.transform.position - target.transform.position;
-        //delta.y = 0; // Keep same Y level
-        this.transform.position = target.transform.position + delta.normalized * targetDistance;
-        this.transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
+        if (target != null)
+        {
+            Vector3 delta = this.transform.position - target.transform.position;
+            //delta.y = 0; // Keep same Y level
+            this.transform.position = target.transform.position + delta.normalized * targetDistance;
+            this.transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
+        }
+        
         //move the ship up or down between min and max y
         if (up)
         {

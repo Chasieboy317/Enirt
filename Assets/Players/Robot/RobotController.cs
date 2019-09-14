@@ -22,10 +22,17 @@ public class RobotController : PlayerController
     public GameObject BulletPrefab;
     public float fireRate = 1f;
     public float fireTime;
+
+    //for aiming
+    public int screenHeight;
+    public GameObject gun;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         SetControls();
+        screenHeight = Screen.height;
     }
 
     public void SetControls()
@@ -91,6 +98,10 @@ public class RobotController : PlayerController
         {
             animController.SetBool("isShooting", true);
             //rotate towards mouse y
+            
+            Debug.Log("mouse y / screenHeight * 10 " + (int)(((Input.mousePosition).y / screenHeight) * 10));
+            int angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, angle, gun.transform.localEulerAngles.z); 
 
             //implement shooting
             if (Input.GetKey(shoot))
@@ -107,5 +118,59 @@ public class RobotController : PlayerController
         {
             animController.SetBool("isShooting", false);
         }
+    }
+
+    public int rotateGun(int h)
+    {
+        if (h < 0)
+        {
+            return 45;
+        }
+        else if( h>=0 && h <= 6)
+        {
+            return 120 - h * 10;
+        }
+        else
+        {
+            return 135;
+        }
+        /*
+        if (h < 0)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 135, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 0)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 120, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 1)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 110, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 2)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 100, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 3)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 90, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 4)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 80, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 5)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 70, gun.transform.localEulerAngles.z);
+        }
+        else if (h == 6)
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 60, gun.transform.localEulerAngles.z);
+        }
+        else 
+        {
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 45, gun.transform.localEulerAngles.z);
+        }
+        */
     }
 }
