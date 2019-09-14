@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public float climbTime;
     public float climbStartTime;
     public float jumpDownTime = 0.5f;
+    //public Vector3 runJumpCenter = new Vector3(0,1.5f,0.35f);
+    //public Vector3 boxColCenter = new Vector3(0,1,0.35f);
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
          * JUMPING
          */
 
-        if (!running && Input.GetKey(jump))
+        if (Input.GetKey(jump)) //!running && Input.GetKey(jump)
         {
             //only enable jump if it is an object the player can jump onto 
             Vector3 direction = this.transform.forward;

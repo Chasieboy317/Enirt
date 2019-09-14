@@ -1813,12 +1813,18 @@ MonoBehaviour:
   west: 0
   push: 0
   jump: 0
+  pullLever: 0
   toggle: 0
   running: 0
   damage: 2
   blocking: 0
   dualAttack: 0
   slash: 0
+  startSlash: 0
+  slashTime: 1.17
+  startAttack: 0
+  attackTime: 3.16
+  swordCollider: {fileID: 4963109034580765070}
 --- !u!1 &6325354960758392995
 GameObject:
   m_ObjectHideFlags: 0
