@@ -248,6 +248,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            animController.SetBool("pullLever",false);
+        }
 
         /*
          * WALKING AND RUNNING
