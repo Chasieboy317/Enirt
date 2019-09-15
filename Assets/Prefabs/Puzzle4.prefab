@@ -250,19 +250,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9167933585837427185
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399177703016660231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.020000007, y: 0.01, z: 0.010028899}
-  m_Center: {x: -0.00000002142042, y: 0.000000029802322, z: 0}
 --- !u!1 &8049024682514702361
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +367,7 @@ PrefabInstance:
     - target: {fileID: 3753493000461024844, guid: 60f161d5091d03a48a2b5b8e6c340220,
         type: 3}
       propertyPath: m_Name
-      value: Lever
+      value: Lever (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3753493000460919404, guid: 60f161d5091d03a48a2b5b8e6c340220,
         type: 3}
@@ -437,16 +424,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7699379532366256999, guid: 60f161d5091d03a48a2b5b8e6c340220,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217900429390242586, guid: 60f161d5091d03a48a2b5b8e6c340220,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6217900429390242586, guid: 60f161d5091d03a48a2b5b8e6c340220,
         type: 3}
       propertyPath: puzzleBlocks.Array.data[0]
@@ -462,12 +439,6 @@ PrefabInstance:
 --- !u!4 &1399177703016620325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3753493000460919404, guid: 60f161d5091d03a48a2b5b8e6c340220,
-    type: 3}
-  m_PrefabInstance: {fileID: 2845700238055867209}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1399177703016660231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3753493000461024846, guid: 60f161d5091d03a48a2b5b8e6c340220,
     type: 3}
   m_PrefabInstance: {fileID: 2845700238055867209}
   m_PrefabAsset: {fileID: 0}
