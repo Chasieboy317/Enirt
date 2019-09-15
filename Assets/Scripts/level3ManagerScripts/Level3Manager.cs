@@ -16,6 +16,7 @@ public class Level3Manager : MonoBehaviour
     public GameObject doppelgangerBattle;
     public Transform finalBattleSpawnLeft;
     public Transform finalBattleSpawnRight;
+    public Camera finalBattleCamera;
 
     //start timer?
     //win/lose conditions
@@ -33,6 +34,7 @@ public class Level3Manager : MonoBehaviour
         if (finalBattle)
         {
             doppelgangerBattle.SetActive(true);
+            //set finalBattleCamera active?
             KNIGHT.transform.position = finalBattleSpawnLeft.position;
             KNIGHT.transform.rotation = finalBattleSpawnLeft.rotation;
             ROBOT.transform.position = finalBattleSpawnRight.position;

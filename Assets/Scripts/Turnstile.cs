@@ -62,4 +62,9 @@ public class Turnstile : MonoBehaviour
     {
         playerspushing += num;
     }
+
+    public bool getTurned()
+    {
+        return turned;
+    }
 }
