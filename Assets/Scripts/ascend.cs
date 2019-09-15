@@ -11,7 +11,14 @@ public class ascend : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        finalY = this.transform.position.y + deltaY;
+        if (up)
+        {
+            finalY = this.transform.position.y + deltaY;
+        }
+        else
+        {
+            finalY = this.transform.position.y - deltaY;
+        }
     }
 
     // Update is called once per frame
@@ -23,8 +30,7 @@ public class ascend : MonoBehaviour
         }
         else if (!up && this.transform.position.y > finalY)
         {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - speed * deltaY * Time.deltaTime, this.transform.position.z);
-
+            this.transform.position = new Vector3(this.transform.position.x, (this.transform.position.y - speed * deltaY * Time.deltaTime), this.transform.position.z);
         }
     }
 }
