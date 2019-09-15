@@ -25,6 +25,9 @@ public class Level3Manager : MonoBehaviour
     public GameObject tallBlock;
     public GameObject tallBlockLever;
 
+    //Window puzzle
+    public Transform windowPuzzleCheckpoint;
+
     //For final battle
     public bool finalBattle;
     public GameObject doppelgangerBattle;
@@ -74,17 +77,35 @@ public class Level3Manager : MonoBehaviour
         }
 
         /*
+         * Window Puzzle
+         */
+
+        RaycastHit cylinder;
+        if (Physics.Raycast(windowPuzzleCheckpoint.position, Vector3.up, out cylinder))
+        {
+            if(cylinder.transform.tag == "redCylinder")
+            {
+                finalBattle = true; //this is how you get to the final battle for now
+            }
+        }
+        /*
          * Final Battle
          * activate level and teleport players there
          */
         if (finalBattle)
         {
+            CamController.SetActive(false);
+            //Destroy current players
+            Destroy(ROBOT);
+            Destroy(KNIGHT);
             doppelgangerBattle.SetActive(true);
             //set finalBattleCamera active?
-            KNIGHT.transform.position = finalBattleSpawnLeft.position;
-            KNIGHT.transform.rotation = finalBattleSpawnLeft.rotation;
-            ROBOT.transform.position = finalBattleSpawnRight.position;
-            ROBOT.transform.rotation = finalBattleSpawnRight.rotation;
+            /*
+            KNIGHT.transform.position = finalBattleSpawnRight.position;
+            KNIGHT.transform.rotation = finalBattleSpawnRight.rotation;
+            ROBOT.transform.position = finalBattleSpawnLeft.position + new Vector3(0,0.1f,0);
+            ROBOT.transform.rotation = finalBattleSpawnLeft.rotation;
+            */
         }
         
 
