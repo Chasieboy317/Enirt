@@ -22,6 +22,13 @@ public class RobotController : PlayerController
     public GameObject BulletPrefab;
     public float fireRate = 1f;
     public float fireTime;
+
+    //for aiming
+    public int screenHeight;
+    public GameObject gun;
+    public int angle;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +39,31 @@ public class RobotController : PlayerController
     {
         OnStart(); //base class
 
+        screenHeight = Screen.height;
+
         //firePoint = transform.Find("FirePoint");
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
         crawling = KeyCode.P;
 
         fireTime = Time.time;
+    }
+
+    //get gun angle corresponding to height on the screen
+    public int rotateGun(int h)
+    {
+        if (h < 0)
+        {
+            return 45;
+        }
+        else if (h >= 0 && h <= 6)
+        {
+            return 120 - h * 10;
+        }
+        else
+        {
+            return 135;
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +75,12 @@ public class RobotController : PlayerController
     public void playerMovement()
     {
         OnUpdate(); //base class
+        //reset boxColCenter
+        if (Time.time > runJumpStart + runJumpTime && boxCollider.center.y != boxColCenter.y && Time.time - startCrawlTime > crawlTime)
+        {
+            rigBody.useGravity = true;
+            boxCollider.center = boxColCenter;
+        }
 
         /*
          * CRAWL
@@ -56,11 +88,12 @@ public class RobotController : PlayerController
         if (Input.GetKey(crawling))
         {
             startCrawlTime = Time.time;
+            rigBody.useGravity = false;
             boxCollider.enabled = false;
             boxCollider.size = crawlSize;
             boxCollider.center = crawlCenter;
             boxCollider.enabled = true;
-
+            rigBody.useGravity = true;
             animController.SetBool("isCrawling", true);
         }
         else 
@@ -73,13 +106,15 @@ public class RobotController : PlayerController
                 animController.SetBool("isCrawling", false);
                 if (Time.time - startCrawlTime > crawlTime && !(Time.time > startCrawlTime + crawlTime + 2f))
                 {
-                    if(boxCollider.enabled == true)
+                    rigBody.useGravity = false;
+                    if (boxCollider.enabled == true)
                     {
                         boxCollider.enabled = false;
                     }
                     boxCollider.size = size;
                     boxCollider.center = center;
-                    boxCollider.enabled = true;   
+                    boxCollider.enabled = true;
+                    rigBody.useGravity = true;
                 }
             }
         }
@@ -91,6 +126,10 @@ public class RobotController : PlayerController
         {
             animController.SetBool("isShooting", true);
             //rotate towards mouse y
+            
+            Debug.Log("mouse y / screenHeight * 10 " + (int)(((Input.mousePosition).y / screenHeight) * 10));
+            angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
+            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, angle, gun.transform.localEulerAngles.z); 
 
             //implement shooting
             if (Input.GetKey(shoot))
@@ -108,4 +147,5 @@ public class RobotController : PlayerController
             animController.SetBool("isShooting", false);
         }
     }
+
 }

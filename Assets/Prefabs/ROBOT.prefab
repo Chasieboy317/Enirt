@@ -394,6 +394,8 @@ MonoBehaviour:
     type: 3}
   fireRate: 1
   fireTime: 0
+  screenHeight: 0
+  gun: {fileID: 6079567325862328672}
 --- !u!1 &275267112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 251bbb0e0dc376b46817c8aea597b6fc, type: 3}
+--- !u!1 &6079567325862328672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1989793866, guid: 251bbb0e0dc376b46817c8aea597b6fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6079567327110734122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6079567325862328673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1989793867, guid: 251bbb0e0dc376b46817c8aea597b6fc,

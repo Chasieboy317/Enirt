@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 3982798846949427385}
   - component: {fileID: 5272888698044022638}
   - component: {fileID: 6723456691725549237}
-  - component: {fileID: 4877399279901713211}
+  - component: {fileID: 794303875339569824}
   - component: {fileID: 3937296699163373788}
   m_Layer: 0
   m_Name: ROBOTDOPPELGANGER
@@ -495,7 +495,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 0.7}
   m_Center: {x: 0, y: 1, z: 0.35}
---- !u!114 &4877399279901713211
+--- !u!114 &794303875339569824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,6 +541,8 @@ MonoBehaviour:
     type: 3}
   fireRate: 1
   fireTime: 0
+  screenHeight: 0
+  gun: {fileID: 7141381033119334378}
 --- !u!114 &3937296699163373788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2590,6 +2592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 251bbb0e0dc376b46817c8aea597b6fc, type: 3}
+--- !u!1 &7141381033119334378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1989793866, guid: 251bbb0e0dc376b46817c8aea597b6fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7141381034957072288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7141381033119334379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1989793867, guid: 251bbb0e0dc376b46817c8aea597b6fc,

@@ -29,5 +29,7 @@ public class Level3Manager : MonoBehaviour
     {
         gameOver = true;
         successfulCompletion = success;
+
+        Debug.Log("GameOver" + success);
     }
 }

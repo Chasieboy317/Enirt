@@ -1928,5 +1928,20 @@ PrefabInstance:
       propertyPath: checkPoint
       value: 
       objectReference: {fileID: 1915544378}
+    - target: {fileID: 1251283979900316057, guid: a3826e29865a20043940b0921c2d4965,
+        type: 3}
+      propertyPath: turned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251283979900316057, guid: a3826e29865a20043940b0921c2d4965,
+        type: 3}
+      propertyPath: level3Parent
+      value: 
+      objectReference: {fileID: 503556510}
+    - target: {fileID: 6566870755015496201, guid: a3826e29865a20043940b0921c2d4965,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7074499
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3826e29865a20043940b0921c2d4965, type: 3}

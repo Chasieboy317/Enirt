@@ -10,6 +10,9 @@ public class lever : MonoBehaviour
     public float maxAngle;
     public float speed;
 
+    public PuzzleBlock[] puzzleBlocks;
+    public bool alternating;
+
     private float currentTime;
     private float waitTime;
     private bool cycle;
@@ -23,6 +26,7 @@ public class lever : MonoBehaviour
         activated = false;
         cycle = true;
         startPos = transform.position;
+        transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
     void Update()
@@ -33,11 +37,11 @@ public class lever : MonoBehaviour
     // Update is called once per frame
     void toggle()
     {
-        Debug.Log("toggle called");
+        Debug.Log("activate called");
         activated = activated ? false : true;
         cycle = true;
         currentTime = 0.0f;
-        transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        //transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
         transform.position = startPos;    
     }
 
@@ -60,8 +64,16 @@ public class lever : MonoBehaviour
                 transform.RotateAround(pivot, direction, -maxAngle * speed * Time.deltaTime);
                 transform.rotation = rotation;
                 transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
-                if (currentTime>=waitTime) { toggle(); }
+                if (currentTime>=waitTime) {  toggle(); }
             }
+        }
+    }
+
+    void controlBlocks()
+    {
+        foreach (PuzzleBlock pb in puzzleBlocks)
+        {
+            pb.toggle();
         }
     }
 }
