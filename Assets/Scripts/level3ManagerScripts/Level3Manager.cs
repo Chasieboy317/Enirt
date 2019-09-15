@@ -7,9 +7,16 @@ public class Level3Manager : MonoBehaviour
     public bool gameOver;
     public bool successfulCompletion;
 
+    public GameObject CamController;
+
     //players
     public GameObject KNIGHT;
     public GameObject ROBOT;
+
+    //Falling blocks Puzzle
+    public GameObject fallingBlocksActivateLever;
+    public GameObject fallingBlocks;
+    //public Camera fallingBlocksCamera;
 
     //For final battle
     public bool finalBattle;
@@ -30,6 +37,14 @@ public class Level3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //fallingBlocks puzzle
+        if (fallingBlocksActivateLever.transform.gameObject.GetComponent<lever>().activated)
+        {
+            CamController.SetActive(false);
+            fallingBlocks.SetActive(true);
+            //fallingBlocksCamera.enabled = true;
+        }
+
         //when Time for final battle - activate level and teleport players there
         if (finalBattle)
         {
