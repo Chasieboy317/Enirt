@@ -8,7 +8,7 @@ public class alienShip : LockTarget
 {
     public Transform spawnPoint;
     public GameObject torpedoPrefab;
-    public float fireRate = 15f;
+    public float fireRate = 30f;
     public float fireTime;
 
     public GameObject[] robots;
@@ -20,7 +20,7 @@ public class alienShip : LockTarget
     public bool up;
 
     public float lastRandomDir;
-    public float dirChangeTime = 5f;
+    public float dirChangeTime = 12f;
     public bool clockwise;
 
     public float targetDistance;
@@ -64,11 +64,11 @@ public class alienShip : LockTarget
         }
         if (clockwise && target!=null) // rotate around doppelganger clockwise
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, 9 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, 5 * Time.deltaTime);
         }
         else if (target!=null) //rotate around doppelganger anticlockwise 
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, -9 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, -5 * Time.deltaTime);
         }
         if (target != null)
         {
