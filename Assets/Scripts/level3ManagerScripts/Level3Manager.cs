@@ -16,6 +16,8 @@ public class Level3Manager : MonoBehaviour
     //Falling blocks Puzzle
     public GameObject fallingBlocksActivateLever;
     public GameObject fallingBlocks;
+    public bool fallingBlocksCompleted;
+    public Camera fallingBlocksCamera;
     //public float fallingBlocksDelay = 1f;
     //public float fallingBlocksTriggered;
 
@@ -33,16 +35,27 @@ public class Level3Manager : MonoBehaviour
     {
         finalBattle = false;
         gameOver = false;
+        fallingBlocksCompleted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //fallingBlocks puzzle
-        if (fallingBlocksActivateLever.transform.gameObject.GetComponent<lever>().activated)
+        if (!fallingBlocksCompleted && fallingBlocksActivateLever.transform.gameObject.GetComponent<lever>().activated)
         {
             CamController.SetActive(false);
             fallingBlocks.SetActive(true);
+        }
+        else if(fallingBlocksCompleted && fallingBlocksActivateLever.transform.gameObject.GetComponent<lever>().activated)
+        {
+            CamController.SetActive(true);
+            fallingBlocksCamera.enabled = false;
+        }
+        //check falling blocks puzzle completed
+        if(KNIGHT.transform.position.z < -12 && ROBOT.transform.position.z < -12)
+        {
+            fallingBlocksCompleted = true;
         }
 
         //when Time for final battle - activate level and teleport players there
