@@ -23,7 +23,7 @@ public class HealthPickup : MonoBehaviour
         Debug.Log("collided");
         Debug.Log(player);
         Debug.Log(other.transform.tag);
-        if (player&&other.transform.tag=="Knight")
+        if (!player&&other.transform.tag=="Knight")
         {
             Debug.Log("picked up");
             other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage",(-health));
