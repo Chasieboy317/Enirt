@@ -20,9 +20,9 @@ public class Destructable : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("Destroyed");
         }
-        else if (health>100)
+        else if (health>10)
         {
-            health = 100;
+            health = 10;
         }
     }
 

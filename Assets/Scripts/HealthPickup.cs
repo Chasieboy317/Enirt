@@ -18,21 +18,24 @@ public class HealthPickup : MonoBehaviour
         transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f) * rotationSpeed * Time.deltaTime, Space.Self);
     }
 
-    public void onCollisionEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         Debug.Log("collided");
-        if (!player&&other.gameObject.tag=="Knight")
+        Debug.Log(player);
+        Debug.Log(other.transform.tag);
+        if (!player&&other.transform.tag=="Knight")
         {
             Debug.Log("picked up");
-            other.gameObject.GetComponent<Destructable>().takeDamage(-health);
+            other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage",(-health));
             Destroy(gameObject);
         }
 
-        else if (player && other.gameObject.tag == "Robot")
+        else if (!player && other.transform.tag == "Robot")
         {
             Debug.Log("picked up");
-            other.gameObject.GetComponent<Destructable>().takeDamage(-health);
+            other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage", (-health));
             Destroy(gameObject);
         }
     }
+    
 }

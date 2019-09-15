@@ -6,23 +6,26 @@ public class FallingBlock : MonoBehaviour
 {
     public float hangTime = 1f;
     public float collisionTime;
-    public int collisions;
+    public bool col;
 
+    void Start()
+    {
+        
+    }
     void Update()
     {
-        if (collisions > 1)
-        {
-           
-        }
 
-        if (collisions>=1 && Time.time > collisionTime + hangTime)
+        if (col && Time.time > collisionTime + hangTime)
         {
-
+            this.transform.gameObject.GetComponent<ascend>().enabled = true;
         }
     }
     public void OnCollisionEnter(Collision collision)
     {
-        collisions++;
-
+        if (!col)
+        {
+            col = true;
+            collisionTime = Time.time;
+        }
     }
 }
