@@ -21,6 +21,10 @@ public class Level3Manager : MonoBehaviour
     //public float fallingBlocksDelay = 1f;
     //public float fallingBlocksTriggered;
 
+    //climbing puzzle
+    public GameObject tallBlock;
+    public GameObject tallBlockLever;
+
     //For final battle
     public bool finalBattle;
     public GameObject doppelgangerBattle;
@@ -41,7 +45,9 @@ public class Level3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //fallingBlocks puzzle
+        /*
+         * Falling Blocks Puzzle
+         */
         if (!fallingBlocksCompleted && fallingBlocksActivateLever.transform.gameObject.GetComponent<lever>().activated)
         {
             CamController.SetActive(false);
@@ -58,7 +64,18 @@ public class Level3Manager : MonoBehaviour
             fallingBlocksCompleted = true;
         }
 
-        //when Time for final battle - activate level and teleport players there
+        /*
+         * Climbing Puzzle
+         */
+        if (tallBlockLever.transform.gameObject.GetComponent<lever>().activated)
+        {
+            tallBlock.transform.gameObject.GetComponent<ascend>().enabled = true;
+        }
+
+        /*
+         * Final Battle
+         * activate level and teleport players there
+         */
         if (finalBattle)
         {
             doppelgangerBattle.SetActive(true);

@@ -21,20 +21,28 @@ public class turnOnGravity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void onUpdate()
     {
-        if (!enableGravity) { // Only loop if we know there are still suspenders active
+        if (!enableGravity)
+        { // Only loop if we know there are still suspenders active
             destroyedSuspenders = 0;
-            foreach (GameObject obj in suspenders) {
-                if (obj == null) {
+            foreach (GameObject obj in suspenders)
+            {
+                if (obj == null)
+                {
                     destroyedSuspenders++;
                 }
-                if (destroyedSuspenders == suspenders.Length) { // if all suspenders are destroyed
-                // This can be generalized more with another variable to set how many suspenders need to be destroyed
+                if (destroyedSuspenders == suspenders.Length)
+                { // if all suspenders are destroyed
+                  // This can be generalized more with another variable to set how many suspenders need to be destroyed
                     enableGravity = true;
                     myRB.useGravity = true;
                 }
             }
         }
+    }
+    void Update()
+    {
+        onUpdate();
     }
 }
