@@ -75,6 +75,12 @@ public class RobotController : PlayerController
     public void playerMovement()
     {
         OnUpdate(); //base class
+        //reset boxColCenter
+        if (Time.time > runJumpStart + runJumpTime && boxCollider.center.y != boxColCenter.y && Time.time - startCrawlTime > crawlTime)
+        {
+            rigBody.useGravity = true;
+            boxCollider.center = boxColCenter;
+        }
 
         /*
          * CRAWL
@@ -82,11 +88,12 @@ public class RobotController : PlayerController
         if (Input.GetKey(crawling))
         {
             startCrawlTime = Time.time;
+            rigBody.useGravity = false;
             boxCollider.enabled = false;
             boxCollider.size = crawlSize;
             boxCollider.center = crawlCenter;
             boxCollider.enabled = true;
-
+            rigBody.useGravity = true;
             animController.SetBool("isCrawling", true);
         }
         else 
@@ -99,13 +106,15 @@ public class RobotController : PlayerController
                 animController.SetBool("isCrawling", false);
                 if (Time.time - startCrawlTime > crawlTime && !(Time.time > startCrawlTime + crawlTime + 2f))
                 {
-                    if(boxCollider.enabled == true)
+                    rigBody.useGravity = false;
+                    if (boxCollider.enabled == true)
                     {
                         boxCollider.enabled = false;
                     }
                     boxCollider.size = size;
                     boxCollider.center = center;
-                    boxCollider.enabled = true;   
+                    boxCollider.enabled = true;
+                    rigBody.useGravity = true;
                 }
             }
         }

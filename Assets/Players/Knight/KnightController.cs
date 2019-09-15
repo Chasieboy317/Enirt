@@ -45,6 +45,12 @@ public class KnightController : PlayerController
     {
         OnUpdate(); //base class (PlayerController)
 
+        //reset boxColCenter
+        if (Time.time > runJumpStart + runJumpTime && boxCollider.center.y != boxColCenter.y)
+        {
+            boxCollider.center = boxColCenter;
+            rigBody.useGravity = true;
+        }
         /*
          * SLASH
          */
