@@ -10,7 +10,6 @@ public class HealthPickup : MonoBehaviour
 
     void Start()
     {
-        player = false;
     }
     // Update is called once per frame
     void Update()
@@ -20,19 +19,15 @@ public class HealthPickup : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        Debug.Log("collided");
-        Debug.Log(player);
-        Debug.Log(other.transform.tag);
+
         if (!player&&other.transform.tag=="Knight")
         {
-            Debug.Log("picked up");
             other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage",(-health));
             Destroy(gameObject);
         }
 
-        else if (!player && other.transform.tag == "Robot")
+        else if (player && other.transform.tag == "Robot")
         {
-            Debug.Log("picked up");
             other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage", (-health));
             Destroy(gameObject);
         }
