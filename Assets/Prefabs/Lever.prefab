@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3753493000460919400}
   - component: {fileID: 3753493000460116558}
   - component: {fileID: 3753493000459018382}
-  - component: {fileID: 6217900429390242586}
   - component: {fileID: 2382304003871009137}
+  - component: {fileID: 1916659418095484427}
   m_Layer: 0
   m_Name: pCylinder4
   m_TagString: lever
@@ -79,27 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6217900429390242586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753493000461024840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ecfaf1396be9043a93acc1e5bb0a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  pivot: {x: -0.3829203, y: 4.307152, z: -0.0008920517}
-  direction: {x: -1, y: 0, z: 0}
-  maxAngle: 20
-  speed: 2
-  puzzleBlocks:
-  - {fileID: 0}
-  - {fileID: 0}
-  alternating: 0
 --- !u!65 &2382304003871009137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +92,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.04, z: 0.08}
   m_Center: {x: 0, y: 0.012, z: 0}
+--- !u!114 &1916659418095484427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753493000461024840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecaa69d5c4069114a8fb94df355da247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  pivot: {x: -0.3829203, y: 4.307152, z: -0.0008920517}
+  direction: {x: -1, y: 0, z: 0}
+  maxAngle: 20
+  speed: 2
+  puzzleBlocks: []
+  alternating: 0
 --- !u!1 &3753493000461024844
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,8 +154,6 @@ GameObject:
   - component: {fileID: 3753493000460919406}
   - component: {fileID: 3753493000460116556}
   - component: {fileID: 3753493000459018380}
-  - component: {fileID: 8122689465114560511}
-  - component: {fileID: 6780598673209399781}
   - component: {fileID: 3606135446944798301}
   m_Layer: 0
   m_Name: pCylinder3
@@ -225,32 +221,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8122689465114560511
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753493000461024846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.020000007, y: 0.01, z: 0.010028899}
-  m_Center: {x: -0.00000002142042, y: 0.000000029802322, z: 0}
---- !u!65 &6780598673209399781
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753493000461024846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.020000007, y: 0.01, z: 0.010028899}
-  m_Center: {x: -0.00000002142042, y: 0.000000029802322, z: 0}
 --- !u!65 &3606135446944798301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -263,4 +233,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.020000007, y: 0.01, z: 0.010028899}
-  m_Center: {x: -0.00000002142042, y: 0.000000029802322, z: 0}
+  m_Center: {x: 0.00000002142042, y: 0.000000029802322, z: 0}

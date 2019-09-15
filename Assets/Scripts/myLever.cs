@@ -75,7 +75,7 @@ public class myLever : MonoBehaviour
         if (alternating)
         {
             puzzleBlocks[currentIndex].toggle();
-            currentIndex = currentIndex < puzzleBlocks.Length - 1 ? currentIndex + 1 : 0;
+            currentIndex = currentIndex == puzzleBlocks.Length - 1 ? 0 : currentIndex+1;
         }
         else
         {
