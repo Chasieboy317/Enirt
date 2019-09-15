@@ -16,7 +16,8 @@ public class Level3Manager : MonoBehaviour
     //Falling blocks Puzzle
     public GameObject fallingBlocksActivateLever;
     public GameObject fallingBlocks;
-    //public Camera fallingBlocksCamera;
+    //public float fallingBlocksDelay = 1f;
+    //public float fallingBlocksTriggered;
 
     //For final battle
     public bool finalBattle;
@@ -42,7 +43,6 @@ public class Level3Manager : MonoBehaviour
         {
             CamController.SetActive(false);
             fallingBlocks.SetActive(true);
-            //fallingBlocksCamera.enabled = true;
         }
 
         //when Time for final battle - activate level and teleport players there
