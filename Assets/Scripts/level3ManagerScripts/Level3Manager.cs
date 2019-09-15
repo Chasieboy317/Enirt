@@ -69,6 +69,7 @@ public class Level3Manager : MonoBehaviour
          */
         if (tallBlockLever.transform.gameObject.GetComponent<lever>().activated)
         {
+            Debug.Log("InTallBlockIf");
             tallBlock.transform.gameObject.GetComponent<ascend>().enabled = true;
         }
 

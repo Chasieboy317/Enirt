@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             //only enable jump if it is an object the player can jump onto 
             Vector3 direction = this.transform.forward;
-            Vector3 start = this.transform.position + new Vector3(0,0.9f,0) + 0.5f * direction;
+            Vector3 start = this.transform.position + new Vector3(0,0.5f,0) + 0.5f * direction;
 
             RaycastHit hit;
             if (Physics.Raycast(start, direction, out hit))
@@ -206,8 +206,9 @@ public class PlayerController : MonoBehaviour
             {
                 float dist = Vector3.Distance(hitObj.point, transform.position);
                 Debug.DrawRay(startPos, dir * 10, Color.red);
-                Debug.Log(dist);
-                if (dist <= 3.3f && hitObj.transform.gameObject.GetComponent("Pushable") != null)
+                Debug.Log("push distance "+dist);
+                Debug.Log(hitObj.transform.gameObject.GetComponent("Pushable") != null);
+                if (dist <= 15f && hitObj.transform.gameObject.GetComponent("Pushable") != null) //dist changed from 3.3f
                 {
                     
                     Debug.Log("transform.forward" + dir);
