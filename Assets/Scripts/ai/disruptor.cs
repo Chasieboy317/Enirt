@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 /*
     Disruptor type enemies try their best to prevent players from completing puzzles. 
     They are retarded however, and will lock on to the first player to be on a puzzle piece.
@@ -8,46 +9,86 @@ using UnityEngine;
 */
 public class disruptor : enemy
 {
-    Animator animationController; // Seems to be used for Animation syncing. IDK
-    public PressurePlate[] puzzlePieces; // List of puzzle pieces that the disruptor will guard
+    public NavMeshAgent agent;
+    public float rotationSpeed = 5f;
     private bool targetLocked = false; // Acquire the first person to step on a pressure plate, and don't switch (These AI are retarded)
-    // Only public for testing purposes
-    /*private*/ public GameObject target; // The target the AI will go after
-
     private bool noneTriggered = true; // Check if no more pressure plates are triggered
+    private Rigidbody myRB;
 
-    // Simple 2D (top down) movement scheme for implementation testing, since I don't understand the animations and stuff
-    float angle; // Angle to target
+    public List<PressurePlate> plates;
+    private float reTarget = 2f;
+
+    private Transform playerKnight;
+    private Transform playerRobot;
+    public Transform target;
+
+    void Start() {
+        playerKnight = playerManager.instance.players[0].transform;
+        playerRobot = playerManager.instance.players[1].transform;
+
+        foreach (PressurePlate p in disruptorTargetManager.instance.plates) {
+            plates.Add(p);
+        }
+
+        agent = GetComponent<NavMeshAgent>();
+        myRB = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void Update() {
-        // Fuck you Unity... its right there.....
-       //foreach (GameObject object in puzzlePieces) {
-        for (int i = 0; i < puzzlePieces.Length; ++i) {
-           noneTriggered = true;
-           if (puzzlePieces[i].triggered) {
-               noneTriggered = false; // Set if any pressure plate is triggered
-               if (targetLocked == false) {
-                    targetLocked = true; // Get target if none is active
-                    target = puzzlePieces[i].triggerEntity;
-               }
-               break; // Do not loop through other pressure plates... will just reset noneTriggered
-           }
-       }
+        reTarget -= Time.deltaTime;
+        if (reTarget <= 0) {
+            reTarget = 2f;
+            targetLocked = false;
+        }
+        foreach (PressurePlate pressurePlate in plates) {
+            noneTriggered = true;
+            if (pressurePlate.triggered) {
+                noneTriggered = false;
+                targetLocked = true;
+                target = pressurePlate.triggerEntity.transform;
+                break;
+            }
+        }
 
        if (noneTriggered) {
            targetLocked = false;  // Allow new target acquisition, without stopping pursuit of current target
        }
 
-       if (target != null) {
-           // I don't understand much of the animation/movement system, but this is where the AI follows the player
-           // TODO: Look into this
-           Vector3 vectorToTarget = target.transform.position - transform.position; // Find target
-           angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90; // Gat angle to face target
+       if (!targetLocked) {
+            if (playerKnight == null) {
+                targetLocked = true;
+                target = playerRobot;
+            }
+            else if (playerRobot == null) {
+                targetLocked = true;
+                target = playerKnight;
+            } 
+            else if (playerKnight == null && playerRobot == null) {
+                targetLocked = false;
+            } else if (playerKnight != null && playerRobot != null){
+                target = (playerKnight.position - transform.position).magnitude > (playerRobot.position - transform.position).magnitude ? playerRobot : playerKnight;
+                targetLocked = true;
+            }
        }
+
     }
 
     void FixedUpdate() {
-        // Need to add movement
+        float distance = (target.position - transform.position).magnitude;
+        FaceTarget();
+        agent.SetDestination(target.position);
+        //myRB.AddForce(myRB.transform.forward * speed);
+    }
+    
+    void FaceTarget() {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*rotationSpeed);
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        Debug.Log("COLLISION");
+        myRB.AddForce(myRB.transform.forward * -50 * speed);
     }
 }

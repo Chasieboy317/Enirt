@@ -24,4 +24,8 @@ public class enemy : MonoBehaviour
             Debug.Log(other + "collided with player");
         }
     }
+
+    public void Die(){
+        Destroy(gameObject);
+    }
 }
