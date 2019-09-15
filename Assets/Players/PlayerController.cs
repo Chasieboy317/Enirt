@@ -19,8 +19,12 @@ public class PlayerController : MonoBehaviour
     public float climbTime;
     public float climbStartTime;
     public float jumpDownTime = 0.5f;
-    //public Vector3 runJumpCenter = new Vector3(0,1.5f,0.35f);
-    //public Vector3 boxColCenter = new Vector3(0,1,0.35f);
+
+    //for running jump
+    public Vector3 runJumpBoxColCenter = new Vector3(0,2f,0.35f);
+    public Vector3 boxColCenter = new Vector3(0,1,0.35f);
+    public float runJumpStart;
+    public float runJumpTime = 1.5f;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -112,7 +116,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(distance);
                 if (climbableTag == hit.transform.tag && distance >= climableMinDistance && distance <= climableMaxDixtance) //climbable object
                 {
-                    
+                    rigBody.useGravity = false;
                     climbStartTime = Time.time;
                     boxCollider.enabled = false;
                         
@@ -138,6 +142,7 @@ public class PlayerController : MonoBehaviour
         else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
         {
             boxCollider.enabled = true;
+            rigBody.useGravity = true;
         }
         //not jumping
         else
@@ -255,11 +260,21 @@ public class PlayerController : MonoBehaviour
                 animController.SetBool("isWalking", false);
                 if (Input.GetKey(jump))
                 {
+                    runJumpStart = Time.time;
+                    rigBody.useGravity = false;
+                    boxCollider.center = runJumpBoxColCenter;
                     animController.SetBool("jump", true);
                 }
                 else
                 {
                     animController.SetBool("jump", false);
+                    
+                    if(Time.time > runJumpStart + runJumpTime )
+                    {
+                        boxCollider.center = boxColCenter;
+                        rigBody.useGravity = true;
+                    }
+                    
                 }
             }
             else
@@ -274,6 +289,7 @@ public class PlayerController : MonoBehaviour
             animController.SetBool("isWalking", false);
         }
 
+        
         /*
          * CHECK IF PLAYER DIES
          * move to Destructable?
