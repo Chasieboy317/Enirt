@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lever : MonoBehaviour
+public class myLever : MonoBehaviour
 {
     public bool activated;
     public Vector3 pivot;
     public Vector3 direction;
     public float maxAngle;
     public float speed;
+
+    public PuzzleBlock[] puzzleBlocks;
+    public bool alternating;
 
     private float currentTime;
     private float waitTime;
@@ -40,6 +43,7 @@ public class lever : MonoBehaviour
         cycle = true;
         currentTime = 0.0f;
         transform.position = startPos;
+        controlBlocks();
     }
 
     void move()
@@ -50,10 +54,10 @@ public class lever : MonoBehaviour
             if (cycle)
             {
                 var rotation = transform.rotation;
-                transform.RotateAround(pivot, direction, maxAngle * speed * Time.deltaTime);  
+                transform.RotateAround(pivot, direction, maxAngle * speed * Time.deltaTime);
                 transform.rotation = rotation;
                 transform.Rotate(direction * maxAngle * speed * Time.deltaTime);
-                if (currentTime>=waitTime) { cycle = false; currentTime = 0.0f; }
+                if (currentTime >= waitTime) { cycle = false; currentTime = 0.0f; }
             }
             else
             {
@@ -61,7 +65,23 @@ public class lever : MonoBehaviour
                 transform.RotateAround(pivot, direction, -maxAngle * speed * Time.deltaTime);
                 transform.rotation = rotation;
                 transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
-                if (currentTime>=waitTime) {  toggle(); }
+                if (currentTime >= waitTime) { toggle(); }
+            }
+        }
+    }
+
+    void controlBlocks()
+    {
+        if (alternating)
+        {
+            puzzleBlocks[currentIndex].toggle();
+            currentIndex = currentIndex < puzzleBlocks.Length - 1 ? currentIndex + 1 : 0;
+        }
+        else
+        {
+            foreach (PuzzleBlock pb in puzzleBlocks)
+            {
+                pb.toggle();
             }
         }
     }
