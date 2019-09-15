@@ -96,6 +96,8 @@ MonoBehaviour:
   direction: {x: -1, y: 0, z: 0}
   maxAngle: 20
   speed: 2
+  puzzleBlocks: []
+  alternating: 0
 --- !u!65 &7699379532366256999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3753493000460919404}
-  - component: {fileID: 3753492999515004840}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -135,26 +136,13 @@ Transform:
   m_GameObject: {fileID: 3753493000461024844}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.0014, y: 0.00015, z: -0.093}
-  m_LocalScale: {x: 0.11666542, y: 0.11666538, z: 0.11666542}
+  m_LocalScale: {x: 0.116665475, y: 0.11666538, z: 0.116665475}
   m_Children:
   - {fileID: 3753493000460919406}
   - {fileID: 3753493000460919400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
---- !u!65 &3753492999515004840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753493000461024844}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.04, z: 0.012}
-  m_Center: {x: 0, y: 0.02, z: -0.001}
 --- !u!1 &3753493000461024846
 GameObject:
   m_ObjectHideFlags: 0
