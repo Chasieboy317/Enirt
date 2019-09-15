@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  health: 80
+  health: 1
   rotationSpeed: 40
 --- !u!1 &4213056980282049192
 GameObject:
