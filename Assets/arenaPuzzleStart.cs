@@ -10,6 +10,8 @@ public class arenaPuzzleStart : MonoBehaviour
     public moveWall[] wallsToMove; // Set of walls that will move when the arena activates - sets up the arena
     public GameObject[] players; // Both players need to be in a certain area for the arena to activate
     public float triggerPos; // Position players need to pass to activate arena
+
+    private bool triggered = false;
     // TODO: define the area for activating the arena better... replace forward wall with a gate
 
     // Start is called before the first frame update
@@ -21,9 +23,12 @@ public class arenaPuzzleStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (players[0].transform.position.z < triggerPos && players[1].transform.position.z < triggerPos) {
-           setUpArena();
-       }
+        if (!triggered) {
+            if (players[0].transform.position.z < triggerPos && players[1].transform.position.z < triggerPos) {
+                triggered = true;
+                setUpArena();
+            }
+        }
     }
 
     void setUpArena() {

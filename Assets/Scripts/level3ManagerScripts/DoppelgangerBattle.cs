@@ -26,6 +26,9 @@ public class DoppelgangerBattle : MonoBehaviour
     float spawnTime;
     float spawnTimeTotal = 1.5f;
 
+    public GameObject skeletonEnemy;
+    public GameObject alienShipEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,7 @@ public class DoppelgangerBattle : MonoBehaviour
 
                     Gem.SetActive(true);
                     GasEffect.SetActive(true);
+
                 }
             }
         }
@@ -72,6 +76,14 @@ public class DoppelgangerBattle : MonoBehaviour
             Debug.Log("should destroy spawn effect");
             Destroy(spawn1);
             Destroy(spawn2);
+
+            if(Time.time > spawnTime + spawnTimeTotal + 2f)
+            {
+                //set enemies active
+                skeletonEnemy.SetActive(true);
+                alienShipEnemy.SetActive(true);
+            }
+            
         }
     }
 }
