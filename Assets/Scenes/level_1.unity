@@ -334,64 +334,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe74efe526f9c4e43ac31e7fe44e6542, type: 3}
---- !u!114 &1096530559 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235153590553022746, guid: e0640911bdce6c14382443679eef692c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7942102929908095678}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46110a746ebeb846b9df3aebc2b3555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1335237407 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7290565415793138427, guid: e0640911bdce6c14382443679eef692c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7942102929908095678}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1335237409
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335237407}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01, z: 0.009999924}
-  m_Center: {x: -2.3283064e-10, y: 0.000000007683411, z: -0.00000003818423}
---- !u!114 &1335237412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335237407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 143deb3f8518e864f8903f6a3b82c806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  end: {fileID: 0}
-  startTime: 0
---- !u!114 &1354664393 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235153590611515868, guid: e0640911bdce6c14382443679eef692c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7942102929908095678}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46110a746ebeb846b9df3aebc2b3555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1638395806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,18 +492,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba491759ce388c48a9d24508bec1c14, type: 3}
---- !u!114 &1907482479 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235153591837107327, guid: e0640911bdce6c14382443679eef692c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7942102929908095678}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46110a746ebeb846b9df3aebc2b3555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2123926171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1195442775, guid: 66823101df994554e9f6aea44d84f956,
@@ -815,11 +745,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: level1
       objectReference: {fileID: 0}
-    - target: {fileID: 7290565415793138427, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: m_TagString
-      value: RobotClimbOnto
-      objectReference: {fileID: 0}
     - target: {fileID: 109458374927080635, guid: e0640911bdce6c14382443679eef692c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -875,68 +800,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7210240458098515328, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 754539502880413912, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 754539502880413912, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[0]
-      value: 
-      objectReference: {fileID: 1096530559}
-    - target: {fileID: 754539502880413912, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1354664393}
-    - target: {fileID: 5926270785710765190, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5926270785710765190, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[0]
-      value: 
-      objectReference: {fileID: 1907482479}
-    - target: {fileID: 5926270785710765190, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1354664393}
-    - target: {fileID: 5926270786529170052, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5926270786529170052, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[0]
-      value: 
-      objectReference: {fileID: 1096530559}
-    - target: {fileID: 5926270786529170052, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1907482479}
-    - target: {fileID: 5926270786529170052, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: puzzleBlocks.Array.data[2]
-      value: 
-      objectReference: {fileID: 1354664393}
-    - target: {fileID: 5926270786529170052, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: alternating
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7290565415793138424, guid: e0640911bdce6c14382443679eef692c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0640911bdce6c14382443679eef692c, type: 3}
 --- !u!1001 &8579581805486308065
 PrefabInstance:

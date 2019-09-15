@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 00165a95915660842b3de95ec97d72dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 863547fc6a923ec4aa2c93d30adc0571, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
