@@ -243,6 +243,7 @@ public class PlayerController : MonoBehaviour
                 if(lever.transform.gameObject.GetComponent("lever")!=null && Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 0.8f)
                 {
                     lever.transform.gameObject.GetComponent("lever").SendMessage("toggle");
+                    //this right here will fix the lever being pulled halfway //lever.transform.gameObject.GetComponent<lever>().activated = true;
                     animController.SetBool("pullLever", true);
                 }
             }
