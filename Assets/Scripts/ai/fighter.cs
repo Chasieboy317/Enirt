@@ -39,6 +39,7 @@ public class fighter : enemy
     {
         reTarget -= Time.deltaTime;
         if (targetLocked == false) {
+            // Only lock on if path exists .PathComplete();
             if (playerKnight == null) {
                 targetLocked = true;
                 target = playerRobot;

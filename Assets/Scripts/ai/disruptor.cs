@@ -41,6 +41,7 @@ public class disruptor : enemy
             reTarget = 2f;
             targetLocked = false;
         }
+            // Only lock on if path exists .PathComplete();
         foreach (PressurePlate pressurePlate in plates) {
             noneTriggered = true;
             if (pressurePlate.triggered) {
@@ -88,7 +89,10 @@ public class disruptor : enemy
     }
 
     private void OnCollisionEnter(Collision other) {
-        Debug.Log("COLLISION");
-        myRB.AddForce(myRB.transform.forward * -50 * speed);
+        if (other.transform.gameObject.GetComponent("Destructable") && (other.transform.gameObject.tag == "Knight" || other.transform.gameObject.tag == "Robot")){
+            other.transform.gameObject.SendMessage("takeDamage", 2);
+            //TODO: Add knockback
+            myRB.AddForce(transform.forward * -50); // ???
+        }
     }
 }

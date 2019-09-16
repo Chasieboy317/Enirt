@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrapController : MonoBehaviour
 {
 
-    public PressurePlate[] pressurePlates;
+    public GameObject[] pressurePlates;
     public GameObject Gate; // Default to self
     public float Speed = 5; // Speed at which trap opens
     public float upHeight = 5; // How far the trap moves from default position
@@ -26,9 +26,19 @@ public class TrapController : MonoBehaviour
     {
         currentPos = Gate.transform.transform.position.y;
         int triggers = 0;
-        foreach (PressurePlate pp in pressurePlates) //check if any of the pressure plates are triggered
+        foreach (GameObject triggerable in pressurePlates) //check if any of the pressure plates are triggered
         {
-            if (pp.triggered) { triggers++; }
+            Debug.Log(triggerable.GetComponent<lever>());
+            if (triggerable.GetComponent<PressurePlate>()){
+                if (triggerable.GetComponent<PressurePlate>().triggered){
+                    triggers++;
+                }
+            }
+            if (triggerable.GetComponent<lever>()){
+                if (triggerable.GetComponent<lever>().activated) {
+                    triggers++;
+                }
+            }
             if (triggers >= triggersNeeded) { triggered = true; }
         }
 
