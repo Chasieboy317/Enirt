@@ -17,6 +17,8 @@ public class lever : MonoBehaviour
     private int currentIndex;
 
     // Start is called before the first frame update
+
+    
     void Start()
     {
         waitTime = 1.0f / speed;
@@ -34,7 +36,7 @@ public class lever : MonoBehaviour
     }
 
     // Update is called once per frame
-    void toggle()
+    public void toggle()
     {
         activated = activated ? false : true;
         cycle = true;
@@ -42,7 +44,7 @@ public class lever : MonoBehaviour
         transform.position = startPos;
     }
 
-    void move()
+    public void move()
     {
         if (activated)
         {
