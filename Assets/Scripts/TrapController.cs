@@ -28,7 +28,7 @@ public class TrapController : MonoBehaviour
         int triggers = 0;
         foreach (GameObject triggerable in pressurePlates) //check if any of the pressure plates are triggered
         {
-            Debug.Log(triggerable.GetComponent<lever>());
+            //Debug.Log(triggerable.GetComponent<lever>());
             if (triggerable.GetComponent<PressurePlate>()){
                 if (triggerable.GetComponent<PressurePlate>().triggered){
                     triggers++;

@@ -242,15 +242,15 @@ public class PlayerController : MonoBehaviour
             {
                 //object is lever and is close enough
                 Debug.Log(Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)));
-                Debug.Log(lever.transform.gameObject.GetComponent("lever") != null);
-                if((lever.transform.gameObject.GetComponent("lever")!=null || lever.transform.gameObject.GetComponent("myLever")!=null )&& Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 0.8f)
+                Debug.Log(lever.transform.gameObject.GetComponent<lever>() != null);
+                if((lever.transform.gameObject.GetComponent("lever")!=null || lever.transform.gameObject.GetComponent("myLever")!=null )&& Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 1.0f)
                 {
                     lever.transform.gameObject.GetComponent<lever>().activated = true;
-                    if(lever.transform.gameObject.GetComponent("myLever") != null)
+                    /*if(lever.transform.gameObject.GetComponent("myLever") != null)
                     {
                         lever.transform.gameObject.GetComponent<myLever>().activated = true;
 
-                    }
+                    }*/
 
                     animController.SetBool("pullLever", true);
                 }

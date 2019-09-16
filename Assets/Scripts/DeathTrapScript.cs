@@ -27,6 +27,11 @@ public class DeathTrapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        move();
+    }
+
+    void move()
+    {
         currentTime += Time.deltaTime;
         currentPos = this.transform.transform.position.y;
 
@@ -50,6 +55,16 @@ public class DeathTrapScript : MonoBehaviour
                 deadly = true;
                 currentTime = 0.0f;
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("hurt player");
+        if ((other.gameObject.tag=="Robot"||other.gameObject.tag=="Knight")&&deadly)
+        {
+            Debug.Log("hurt player");
+            other.gameObject.GetComponent<Destructable>().takeDamage(100);
         }
     }
 

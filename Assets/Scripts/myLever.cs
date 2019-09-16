@@ -7,22 +7,7 @@ public class myLever : lever
     public PuzzleBlock[] puzzleBlocks;
     public bool alternating;
 
-    private float currentTime;
-    private float waitTime;
-    private bool cycle;
-    private Vector3 startPos;
-    private int currentIndex;
-
-    // Start is called before the first frame update
-   
-    
-    void Update()
-    {
-        move();
-    }
-    
-    // Update is called once per frame
-    public void toggle()
+    public override void toggle()
     {
         activated = activated ? false : true;
         cycle = true;
@@ -31,9 +16,7 @@ public class myLever : lever
         controlBlocks();
     }
 
-    
-
-    void controlBlocks()
+    public void controlBlocks()
     {
         if (alternating)
         {

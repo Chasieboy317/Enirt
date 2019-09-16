@@ -10,16 +10,17 @@ public class lever : MonoBehaviour
     public float maxAngle;
     public float speed;
 
-    private float currentTime;
-    private float waitTime;
-    private bool cycle;
-    private Vector3 startPos;
-    private int currentIndex;
+    protected float currentTime;
+    protected float waitTime;
+    protected bool cycle;
+    protected Vector3 startPos;
+
+    protected int currentIndex;
 
     // Start is called before the first frame update
 
     
-    void Start()
+    protected void Start()
     {
         waitTime = 1.0f / speed;
         currentTime = 0.0f;
@@ -27,16 +28,17 @@ public class lever : MonoBehaviour
         cycle = true;
         startPos = transform.position;
         transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+
         currentIndex = 0;
     }
 
-    void Update()
+    protected void Update()
     {
         move();
     }
 
     // Update is called once per frame
-    public void toggle()
+    public virtual void toggle()
     {
         activated = activated ? false : true;
         cycle = true;
@@ -44,7 +46,7 @@ public class lever : MonoBehaviour
         transform.position = startPos;
     }
 
-    public void move()
+    protected void move()
     {
         if (activated)
         {
