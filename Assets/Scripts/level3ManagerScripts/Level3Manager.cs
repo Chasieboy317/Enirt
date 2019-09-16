@@ -63,7 +63,7 @@ public class Level3Manager : MonoBehaviour
             fallingBlocksCamera.enabled = false;
         }
         //check falling blocks puzzle completed
-        if(KNIGHT.transform.position.z < -12 && ROBOT.transform.position.z < -11)
+        if(KNIGHT.transform.position.z < -11 && ROBOT.transform.position.z < -11)
         {
             fallingBlocksCompleted = true;
         }
