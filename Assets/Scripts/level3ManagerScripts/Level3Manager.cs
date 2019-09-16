@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level3Manager : MonoBehaviour
+public class Level3Manager : gameEndManager
 {
-    public bool gameOver;
-    public bool successfulCompletion;
-
     public GameObject CamController;
 
     //players
@@ -43,13 +40,16 @@ public class Level3Manager : MonoBehaviour
     void Start()
     {
         finalBattle = false;
-        gameOver = false;
         fallingBlocksCompleted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!finalBattle && (KNIGHT==null || ROBOT == null))
+        {
+            GameOver(false);
+        }
         /*
          * Falling Blocks Puzzle
          */
@@ -117,19 +117,7 @@ public class Level3Manager : MonoBehaviour
             */
         }
         
-
-        if (gameOver)
-        {
-            //end game //check win or loose
-            Debug.Log("GameOver");
-        }
     }
 
-    public void GameOver(bool success)
-    {
-        gameOver = true;
-        successfulCompletion = success;
-
-        Debug.Log("GameOver" + success);
-    }
+    
 }
