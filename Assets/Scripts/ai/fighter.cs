@@ -14,17 +14,22 @@ public class fighter : enemy
     public float walkRadius = 16f;
     public float runRadius = 10f;
 
-    private float reTarget = 5f;
+    public float reTarget = 5f;
 
-    private bool targetLocked = false; //TODO: Add patrol route if no player is targeted
+    public bool targetLocked = false; //TODO: Add patrol route if no player is targeted
 
-    private Transform playerKnight;
-    private Transform playerRobot;
+    public Transform playerKnight;
+    public Transform playerRobot;
     public Transform target;
 
-    void Start() {
+    public void OnStart()
+    {
         playerKnight = playerManager.instance.players[0].transform;
         playerRobot = playerManager.instance.players[1].transform;
+    }
+
+    void Start() {
+        OnStart();
         animationController = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
