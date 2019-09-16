@@ -27,7 +27,8 @@ public class Level3Manager : MonoBehaviour
 
     //Window puzzle
     public Transform windowPuzzleCheckpoint;
-    public GameObject boxToDestroy;
+    public GameObject pressureP1;
+    public GameObject pressureP2;
 
     //For final battle
     public bool finalBattle;
@@ -86,8 +87,15 @@ public class Level3Manager : MonoBehaviour
         {
             if(cylinder.transform.tag == "redCylinder")
             {
-                finalBattle = true; //this is how you get to the final battle for now
+                //finalBattle = true; //this is how you get to the final battle for now
+                pressureP1.SetActive(true);
+                pressureP2.SetActive(true);
             }
+        }
+
+        if(pressureP1.transform.gameObject.GetComponent<PressurePlate>().triggered && pressureP2.transform.gameObject.GetComponent<PressurePlate>().triggered)
+        {
+            finalBattle = true;
         }
         /*
          * Final Battle
