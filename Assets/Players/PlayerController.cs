@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 runJumpBoxColCenter = new Vector3(0,2f,0.35f);
     public Vector3 boxColCenter = new Vector3(0,1,0.35f);
     public float runJumpStart;
-    public float runJumpTime = 1.5f;
+    public float runJumpTime = 0.5f;
+    public bool justJumped = false;
 
     //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
@@ -266,42 +267,67 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(east) || Input.GetKey(west) || Input.GetKey(north) || Input.GetKey(south))
         {
-            if (running)
+            if(Input.GetKey(jump) && running)
             {
-                animController.SetBool("isRunning", true);
-                animController.SetBool("isWalking", false);
-                if (Input.GetKey(jump))
+                if (!justJumped)
                 {
+                    justJumped = true;
                     runJumpStart = Time.time;
                     rigBody.useGravity = false;
+                    //rigBody.AddForce(transform.up);
                     boxCollider.center = runJumpBoxColCenter;
                     animController.SetBool("jump", true);
                 }
-                else
+            }
+            else if (running)
+            {
+                animController.SetBool("isRunning", true);
+                animController.SetBool("isWalking", false);
+                if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
                 {
-                    animController.SetBool("jump", false);
-                    
-                    if(Time.time > runJumpStart + runJumpTime )
-                    {
-                        boxCollider.center = boxColCenter;
-                        rigBody.useGravity = true;
-                    }
-                    
+                    justJumped = false;
                 }
+                else if (Time.time > runJumpStart + runJumpTime)
+                {
+                    boxCollider.center = boxColCenter;
+                    rigBody.useGravity = true;
+                }
+                animController.SetBool("jump", false);
             }
             else
             {
                 animController.SetBool("isWalking", true);
                 animController.SetBool("isRunning", false);
             }
+
+            if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
+            {
+                justJumped = false;
+            }
+            else if (Time.time > runJumpStart + runJumpTime)
+            {
+                boxCollider.center = boxColCenter;
+                rigBody.useGravity = true;
+            }
         }
         else
         {
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
+            animController.SetBool("jump", false);
         }
 
         
+        if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
+        {
+            justJumped = false;
+        }
+        else if (Time.time > runJumpStart + runJumpTime)
+        {
+            boxCollider.center = boxColCenter;
+            rigBody.useGravity = true;
+        }
+
         /*
          * CHECK IF PLAYER DIES
          * move to Destructable?
@@ -314,7 +340,7 @@ public class PlayerController : MonoBehaviour
             //animController.SetBool("isDead", false);
         }
         */
-        
+
     }
 
     void TakeDamage(int amount)
