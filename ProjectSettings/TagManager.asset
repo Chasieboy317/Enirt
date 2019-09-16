@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - lever
   - redCylinder
+  - CameraController
   layers:
   - Default
   - TransparentFX

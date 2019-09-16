@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497138877604393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -0.011, z: -0}
+  m_LocalPosition: {x: 0.01, y: -0.011, z: 0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1271497139720651197}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d274d1fbf31efff42825eac772846c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1271497139529295723
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497139529295723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.346, y: -0.022, z: 0.44}
+  m_LocalPosition: {x: -0, y: -0.015, z: 0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1271497139720651197}
@@ -218,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497139612647611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -0.011, z: -0}
+  m_LocalPosition: {x: 0.092, y: -0.011, z: 0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1271497139720651197}
@@ -311,16 +312,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497139720651199}
-  m_LocalRotation: {x: -0, y: -0.7071074, z: -0, w: -0.70710623}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
   m_LocalPosition: {x: -2.28, y: 6.72, z: 11.767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.0442128, y: 3.0442128, z: 3.0442128}
   m_Children:
   - {fileID: 1271497139529295719}
   - {fileID: 1271497139612647608}
   - {fileID: 1271497138877604392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!114 &1271497139720651198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,5 +337,5 @@ MonoBehaviour:
   robot: {fileID: 1271497139529295720}
   knight: {fileID: 1271497139612647609}
   main: {fileID: 1271497138877604389}
-  horizontalDistance: 2
-  verticalDistance: 2
+  horizontalDistance: 12
+  verticalDistance: 12
