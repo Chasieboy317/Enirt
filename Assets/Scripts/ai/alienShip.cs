@@ -8,7 +8,7 @@ public class alienShip : LockTarget
 {
     public Transform spawnPoint;
     public GameObject torpedoPrefab;
-    public float fireRate = 30f;
+    public float fireRate = 42f;
     public float fireTime;
 
     public GameObject[] robots;
@@ -64,11 +64,11 @@ public class alienShip : LockTarget
         }
         if (clockwise && target!=null) // rotate around doppelganger clockwise
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, 5 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, 2 * Time.deltaTime);
         }
         else if (target!=null) //rotate around doppelganger anticlockwise 
         {
-            this.transform.RotateAround(target.transform.position, Vector3.up, -5 * Time.deltaTime);
+            this.transform.RotateAround(target.transform.position, Vector3.up, -2 * Time.deltaTime);
         }
         if (target != null)
         {
