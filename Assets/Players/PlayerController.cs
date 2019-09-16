@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 runJumpBoxColCenter = new Vector3(0,2f,0.35f);
     public Vector3 boxColCenter = new Vector3(0,1,0.35f);
     public float runJumpStart;
-    public float runJumpTime = 0.5f;
+    public float runJumpTime = 0.6f;
     public bool justJumped = false;
 
     //Added these variables so keycodes can be configured in options menu
@@ -267,39 +267,53 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(east) || Input.GetKey(west) || Input.GetKey(north) || Input.GetKey(south))
         {
-            if(Input.GetKey(jump) && running)
-            {
-                if (!justJumped)
-                {
-                    justJumped = true;
-                    runJumpStart = Time.time;
-                    rigBody.useGravity = false;
-                    //rigBody.AddForce(transform.up);
-                    boxCollider.center = runJumpBoxColCenter;
-                    animController.SetBool("jump", true);
-                }
-            }
-            else if (running)
+            if (running)
             {
                 animController.SetBool("isRunning", true);
                 animController.SetBool("isWalking", false);
-                if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
+                if (Input.GetKey(jump))
                 {
-                    justJumped = false;
+                    runJumpStart = Time.time;
+                    rigBody.useGravity = false;
+                    boxCollider.center = runJumpBoxColCenter;
+                    animController.SetBool("jump", true);
                 }
-                else if (Time.time > runJumpStart + runJumpTime)
+                else
                 {
-                    boxCollider.center = boxColCenter;
-                    rigBody.useGravity = true;
+                    animController.SetBool("jump", false);
+
+                    if (Time.time > runJumpStart + runJumpTime)
+                    {
+                        boxCollider.center = boxColCenter;
+                        rigBody.useGravity = true;
+                    }
+
                 }
-                animController.SetBool("jump", false);
             }
             else
             {
                 animController.SetBool("isWalking", true);
                 animController.SetBool("isRunning", false);
             }
-
+        }
+        /*
+         * Was trying to debug running jump but then it just gave crawling bugs
+        if(Input.GetKey(jump) && running)
+        {
+            if (!justJumped)
+            {
+                justJumped = true;
+                runJumpStart = Time.time;
+                rigBody.useGravity = false;
+                //rigBody.AddForce(transform.up);
+                boxCollider.center = runJumpBoxColCenter;
+                animController.SetBool("jump", true);
+            }
+        }
+        else if (running)
+        {
+            animController.SetBool("isRunning", true);
+            animController.SetBool("isWalking", false);
             if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
             {
                 justJumped = false;
@@ -309,15 +323,24 @@ public class PlayerController : MonoBehaviour
                 boxCollider.center = boxColCenter;
                 rigBody.useGravity = true;
             }
+            animController.SetBool("jump", false);
         }
+        else
+        {
+            animController.SetBool("isWalking", true);
+            animController.SetBool("isRunning", false);
+        }
+        */
+
+    
         else
         {
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
-            animController.SetBool("jump", false);
+            //animController.SetBool("jump", false);
         }
 
-        
+        /*
         if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
         {
             justJumped = false;
@@ -327,7 +350,7 @@ public class PlayerController : MonoBehaviour
             boxCollider.center = boxColCenter;
             rigBody.useGravity = true;
         }
-
+        */
         /*
          * CHECK IF PLAYER DIES
          * move to Destructable?
