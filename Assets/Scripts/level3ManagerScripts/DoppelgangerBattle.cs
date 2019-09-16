@@ -8,8 +8,8 @@ public class DoppelgangerBattle : MonoBehaviour
     public bool gemExploded = false;
     public GameObject explosion;
 
-    PressurePlate ppLeft;
-    PressurePlate ppRight;
+    //PressurePlate ppLeft;
+    //PressurePlate ppRight;
 
     public GameObject PPLeft;
     public GameObject PPRight;
@@ -40,8 +40,8 @@ public class DoppelgangerBattle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ppLeft = (PressurePlate) PPLeft.transform.gameObject.GetComponent("PressurePlate");
-        ppRight = (PressurePlate)PPRight.transform.gameObject.GetComponent("PressurePlate");
+        //ppLeft = (PressurePlate) PPLeft.transform.gameObject.GetComponent<PressurePlate>();
+        //ppRight = (PressurePlate)PPRight.transform.gameObject.GetComponent<PressurePlate>();
         spawned = false;
     }
 
@@ -58,36 +58,20 @@ public class DoppelgangerBattle : MonoBehaviour
         }
 
         //Pressure plates used to spawn scene elements
-        if (PPLeft != null && PPRight != null)
+        if ((PPLeft != null && PPRight != null)&&(PPLeft.gameObject.transform.GetComponent<PressurePlate>().triggered && PPRight.gameObject.transform.GetComponent<PressurePlate>().triggered))
         {
-            if (ppLeft.triggered && ppRight.triggered) //spawn doppelgangers
-            {
-                RaycastHit player;
-                if (Physics.Raycast(ppLeft.transform.position, Vector3.up, out player))
-                {
-                    spawn1 = Instantiate(respawnEffect, spawnPointRight.position + new Vector3(0, 1, 0), spawnPointRight.rotation);
-                    spawn2 = Instantiate(respawnEffect, spawnPointLeft.position + new Vector3(0, 1, 0), spawnPointLeft.rotation);
-                    spawned = true;
-                    spawnTime = Time.time;
+            spawn1 = Instantiate(respawnEffect, spawnPointRight.position + new Vector3(0, 1, 0), spawnPointRight.rotation);
+            spawn2 = Instantiate(respawnEffect, spawnPointLeft.position + new Vector3(0, 1, 0), spawnPointLeft.rotation);
+            spawned = true;
+            spawnTime = Time.time;
+            Instantiate(knightDoppelgangerPrefab, spawnPointLeft.position, spawnPointLeft.rotation);
+            Instantiate(robotDoppelgangerPrefab, spawnPointRight.position, spawnPointRight.rotation);
 
-                    if (player.transform.tag == "Knight")
-                    {
-                        Instantiate(knightDoppelgangerPrefab, spawnPointRight.position, spawnPointRight.rotation);
-                        Instantiate(robotDoppelgangerPrefab, spawnPointLeft.position, spawnPointLeft.rotation);
-                    }
-                    else
-                    {
-                        Instantiate(robotDoppelgangerPrefab, spawnPointRight.position, spawnPointRight.rotation);
-                        Instantiate(knightDoppelgangerPrefab, spawnPointLeft.position, spawnPointLeft.rotation);
-                    }
-                    Destroy(PPLeft);
-                    Destroy(PPRight);
+            Destroy(PPLeft);
+            Destroy(PPRight);
 
-                    Gem.SetActive(true);
-                    GasEffect.SetActive(true);
-
-                }
-            }
+            Gem.SetActive(true);
+            GasEffect.SetActive(true);
         }
         
         if (Time.time - spawnTime > spawnTimeTotal && spawned)
