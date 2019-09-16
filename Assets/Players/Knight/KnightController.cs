@@ -93,10 +93,13 @@ public class KnightController : PlayerController
         if (Input.GetKey(blocking))
         {
             animController.SetBool("isBlocking", true);
+            this.transform.gameObject.GetComponent<Destructable>().enabled = false;
         }
         else
         {
             animController.SetBool("isBlocking", false);
+            this.transform.gameObject.GetComponent<Destructable>().enabled = true;
+
         }
 
     }

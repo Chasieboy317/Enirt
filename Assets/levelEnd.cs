@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class levelEnd : MonoBehaviour
+public class levelEnd : gameEndManager
 {
     private Transform playerKnight;
     private Transform playerRobot;
@@ -21,12 +21,5 @@ public class levelEnd : MonoBehaviour
            PlayNextLevel();
        }
     }
-
-    public void PlayNextLevel() {
-        if (SceneManager.GetActiveScene().buildIndex == 3) {
-            SceneManager.LoadScene(0); // Return to main menu
-        } else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-    }
+    //put playNextLevel in script this inherits from
 }

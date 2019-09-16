@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoppelgangerBattle : MonoBehaviour
+
+public class DoppelgangerBattle : gameEndManager
 {
     public GameObject Gem;
     public bool gemExploded = false;
@@ -58,7 +59,7 @@ public class DoppelgangerBattle : MonoBehaviour
         }
 
         //Pressure plates used to spawn scene elements
-        if ((PPLeft != null && PPRight != null)&&(PPLeft.gameObject.transform.GetComponent<PressurePlate>().triggered && PPRight.gameObject.transform.GetComponent<PressurePlate>().triggered))
+        if ((PPLeft != null && PPRight != null) && (PPLeft.gameObject.transform.GetComponent<PressurePlate>().triggered && PPRight.gameObject.transform.GetComponent<PressurePlate>().triggered))
         {
             spawn1 = Instantiate(respawnEffect, spawnPointRight.position + new Vector3(0, 1, 0), spawnPointRight.rotation);
             spawn2 = Instantiate(respawnEffect, spawnPointLeft.position + new Vector3(0, 1, 0), spawnPointLeft.rotation);
@@ -73,28 +74,44 @@ public class DoppelgangerBattle : MonoBehaviour
             Gem.SetActive(true);
             GasEffect.SetActive(true);
         }
-        
+
         if (Time.time - spawnTime > spawnTimeTotal && spawned)
         {
-            Debug.Log("should destroy spawn effect");
             Destroy(spawn1);
             Destroy(spawn2);
 
-            if(Time.time > spawnTime + spawnTimeTotal + 2f && !finalStage)
+            if (Time.time > spawnTime + spawnTimeTotal + 2f && !finalStage)
             {
                 //set enemies active
                 skeletonEnemy.SetActive(true);
                 alienShipEnemy.SetActive(true);
             }
-            
+
         }
-        
+
 
         if (finalStage && turnstile.transform.gameObject.GetComponent<Turnstile>().getTurned() && !gemExploded)
         {
             Instantiate(explosion, Gem.transform.position, Gem.transform.rotation);
             gemExploded = true;
             Gem.SetActive(false);
+
+            waitSeconds(3);
+
+            GameOver(true);
+
         }
+
     }
+    IEnumerator waitSeconds(int s)
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(s);
+        print(Time.time);
+
+    }
+
 }
+
+
+

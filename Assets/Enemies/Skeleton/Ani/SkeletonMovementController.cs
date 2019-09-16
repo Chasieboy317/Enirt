@@ -67,7 +67,7 @@ public class SkeletonMovementController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag != this.tag && other.transform.gameObject.GetComponent("Destructable"))
+        if (other.transform.tag != this.tag && other.transform.gameObject.GetComponent("Destructable") && other.transform.gameObject.GetComponent<Destructable>().enabled)
         {
             other.transform.gameObject.SendMessage("takeDamage", damage);
         }

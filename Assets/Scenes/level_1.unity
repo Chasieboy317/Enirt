@@ -820,16 +820,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4409740672948740556, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: open
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409740672948740556, guid: e0640911bdce6c14382443679eef692c,
-        type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5516450955709408685, guid: e0640911bdce6c14382443679eef692c,
         type: 3}
       propertyPath: cameraController
@@ -840,6 +830,5 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 365688831}
-    m_RemovedComponents:
-    - {fileID: 4075070808040549248, guid: e0640911bdce6c14382443679eef692c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0640911bdce6c14382443679eef692c, type: 3}
