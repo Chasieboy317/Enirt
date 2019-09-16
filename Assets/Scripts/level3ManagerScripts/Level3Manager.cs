@@ -27,6 +27,7 @@ public class Level3Manager : MonoBehaviour
 
     //Window puzzle
     public Transform windowPuzzleCheckpoint;
+    public GameObject boxToDestroy;
 
     //For final battle
     public bool finalBattle;
@@ -62,7 +63,7 @@ public class Level3Manager : MonoBehaviour
             fallingBlocksCamera.enabled = false;
         }
         //check falling blocks puzzle completed
-        if(KNIGHT.transform.position.z < -12 && ROBOT.transform.position.z < -12)
+        if(KNIGHT.transform.position.z < -12 && ROBOT.transform.position.z < -11)
         {
             fallingBlocksCompleted = true;
         }
