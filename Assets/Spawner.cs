@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     private float spawnCountDown;
     private int enemiesAlive;
     private List<enemy> enemies;
-    private float spawnOffest = 0.5f;
+    private float spawnOffest = 1.5f;
 
     void Start() {
         spawnCountDown = respawnTime;
@@ -34,7 +34,8 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate() {
         if (enemiesAlive < maxActive && respawnTime <= 0) {
-            enemy spawnedEnemy = Instantiate (Enemy[0], transform.position + new Vector3(0f,0f,spawnOffest), transform.rotation);
+            int r = Random.Range(0,2);
+            enemy spawnedEnemy = Instantiate (Enemy[r], transform.position + new Vector3(0f,2f,spawnOffest), transform.rotation);
             spawnOffest*= -1;
             enemies.Add(spawnedEnemy);
             enemiesAlive++;
