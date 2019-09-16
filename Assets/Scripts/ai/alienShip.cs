@@ -46,7 +46,7 @@ public class alienShip : LockTarget
         {
             fireTime = Time.time;
             Instantiate(torpedoPrefab, spawnPoint.position, spawnPoint.rotation);
-            Debug.Log("torpedo instantiated");
+            //Debug.Log("torpedo instantiated");
         
         }
         //randomly assign clockwise or anticlockwise movement

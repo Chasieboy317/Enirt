@@ -1915,8 +1915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f4dff398dcb194aab461ea60ad7100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: 0
-  successfulCompletion: 0
   CamController: {fileID: 1285204857}
   KNIGHT: {fileID: 493862920}
   ROBOT: {fileID: 157028562}
@@ -2170,7 +2168,7 @@ PrefabInstance:
     - target: {fileID: 629556842171944527, guid: 64fb30d8edd35dc43ba096075239fb19,
         type: 3}
       propertyPath: totalTime
-      value: 360
+      value: 480
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fb30d8edd35dc43ba096075239fb19, type: 3}
@@ -3408,6 +3406,51 @@ MonoBehaviour:
   speed: 0.4
   finalY: 0
   up: 1
+--- !u!1 &1035857043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035857044}
+  - component: {fileID: 1035857045}
+  m_Layer: 0
+  m_Name: lockTargetObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035857044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035857043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2060539735}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035857045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035857043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e9c72a100dbd24ab1543cdbbc16a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects: []
+  TARGET: {fileID: 0}
 --- !u!1 &1043144071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9200688444435057914, guid: b9d149f30dff4014388452af265575f7,
@@ -3434,7 +3477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   damage: 2
-  speed: 1
+  speed: 0.5
   myRB: {fileID: 0}
   animationController: {fileID: 0}
   agent: {fileID: 0}
@@ -3446,6 +3489,7 @@ MonoBehaviour:
   playerKnight: {fileID: 0}
   playerRobot: {fileID: 0}
   target: {fileID: 0}
+  lockTargetObject: {fileID: 1035857043}
 --- !u!1 &1045852796
 GameObject:
   m_ObjectHideFlags: 0
@@ -6450,7 +6494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2060539735
 Transform:
   m_ObjectHideFlags: 0
@@ -6483,6 +6527,7 @@ Transform:
   - {fileID: 121628784}
   - {fileID: 505470774}
   - {fileID: 1563209240}
+  - {fileID: 1035857044}
   m_Father: {fileID: 503556511}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

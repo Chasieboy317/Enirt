@@ -1,27 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class skeletonFighter : fighter 
+public class skeletonFighter : fighter
 {
-    GameObject[] objects;
-    GameObject TARGET;
-    //private LockTarget lockTargetScript;
-    public void OnStart()
+    
+    public GameObject lockTargetObject;
+    public static LockTarget lockTargetScript;
+
+    public void Start()
     {
-        playerKnight = getTarget("Robot","RobotDoppelganger").transform;
-        playerRobot = getTarget("Knight", "KnightDoppelganger").transform;
+        OnStart();
+        lockTargetScript = lockTargetObject.GetComponent<LockTarget>();
+        playerKnight = lockTargetScript.getTarget("Knight","KnightDoppelgangerController").transform;
+        playerRobot = lockTargetScript.getTarget("Robot", "RobotDoppelgangerController").transform;
     }
-    public GameObject getTarget(string tag, string script)
+
+    public void Update()
     {
-        objects = GameObject.FindGameObjectsWithTag(tag);
-        foreach (GameObject o in objects)
-        {
-            if (o.transform.gameObject.GetComponent(script) != null)
-            {
-                TARGET = o;
-            }
-        }
-        return TARGET;
+        OnUpdate();
     }
+
 }

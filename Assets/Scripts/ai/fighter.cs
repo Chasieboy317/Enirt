@@ -24,62 +24,81 @@ public class fighter : enemy
 
     public void OnStart()
     {
-        playerKnight = playerManager.instance.players[0].transform;
-        playerRobot = playerManager.instance.players[1].transform;
+        animationController = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Start() {
+        playerKnight = playerManager.instance.players[0].transform;
+        playerRobot = playerManager.instance.players[1].transform;
         OnStart();
-        animationController = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        OnUpdate();
+    }
+
+    public void OnUpdate()
+    {
         reTarget -= Time.deltaTime;
-        if (targetLocked == false) {
+        if (targetLocked == false)
+        {
             // Only lock on if path exists .PathComplete();
-            if (playerKnight == null) {
+            if (playerKnight == null)
+            {
                 targetLocked = true;
                 target = playerRobot;
             }
-            else if (playerRobot == null) {
+            else if (playerRobot == null)
+            {
                 targetLocked = true;
                 target = playerKnight;
-            } 
-            else if (playerKnight == null && playerRobot == null) {
+            }
+            else if (playerKnight == null && playerRobot == null)
+            {
                 targetLocked = false;
-            } else if (playerKnight != null && playerRobot != null){
+            }
+            else if (playerKnight != null && playerRobot != null)
+            {
                 target = (playerKnight.position - transform.position).magnitude > (playerRobot.position - transform.position).magnitude ? playerRobot : playerKnight;
                 targetLocked = true;
             }
         }
-        if (targetLocked) {
-            if (reTarget <= 0) {
+        if (targetLocked)
+        {
+            if (reTarget <= 0)
+            {
                 reTarget = 5f;
                 targetLocked = false;
             }
             float distance = (target.position - transform.position).magnitude;
-            if (distance < walkRadius) {
+            if (distance < walkRadius)
+            {
                 agent.SetDestination(target.position);
-                if (distance > runRadius) {
+                if (distance > runRadius)
+                {
                     animationController.SetBool("walk", true);
                     animationController.SetBool("run", false);
                     animationController.SetBool("attack", false);
                 }
-                if (distance < runRadius) {
+                if (distance < runRadius)
+                {
                     animationController.SetBool("walk", false);
                     animationController.SetBool("run", true);
                     animationController.SetBool("attack", false);
                 }
-                if (distance <= 2f) {
+                if (distance <= 2f)
+                {
                     FaceTarget();
                     animationController.SetBool("walk", false);
                     animationController.SetBool("run", false);
                     animationController.SetBool("attack", true);
                 }
-            } else {
+            }
+            else
+            {
                 animationController.SetBool("walk", false);
                 animationController.SetBool("run", false);
                 animationController.SetBool("attack", false);
@@ -93,13 +112,13 @@ public class fighter : enemy
     //    }
     //}
 
-    void FaceTarget() {
+    public void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*rotationSpeed);
     }
 
-    void OnDrawGizmosSelected() {
+    public void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, walkRadius);
         Gizmos.color = Color.blue;

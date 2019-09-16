@@ -38,7 +38,6 @@ public class alienShipTorpedo : LockTarget
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("On Collision Enter");
         //send damage message to collision
         if (collision.transform.gameObject.GetComponent("Destructable"))
         {
