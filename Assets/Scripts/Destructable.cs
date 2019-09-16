@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Destructable : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Destructable : MonoBehaviour
             }
             Destroy(this.gameObject);
             Debug.Log("Destroyed");
+            if (transform.gameObject.tag == "Knight" || transform.gameObject.tag == "Robot") SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (health>10)
         {
