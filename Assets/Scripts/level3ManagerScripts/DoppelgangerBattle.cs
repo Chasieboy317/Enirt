@@ -77,7 +77,6 @@ public class DoppelgangerBattle : gameEndManager
 
         if (Time.time - spawnTime > spawnTimeTotal && spawned)
         {
-            Debug.Log("should destroy spawn effect");
             Destroy(spawn1);
             Destroy(spawn2);
 

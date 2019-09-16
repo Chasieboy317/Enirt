@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Inherits from Alec's AI 
+//for use in Scene 3
 public class skeletonFighter : fighter
 {
     

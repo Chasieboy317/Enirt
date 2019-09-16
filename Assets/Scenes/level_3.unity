@@ -2603,6 +2603,16 @@ PrefabInstance:
       propertyPath: health
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6215328428961876863, guid: b9d149f30dff4014388452af265575f7,
+        type: 3}
+      propertyPath: runSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215328428961876863, guid: b9d149f30dff4014388452af265575f7,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8633081691662622001, guid: b9d149f30dff4014388452af265575f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9d149f30dff4014388452af265575f7, type: 3}
@@ -2889,6 +2899,11 @@ PrefabInstance:
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 380320130787759251, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb,
+        type: 3}
+      propertyPath: health
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
