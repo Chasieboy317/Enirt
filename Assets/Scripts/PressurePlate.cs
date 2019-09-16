@@ -17,9 +17,12 @@ public class PressurePlate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         triggerEntity = other.gameObject; // Set the object which is triggering the pressureplate
-        triggered = true;
-        this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
-        Debug.Log("OnTriggerEnter " + triggered);
+        if (!triggered)
+        {
+            triggered = true;
+            this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
+            Debug.Log("OnTriggerEnter " + triggered);
+        }
     }
 
     private void OnTriggerExit(Collider other)

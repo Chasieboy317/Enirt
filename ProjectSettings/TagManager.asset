@@ -11,6 +11,7 @@ TagManager:
   - KnightJumpOnto
   - Enemy
   - lever
+  - redCylinder
   layers:
   - Default
   - TransparentFX

@@ -127,7 +127,6 @@ public class RobotController : PlayerController
             animController.SetBool("isShooting", true);
             //rotate towards mouse y
             
-            Debug.Log("mouse y / screenHeight * 10 " + (int)(((Input.mousePosition).y / screenHeight) * 10));
             angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
             gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, angle, gun.transform.localEulerAngles.z); 
 

@@ -10,13 +10,11 @@ public class lever : MonoBehaviour
     public float maxAngle;
     public float speed;
 
-    public PuzzleBlock[] puzzleBlocks;
-    public bool alternating;
-
     private float currentTime;
     private float waitTime;
     private bool cycle;
     private Vector3 startPos;
+    private int currentIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +25,7 @@ public class lever : MonoBehaviour
         cycle = true;
         startPos = transform.position;
         transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        currentIndex = 0;
     }
 
     void Update()
@@ -37,12 +36,10 @@ public class lever : MonoBehaviour
     // Update is called once per frame
     void toggle()
     {
-        Debug.Log("activate called");
         activated = activated ? false : true;
         cycle = true;
         currentTime = 0.0f;
-        //transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-        transform.position = startPos;    
+        transform.position = startPos;
     }
 
     void move()
@@ -66,14 +63,6 @@ public class lever : MonoBehaviour
                 transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
                 if (currentTime>=waitTime) {  toggle(); }
             }
-        }
-    }
-
-    void controlBlocks()
-    {
-        foreach (PuzzleBlock pb in puzzleBlocks)
-        {
-            pb.toggle();
         }
     }
 }
