@@ -37,6 +37,7 @@ public class DoppelgangerBattle : gameEndManager
     public GameObject turnstile;
 
     private bool finalStage = false;
+    private float finaleStageTime;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class DoppelgangerBattle : gameEndManager
         //both enemies successfully defeated
         if (alienShipEnemy == null && skeletonEnemy == null && !finalStage)
         {
+            Debug.Log("skeleton and alienship defeated");
             GasEffect.SetActive(false);
             turnstile.SetActive(true);
             finalStage = true;
@@ -95,9 +97,13 @@ public class DoppelgangerBattle : gameEndManager
             Instantiate(explosion, Gem.transform.position, Gem.transform.rotation);
             gemExploded = true;
             Gem.SetActive(false);
+            finaleStageTime = Time.time;
+            //waitSeconds(15);
 
-            waitSeconds(3);
 
+        }
+        if(finalStage && gemExploded && Time.time > finaleStageTime + 8f)
+        {
             GameOver(true);
 
         }

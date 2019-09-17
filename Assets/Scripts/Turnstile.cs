@@ -50,10 +50,7 @@ public class Turnstile : MonoBehaviour
         }
         else
         {
-            //GameObject level3Parent = this.transform.parent.gameObject;
-            //Debug.Log(level3Parent);
-            level3Parent.GetComponent("Level3Manager").SendMessage("GameOver", true);
-            Debug.Log(level3Parent.GetComponent("Level3Manager"));
+            
         }
         playerspushing = 0;
     }

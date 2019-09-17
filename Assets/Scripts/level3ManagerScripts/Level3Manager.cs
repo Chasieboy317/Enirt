@@ -74,7 +74,7 @@ public class Level3Manager : gameEndManager
          */
         if (tallBlockLever.transform.gameObject.GetComponent<lever>().activated)
         {
-            Debug.Log("InTallBlockIf");
+            //Debug.Log("InTallBlockIf");
             tallBlock.transform.gameObject.GetComponent<ascend>().enabled = true;
         }
 
