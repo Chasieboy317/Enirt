@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009786518, g: 0.051888436, b: 0.1522932, a: 1}
+  m_IndirectSpecularColor: {r: 0.009783074, g: 0.051865667, b: 0.15223667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2151,6 +2151,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 629556842171944531, guid: 64fb30d8edd35dc43ba096075239fb19,
+        type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
     - target: {fileID: 629556841297323806, guid: 64fb30d8edd35dc43ba096075239fb19,
         type: 3}
       propertyPath: player
@@ -2165,11 +2170,6 @@ PrefabInstance:
         type: 3}
       propertyPath: totalTime
       value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 629556842171944531, guid: 64fb30d8edd35dc43ba096075239fb19,
-        type: 3}
-      propertyPath: m_Name
-      value: Timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fb30d8edd35dc43ba096075239fb19, type: 3}
@@ -2599,6 +2599,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1665042872712217985, guid: b9d149f30dff4014388452af265575f7,
+        type: 3}
+      propertyPath: health
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6215328428961876863, guid: b9d149f30dff4014388452af265575f7,
         type: 3}
       propertyPath: runSpeed
@@ -2608,11 +2613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: walkSpeed
       value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1665042872712217985, guid: b9d149f30dff4014388452af265575f7,
-        type: 3}
-      propertyPath: health
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8633081691662622001, guid: b9d149f30dff4014388452af265575f7, type: 3}
@@ -6510,7 +6510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2060539735
 Transform:
   m_ObjectHideFlags: 0

@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
             climbableTag = "KnightJumpOnto";
             climableMaxDixtance = 1.8f;
-            climableMinDistance = 1.2f;
+            climableMinDistance = 0.5f;
             climbTime = 2.1f;
         }
         else// if(this.tag == "Robot")
