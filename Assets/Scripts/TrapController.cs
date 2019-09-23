@@ -14,11 +14,13 @@ public class TrapController : MonoBehaviour
     private float startPos;
     private float currentPos;
     private bool triggered;
+    private AudioSource openingSource;
 
     private void Start()
     {
         triggered = false; //this value refers to whether any one of the pressure plates connecting to the controller are triggered
         startPos = Gate.transform.position.y; //this is the initial "down" position of the trap
+        openingSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,15 +44,20 @@ public class TrapController : MonoBehaviour
             if (triggers >= triggersNeeded) { triggered = true; }
         }
 
+        
         if (triggered && currentPos < upHeight + startPos) //if the trap is triggered and the trap is lower than the specified height, move it up
         {
+            if (!openingSource.isPlaying) { openingSource.Play(); }
             Gate.transform.position += new Vector3(0.0f, 0.1f, 0.0f) * Time.deltaTime * Speed;
+            
         }
 
         if (!triggered && currentPos > startPos) //if the trap is not triggered and the trap is higher than the start position of the trap, move it down
         {
+            if (!openingSource.isPlaying) { openingSource.Play(); }
             Gate.transform.position += new Vector3(0.0f, -0.1f, 0.0f) * Time.deltaTime * Speed;
         }
+
 
         triggered = false;
     }

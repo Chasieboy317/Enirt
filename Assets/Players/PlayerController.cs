@@ -42,12 +42,26 @@ public class PlayerController : MonoBehaviour
     public KeyCode toggle; //sets running true or false
     public bool running = false;
 
+    public AudioClip runningClip;
+    public AudioClip walkingClip;
+
+    private Component[] audioSources;
+    private AudioSource runningSource;
+    private AudioSource walkingSource;
     // Start is called before the first frame update
     public void OnStart()
     {
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+
+        audioSources = GetComponents(typeof(AudioSource));
+        runningSource = (AudioSource)audioSources[0];
+        walkingSource = (AudioSource)audioSources[1];
+        Debug.Log(runningSource +""+ walkingSource);
+        runningSource.clip = runningClip; walkingSource.clip = walkingClip;
+        //runningSource.playOnAwake = false; walkingSource.playOnAwake = false;
+        //runningSource.loop = true; walkingSource.loop = true;
 
         //Maybe use a variable to check whether configured or not?
         if(this.tag == "Knight")
@@ -184,14 +198,7 @@ public class PlayerController : MonoBehaviour
         //set toggle 
         if (Input.GetKey(toggle))
         {
-            if (running)
-            {
-                running = false;
-            }
-            else
-            {
-                running = true;
-            }
+            running = running ? false : true;
         }
 
         /*
@@ -269,8 +276,12 @@ public class PlayerController : MonoBehaviour
         {
             if (running)
             {
+                walkingSource.Stop();
+                if (!runningSource.isPlaying) runningSource.Play();
+
                 animController.SetBool("isRunning", true);
                 animController.SetBool("isWalking", false);
+
                 if (Input.GetKey(jump))
                 {
                     runJumpStart = Time.time;
@@ -292,6 +303,9 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                runningSource.Stop();
+                if (!walkingSource.isPlaying) walkingSource.Play();
+
                 animController.SetBool("isWalking", true);
                 animController.SetBool("isRunning", false);
             }
@@ -335,6 +349,8 @@ public class PlayerController : MonoBehaviour
     
         else
         {
+            runningSource.Stop();
+            walkingSource.Stop();
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
             //animController.SetBool("jump", false);
