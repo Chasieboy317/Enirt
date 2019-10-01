@@ -13,6 +13,7 @@ TagManager:
   - lever
   - redCylinder
   - CameraController
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
