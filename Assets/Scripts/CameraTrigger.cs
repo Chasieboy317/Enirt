@@ -6,7 +6,7 @@ public class CameraTrigger : MonoBehaviour
 {
     public GameObject triggeredController;
     public GameObject cameraController;
-    // Start is called before the first frame update
+
     void Start()
     {
         triggeredController.SetActive(false);  
@@ -14,6 +14,7 @@ public class CameraTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //when one of the players hits the trigger, enable the camera
         if (other.gameObject.tag=="Knight"||other.gameObject.tag=="Robot")
         {
             triggeredController.SetActive(true);
@@ -23,6 +24,7 @@ public class CameraTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //when one of the players leaves the trigger, disable the camera
         if (other.gameObject.tag == "Knight" || other.gameObject.tag == "Robot")
         {
             triggeredController.SetActive(false);
