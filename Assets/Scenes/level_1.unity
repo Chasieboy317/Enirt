@@ -688,6 +688,11 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 1621904661}
+    - target: {fileID: 6018760073507556079, guid: e0640911bdce6c14382443679eef692c,
+        type: 3}
+      propertyPath: m_TagString
+      value: RobotClimbOnto
+      objectReference: {fileID: 0}
     - target: {fileID: 3307930770860631647, guid: e0640911bdce6c14382443679eef692c,
         type: 3}
       propertyPath: player
