@@ -13,7 +13,6 @@ public class CameraController : MonoBehaviour
     public float horizontalDistance;
     public float verticalDistance;
 
-    // Start is called before the first frame update
     void Start()
     {
         //find the players
@@ -21,7 +20,6 @@ public class CameraController : MonoBehaviour
         k = GameObject.FindWithTag("Knight");
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if the distance between the players horizontally is greater than the distance specified, disable the main camera and enable splitscreen
