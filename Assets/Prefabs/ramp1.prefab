@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 2612156366338692405}
   - component: {fileID: 5589412666383009043}
   - component: {fileID: 5589412666382042963}
-  - component: {fileID: 8395127823263068168}
   m_Layer: 0
   m_Name: ramp1
-  m_TagString: KnightJumpOnto
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2612156366338591061}
-  m_LocalRotation: {x: -0.00000004242375, y: 0.9659259, z: -0.25881907, w: -0.00000015832758}
-  m_LocalPosition: {x: 0.00388, y: -0.01339, z: -0.02129}
-  m_LocalScale: {x: 3.1018507, y: 3.10185, z: 3.1018505}
+  m_LocalRotation: {x: 0.000000042423746, y: -0.9659258, z: 0.25881907, w: 0.00000015832757}
+  m_LocalPosition: {x: 0.0038799993, y: -0.013457012, z: -0.021222947}
+  m_LocalScale: {x: 3.1018507, y: 3.1018507, z: 3.1018515}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2612156366338591061}
-  m_Mesh: {fileID: 4300114, guid: ffbca7aef5ea6fe4dbb859560bd17e73, type: 3}
+  m_Mesh: {fileID: 4300038, guid: 26af795ef94221b46ac42309d53fa5d3, type: 3}
 --- !u!23 &5589412666382042963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a18224acb861e04f9c242ee035655b1, type: 2}
+  - {fileID: 2100000, guid: 26af795ef94221b46ac42309d53fa5d3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,17 +77,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8395127823263068168
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2612156366338591061}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300114, guid: ffbca7aef5ea6fe4dbb859560bd17e73, type: 3}
