@@ -20,8 +20,8 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!toggle) pauseMenu.SetActive(true);
-            else pauseMenu.SetActive(false);
+            if (!toggle) { pauseMenu.SetActive(true); FreezeGame(); }
+            else { pauseMenu.SetActive(false); ContinueGame(); }
             toggle = !toggle;
         }
     }
@@ -29,16 +29,29 @@ public class PauseMenu : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ContinueGame();
     }
 
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
+        ContinueGame();
     }
 
     public void QuitGame()
     {
+        ContinueGame();
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
+    }
+
+    public void FreezeGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
     }
 }
