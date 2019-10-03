@@ -16,12 +16,15 @@ public class DeathTrapScript : MonoBehaviour
     private float startPos;
     private float currentPos;
 
+    private AudioSource smashSource;
+
     void Start()
     {
         falling = false;
         deadly = false;
         currentTime = 0.0f;
         startPos = this.transform.position.y;
+        smashSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class DeathTrapScript : MonoBehaviour
             this.transform.position += new Vector3(0.0f, -0.1f, 0.0f) * Time.deltaTime * fallingSpeed;
             if (this.transform.position.y <= startPos) //if the trap has reached the ground, reset falling so that it will go back up on the next iteration
             {
+                smashSource.Play();
                 falling = false;
                 deadly = false;
                 currentTime = 0.0f;

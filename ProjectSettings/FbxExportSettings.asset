@@ -15,6 +15,7 @@
             "."
         ],
         "fbxSavePaths": [
+            "Objects/Level1",
             "."
         ],
         "selectedFbxPath": 0,
@@ -33,7 +34,7 @@
         "convertToPrefabSettingsSerialize": {
             "exportFormat": 0,
             "animatedSkinnedMesh": false,
-            "mayaCompatibleNaming": true
+            "mayaCompatibleNaming": false
         }
     }
 }

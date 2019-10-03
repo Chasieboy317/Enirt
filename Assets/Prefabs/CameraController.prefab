@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  offest: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1271497139612647611
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  offest: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1271497139720651199
 GameObject:
   m_ObjectHideFlags: 0
