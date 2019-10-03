@@ -11,8 +11,8 @@ public class Spawner : MonoBehaviour
     public puzzleController lastPuzzle; // Reference to last puzzle - only activate when cleared
     public puzzleController currentPuzzle; // Reference to current puzle - stop when cleared
 
-    private float spawnCountDown;
-    private int enemiesAlive;
+    public float spawnCountDown;
+    public int enemiesAlive;
     private List<enemy> enemies;
     private float spawnOffest = 1.5f;
 
@@ -26,15 +26,23 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        active = lastPuzzle.isCleared && !currentPuzzle.isCleared;
+        active = lastPuzzle.isCleared && !currentPuzzle.isCleared && (enemiesAlive!=maxActive);
         if (active){
             respawnTime -= Time.deltaTime; 
         }
+
+        int alive = 0;
+        foreach (enemy e in enemies){
+            if (e != null) {
+                alive++;
+            }
+        }
+        enemiesAlive = alive;
     }
 
     void FixedUpdate() {
         if (enemiesAlive < maxActive && respawnTime <= 0) {
-            int r = Random.Range(0,2);
+            int r = Random.Range(0,Enemy.Length);
             enemy spawnedEnemy = Instantiate (Enemy[r], transform.position + new Vector3(0f,2f,spawnOffest), transform.rotation);
             spawnOffest*= -1;
             enemies.Add(spawnedEnemy);
