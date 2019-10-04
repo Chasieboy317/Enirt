@@ -42,12 +42,14 @@ public class PlayerController : MonoBehaviour
     public KeyCode toggle; //sets running true or false
     public bool running = false;
 
+    //Sound effects
     public AudioClip runningClip;
     public AudioClip walkingClip;
 
-    private Component[] audioSources;
-    private AudioSource runningSource;
-    private AudioSource walkingSource;
+    //private Component[] audioSources;
+    //private AudioSource runningSource;
+    //private AudioSource walkingSource;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     public void OnStart()
     {
@@ -55,13 +57,12 @@ public class PlayerController : MonoBehaviour
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
 
-        audioSources = GetComponents(typeof(AudioSource));
-        runningSource = (AudioSource)audioSources[0];
-        walkingSource = (AudioSource)audioSources[1];
-        Debug.Log(runningSource +""+ walkingSource);
-        runningSource.clip = runningClip; walkingSource.clip = walkingClip;
-        //runningSource.playOnAwake = false; walkingSource.playOnAwake = false;
-        //runningSource.loop = true; walkingSource.loop = true;
+        //audioSources = GetComponents(typeof(AudioSource));
+        //runningSource = (AudioSource)audioSources[0];
+        //walkingSource = (AudioSource)audioSources[1];
+        //Debug.Log(runningSource +""+ walkingSource);
+        //runningSource.clip = runningClip; walkingSource.clip = walkingClip;
+        audioSource = GetComponent<AudioSource>();
 
         //Maybe use a variable to check whether configured or not?
         if(this.tag == "Knight")
@@ -274,10 +275,17 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(east) || Input.GetKey(west) || Input.GetKey(north) || Input.GetKey(south))
         {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
             if (running)
             {
-                walkingSource.Stop();
-                if (!runningSource.isPlaying) runningSource.Play();
+                //walkingSource.Stop();
+                //if (!runningSource.isPlaying) runningSource.Play();
+                audioSource.clip = runningClip;
+                //audioSource.Play();
 
                 animController.SetBool("isRunning", true);
                 animController.SetBool("isWalking", false);
@@ -303,8 +311,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                runningSource.Stop();
-                if (!walkingSource.isPlaying) walkingSource.Play();
+                //runningSource.Stop();
+                //if (!walkingSource.isPlaying) walkingSource.Play();
+                audioSource.clip = walkingClip;
+                //audioSource.Play();
 
                 animController.SetBool("isWalking", true);
                 animController.SetBool("isRunning", false);
@@ -349,8 +359,9 @@ public class PlayerController : MonoBehaviour
     
         else
         {
-            runningSource.Stop();
-            walkingSource.Stop();
+            //runningSource.Stop();
+            //walkingSource.Stop();
+            audioSource.Stop();
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
             //animController.SetBool("jump", false);
