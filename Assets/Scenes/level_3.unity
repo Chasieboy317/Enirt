@@ -1058,6 +1058,14 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 365688834, guid: 7ba491759ce388c48a9d24508bec1c14, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 365688838, guid: 7ba491759ce388c48a9d24508bec1c14, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba491759ce388c48a9d24508bec1c14, type: 3}
 --- !u!4 &345981112 stripped
@@ -1940,16 +1948,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2060539735}
     m_Modifications:
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_Name
-      value: ppRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7136166349057379818, guid: 5d85783830ace5944a672c039935d9ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2019,6 +2017,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_Name
+      value: ppRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d85783830ace5944a672c039935d9ae, type: 3}
@@ -2441,7 +2449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 703578729}
   - component: {fileID: 703578726}
-  - component: {fileID: 703578728}
   - component: {fileID: 703578727}
   m_Layer: 0
   m_Name: RobotCamera
@@ -2505,14 +2512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 157028562}
---- !u!81 &703578728
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703578725}
-  m_Enabled: 1
+  offest: {x: 0, y: 0, z: 0}
 --- !u!4 &703578729
 Transform:
   m_ObjectHideFlags: 0
@@ -3143,16 +3143,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1135994191}
     m_Modifications:
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_Name
-      value: PressurePlate (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7136166349057379818, guid: 5d85783830ace5944a672c039935d9ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3222,6 +3212,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_Name
+      value: PressurePlate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d85783830ace5944a672c039935d9ae, type: 3}
@@ -4756,16 +4756,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2060539735}
     m_Modifications:
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_Name
-      value: ppLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7136166349057379818, guid: 5d85783830ace5944a672c039935d9ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4835,6 +4825,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_Name
+      value: ppLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d85783830ace5944a672c039935d9ae, type: 3}
@@ -5030,16 +5030,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1135994191}
     m_Modifications:
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_Name
-      value: PressurePlate
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7136166349057379818, guid: 5d85783830ace5944a672c039935d9ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5109,6 +5099,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_Name
+      value: PressurePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136166349057379819, guid: 5d85783830ace5944a672c039935d9ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d85783830ace5944a672c039935d9ae, type: 3}
@@ -5616,7 +5616,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2123926180, guid: 66823101df994554e9f6aea44d84f956, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2123926179, guid: 66823101df994554e9f6aea44d84f956, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66823101df994554e9f6aea44d84f956, type: 3}
 --- !u!1001 &1759194178
 PrefabInstance:
@@ -6286,7 +6291,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1886025712}
   - component: {fileID: 1886025709}
-  - component: {fileID: 1886025711}
   - component: {fileID: 1886025710}
   m_Layer: 0
   m_Name: KnightCamera
@@ -6350,14 +6354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 493862920}
---- !u!81 &1886025711
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886025708}
-  m_Enabled: 1
+  offest: {x: 0, y: 0, z: 0}
 --- !u!4 &1886025712
 Transform:
   m_ObjectHideFlags: 0
