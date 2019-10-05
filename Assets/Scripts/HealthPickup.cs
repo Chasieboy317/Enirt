@@ -8,8 +8,11 @@ public class HealthPickup : MonoBehaviour
     public int health;
     public float rotationSpeed;
 
+
+    public AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -22,12 +25,14 @@ public class HealthPickup : MonoBehaviour
 
         if (!player&&other.transform.tag=="Knight")
         {
+            if (audioSource != null) { audioSource.Play(); }
             other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage",(-health));
             Destroy(gameObject);
         }
 
         else if (player && other.transform.tag == "Robot")
         {
+            if (audioSource != null) { audioSource.Play(); }
             other.transform.gameObject.GetComponent<Destructable>().SendMessage("takeDamage", (-health));
             Destroy(gameObject);
         }

@@ -273,6 +273,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
+                audioSource.loop = true;
                 audioSource.Play();
             }
 
@@ -354,7 +355,8 @@ public class PlayerController : MonoBehaviour
         {
             //runningSource.Stop();
             //walkingSource.Stop();
-            audioSource.Stop();
+            //audioSource.Stop();
+            if (audioSource.clip == walkingClip || audioSource.clip == runningClip) { audioSource.clip = null; }
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
             //animController.SetBool("jump", false);

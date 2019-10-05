@@ -1465,6 +1465,8 @@ MonoBehaviour:
   startAttack: 0
   attackTime: 3.16
   swordCollider: {fileID: 1380544109506882341}
+  dualAttackSound: {fileID: 8300000, guid: 8b84e86c09e65c2469de461ee6bd278d, type: 3}
+  slashSound: {fileID: 8300000, guid: 2957ed79a6b8a5e4f9ea8d362b0cc3f2, type: 3}
 --- !u!114 &2375949562845506107
 MonoBehaviour:
   m_ObjectHideFlags: 0
