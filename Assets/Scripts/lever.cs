@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class lever : MonoBehaviour
 {
@@ -17,8 +15,7 @@ public class lever : MonoBehaviour
 
     protected int currentIndex;
 
-    // Start is called before the first frame update
-
+    public AudioSource audioSource;
     
     protected void Start()
     {
@@ -27,9 +24,12 @@ public class lever : MonoBehaviour
         activated = false;
         cycle = true;
         startPos = transform.position;
+        pivot = this.transform.position;
         transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
         currentIndex = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected void Update()
@@ -44,6 +44,7 @@ public class lever : MonoBehaviour
         cycle = true;
         currentTime = 0.0f;
         transform.position = startPos;
+
     }
 
     protected void move()
@@ -67,6 +68,12 @@ public class lever : MonoBehaviour
                 transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
                 if (currentTime>=waitTime) {  toggle(); }
             }
+            
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            
         }
     }
 }

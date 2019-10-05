@@ -248,18 +248,14 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(this.transform.position + new Vector3(0, 0.7f, 0), transform.forward);
             if(Physics.Raycast(this.transform.position + new Vector3(0, 0.7f, 0), transform.forward,out lever))
             {
-                //object is lever and is close enough
-                Debug.Log(Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)));
-                Debug.Log(lever.transform.gameObject.GetComponent<lever>() != null);
-                if((lever.transform.gameObject.GetComponent("lever")!=null || lever.transform.gameObject.GetComponent("myLever")!=null )&& Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 1.0f)
+                //Debug.Log("Lever raycast hit");
+                //Debug.Log(lever.transform.gameObject.GetComponent<lever>() != null);
+                //Debug.Log(lever.transform.gameObject.tag == "lever");
+                if((lever.transform.gameObject.GetComponent("lever")!=null || lever.transform.gameObject.GetComponent("myLever")!=null ) && Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 1.0f)
                 {
+                    //Debug.Log("In Lever if");
+                    //Debug.Log(lever.transform.gameObject.GetComponent<lever>()!=null);
                     lever.transform.gameObject.GetComponent<lever>().activated = true;
-                    /*if(lever.transform.gameObject.GetComponent("myLever") != null)
-                    {
-                        lever.transform.gameObject.GetComponent<myLever>().activated = true;
-
-                    }*/
-
                     animController.SetBool("pullLever", true);
                 }
             }
@@ -282,10 +278,7 @@ public class PlayerController : MonoBehaviour
 
             if (running)
             {
-                //walkingSource.Stop();
-                //if (!runningSource.isPlaying) runningSource.Play();
                 audioSource.clip = runningClip;
-                //audioSource.Play();
 
                 animController.SetBool("isRunning", true);
                 animController.SetBool("isWalking", false);

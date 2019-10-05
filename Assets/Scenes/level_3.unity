@@ -6969,21 +6969,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 30.000015
       objectReference: {fileID: 0}
-    - target: {fileID: 8178340991891037063, guid: f310ed38dfceca04891876504f52deb4,
-        type: 3}
-      propertyPath: pivot.x
-      value: 8.629
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178340991891037063, guid: f310ed38dfceca04891876504f52deb4,
-        type: 3}
-      propertyPath: pivot.y
-      value: 8.7148
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178340991891037063, guid: f310ed38dfceca04891876504f52deb4,
-        type: 3}
-      propertyPath: pivot.z
-      value: 18.681
-      objectReference: {fileID: 0}
     - target: {fileID: 564364242798218060, guid: f310ed38dfceca04891876504f52deb4,
         type: 3}
       propertyPath: m_Range
