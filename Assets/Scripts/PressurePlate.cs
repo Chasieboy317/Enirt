@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public bool triggered;
+    public bool triggered; //boolean that will be used to in the trap controller class to provide the correct transformation when the pressure plate is triggeered
     public GameObject triggerEntity; // Object that is triggering the pressure plate e.g. player
     public float downHeight = 0.1f; // How far a pressureplate sinks when activated
 
@@ -17,6 +17,7 @@ public class PressurePlate : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    //primary method for testing whether a player triggered the pressure plate, as well as which player.
     private void OnTriggerEnter(Collider other)
     {
         triggerEntity = other.gameObject; // Set the object which is triggering the pressureplate
