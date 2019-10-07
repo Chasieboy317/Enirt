@@ -17,6 +17,10 @@ public class KnightController : PlayerController
 
     public GameObject swordCollider;
 
+    //Audio effects
+    public AudioClip dualAttackSound;
+    public AudioClip slashSound;
+
     // Start is called before the first frame update
     void Start() 
     {
@@ -57,6 +61,14 @@ public class KnightController : PlayerController
         if (Input.GetKey(slash))
         {
             startSlash = Time.time;
+            //sound effect
+            if (!audioSource.isPlaying)
+            {
+                audioSource.loop = false;
+                audioSource.clip = slashSound;
+                audioSource.Play();
+            }
+            //movement
             animController.SetBool("slash", true);
             swordCollider.SetActive(true);
 
@@ -67,6 +79,7 @@ public class KnightController : PlayerController
             if (Time.time > startSlash + slashTime && Time.time > startAttack + attackTime)
             {
                 swordCollider.SetActive(false);
+                if (audioSource.clip == slashSound) { audioSource.clip = null; audioSource.loop = true; }
             }
         }
         /*
@@ -75,6 +88,14 @@ public class KnightController : PlayerController
         if (Input.GetKey(dualAttack))
         {
             startAttack= Time.time;
+            //sound effect
+            if (!audioSource.isPlaying)
+            {
+                audioSource.loop = false;
+                audioSource.clip = dualAttackSound;
+                audioSource.Play();
+            }
+            //movement
             animController.SetBool("isAttacking", true);
             swordCollider.SetActive(true);
         }
@@ -84,6 +105,7 @@ public class KnightController : PlayerController
             if(Time.time > startAttack + attackTime && Time.time > startSlash + slashTime)
             {
                 swordCollider.SetActive(false);
+                if (audioSource.clip == dualAttackSound) { audioSource.clip = null; audioSource.loop = true; }
             }
         }
 

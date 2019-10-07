@@ -4749,9 +4749,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.9511055, b: 0.7688679, a: 1}
-  m_Intensity: 4
-  m_Range: 1.12
+  m_Color: {r: 1, g: 0.41960785, b: 0, a: 1}
+  m_Intensity: 8
+  m_Range: 2.75
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -9481,7 +9481,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.42
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9570,10 +9570,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6646917892519871712}
     m_Modifications:
-    - target: {fileID: 100000, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
-      propertyPath: m_Name
-      value: Torch
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00003
@@ -9618,10 +9614,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
+      propertyPath: m_Name
+      value: Torch
+      objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
       propertyPath: m_Name
       value: Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 2300006, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ad3a063652957f4da8bcf577b0a6767, type: 2}
     - target: {fileID: 2300002, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9630,10 +9634,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3659ca4c49c60e46b7d65c2ff80bc31, type: 2}
-    - target: {fileID: 2300006, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4ad3a063652957f4da8bcf577b0a6767, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c19dc78ac3bb3748883f87899e9cea6, type: 3}
 --- !u!4 &3619475304200523696 stripped
