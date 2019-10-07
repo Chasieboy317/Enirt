@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
             main.enabled = false;
         }
         //if the distance between the players horizontally is less than the distance specified, disable splitscreen and enable the main camera
-        else if (Mathf.Abs(k.transform.position.z - r.transform.position.z)<horizontalDistance||
+        else if (Mathf.Abs(k.transform.position.z - r.transform.position.z)<horizontalDistance&&
             Mathf.Abs(k.transform.position.y - r.transform.position.y)<verticalDistance)
         {
             robot.enabled = false;
