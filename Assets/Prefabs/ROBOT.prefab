@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 135574248895886934}
   - component: {fileID: 1103381761289609011}
   - component: {fileID: 365688834}
-  - component: {fileID: 967442271687088661}
   m_Layer: 0
   m_Name: ROBOT
   m_TagString: Robot
@@ -503,14 +502,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &967442271687088661
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244567602}
-  m_Enabled: 1
 --- !u!1 &275267112
 GameObject:
   m_ObjectHideFlags: 0

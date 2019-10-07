@@ -14,15 +14,19 @@ public class HealthPickup : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-    // Update is called once per frame
+    
+    //rotate the object every update
     void Update()
     {
         transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f) * rotationSpeed * Time.deltaTime, Space.Self);
     }
 
+    //when a player collides with the pickup:
+    //play the sound it should make
+    //update the players health to full
+    //destroy the pickup
     public void OnCollisionEnter(Collision other)
     {
-
         if (!player&&other.transform.tag=="Knight")
         {
             if (audioSource != null) { audioSource.Play(); }
