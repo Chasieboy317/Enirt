@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Manages a list of targets for the disruptor type enemy
+*/
 public class disruptorTargetManager : MonoBehaviour
 {
     #region Singleton

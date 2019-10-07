@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+Controls the end of the level
+*/
 public class levelEnd : gameEndManager
 {
     private Transform playerKnight;
@@ -17,9 +20,9 @@ public class levelEnd : gameEndManager
     // Update is called once per frame
     void Update()
     {
+        // Load next level when both players cross the final threshhold
        if (playerKnight.position.z < transform.position.z && playerRobot.position.z < transform.position.z) {
            PlayNextLevel();
        }
     }
-    //put playNextLevel in script this inherits from
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 /*
-    The fighter, or brawler type enemy is your simple "got hit player" type enemy. They aren't
+    The fighter, or brawler type enemy is your simple "go hit the player" type enemy. They aren't
     Particularly diverse in what they do, but will target players they can get to.
 */
 public class fighter : enemy
@@ -22,6 +22,9 @@ public class fighter : enemy
     public Transform playerRobot;
     public Transform target;
 
+    /*
+        Get components for the AI and animation
+    */
     public void OnStart()
     {
         animationController = GetComponent<Animator>();
@@ -45,7 +48,9 @@ public class fighter : enemy
         reTarget -= Time.deltaTime;
         if (targetLocked == false)
         {
-            // Only lock on if path exists .PathComplete();
+            // Find a target.
+            // Only lock on if the target is not dead
+            // If the target exists, lock on to the closest target
             if (playerKnight == null)
             {
                 targetLocked = true;
@@ -68,11 +73,16 @@ public class fighter : enemy
         }
         if (targetLocked)
         {
-            if (reTarget <= 0)
+            // Only get a new target after a certain amount of time. (5 seconds)
+            if (reTarget <= 0 || target == null)
             {
                 reTarget = 5f;
                 targetLocked = false;
             }
+            // Control various aspects of targeting and animation
+            // Only walk if the player is still far
+            // Start running if the player is getting close
+            // Attack if the player is within reach
             float distance = (target.position - transform.position).magnitude;
             if (distance < walkRadius)
             {
@@ -106,18 +116,18 @@ public class fighter : enemy
         }
     }
 
-    //void FixedUpdate() {
-    //    if (health <= 0) {
-    //        Die();
-    //    }
-    //}
-
+    /*
+        Turn the model to face its target
+    */
     public void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*rotationSpeed);
     }
 
+    /*
+        Draw nice circular indicators in editor to show various stats
+    */
     public void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, walkRadius);
@@ -126,8 +136,4 @@ public class fighter : enemy
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position,2f);
     }
-
-    //private void OnCollisionEnter(Collision other) {
-    //    animationController.SetBool("knockBack",true);
-    //}
 }

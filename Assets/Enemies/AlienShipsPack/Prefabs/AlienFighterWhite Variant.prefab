@@ -74,10 +74,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1062015658370612, guid: e18a33b201b7d4b41a22a039bc5602bb, type: 3}
       propertyPath: m_Name
-      value: AlienFighterWhite
+      value: AlienFighterWhite Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1062015658370612, guid: e18a33b201b7d4b41a22a039bc5602bb, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814564427542905235, guid: e18a33b201b7d4b41a22a039bc5602bb,
+        type: 3}
+      propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4618902517328562, guid: e18a33b201b7d4b41a22a039bc5602bb, type: 3}
@@ -123,11 +128,6 @@ PrefabInstance:
     - target: {fileID: 4618902517328562, guid: e18a33b201b7d4b41a22a039bc5602bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814564427542905235, guid: e18a33b201b7d4b41a22a039bc5602bb,
-        type: 3}
-      propertyPath: speed
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e18a33b201b7d4b41a22a039bc5602bb, type: 3}

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-Script that controls the arena puzzle in level 2 */
+Script that controls the arena puzzle in level 2 
+*/
 public class arenaPuzzleStart : MonoBehaviour
 {
 
@@ -12,17 +13,11 @@ public class arenaPuzzleStart : MonoBehaviour
     public float triggerPos; // Position players need to pass to activate arena
 
     private bool triggered = false;
-    // TODO: define the area for activating the arena better... replace forward wall with a gate
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        // Check if players stepped accross the activation zone
         if (!triggered) {
             if (players[0].transform.position.z < triggerPos && players[1].transform.position.z < triggerPos) {
                 triggered = true;
@@ -30,7 +25,11 @@ public class arenaPuzzleStart : MonoBehaviour
             }
         }
     }
-
+    
+    /*
+        Moves walls into place for the puzzle to begin
+        Some walls will move up, while others get shifted down
+     */
     void setUpArena() {
         foreach (moveWall wall in wallsToMove) {
             wall.enable();

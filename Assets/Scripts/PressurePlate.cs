@@ -23,7 +23,9 @@ public class PressurePlate : MonoBehaviour
         triggerEntity = other.gameObject; // Set the object which is triggering the pressureplate
         if (!triggered)
         {
-            audioSource.Play();
+            if (audioSource) {
+                audioSource.Play();
+            }
             triggered = true;
             this.transform.position += new Vector3(0.0f, -downHeight, 0.0f); //move the pressure plate down to reflect the change
             Debug.Log("OnTriggerEnter " + triggered);
@@ -32,7 +34,9 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        audioSource.Play();
+        if (audioSource) {
+            audioSource.Play();
+        }
         triggered = false;
         triggerEntity = null;
         this.transform.position += new Vector3(0.0f, downHeight, 0.0f); //move the pressure plate back up

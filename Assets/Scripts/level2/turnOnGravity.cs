@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-Turns on the gravtiy of a suspended object
+Turns on the gravtiy of a suspended object - emulate falling
 */
 public class turnOnGravity : MonoBehaviour
 {
 
-    public GameObject[] suspenders; // Rope keeping this bad boy hoisted
+    public GameObject[] suspenders; // Objects keeping this object hoisted
 
     private Rigidbody myRB;
     public bool enableGravity = false;
     public int destroyedSuspenders; // Number of things keeping object suspended. All need to be destroyed for gravity to turn on
     public puzzleController currentPuzzle; // Reference to current puzzle - track if puzzle is solved
+    // Puzzle gets solved if gravity is turned on. Puzzle progress is tracked
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class turnOnGravity : MonoBehaviour
                   // This can be generalized more with another variable to set how many suspenders need to be destroyed
                     enableGravity = true;
                     myRB.useGravity = true;
-                    currentPuzzle.Clear();
+                    currentPuzzle.Clear(); // Set puzzle status as complete
                 }
             }
         }

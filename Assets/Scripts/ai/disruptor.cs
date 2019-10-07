@@ -41,7 +41,8 @@ public class disruptor : enemy
             reTarget = 2f;
             targetLocked = false;
         }
-            // Only lock on if path exists .PathComplete();
+
+        // Prioritize players on pressureplates
         foreach (PressurePlate pressurePlate in plates) {
             noneTriggered = true;
             if (pressurePlate.triggered) {
@@ -52,36 +53,38 @@ public class disruptor : enemy
             }
         }
 
-       if (noneTriggered) {
-           targetLocked = false;  // Allow new target acquisition, without stopping pursuit of current target
-       }
+        if (noneTriggered) {
+            targetLocked = false;  // Allow new target acquisition, without stopping pursuit of current target
+        }
 
-       if (!targetLocked) {
-            if (playerKnight == null) {
-                targetLocked = true;
-                target = playerRobot;
-            }
-            else if (playerRobot == null) {
-                targetLocked = true;
-                target = playerKnight;
-            } 
-            else if (playerKnight == null && playerRobot == null) {
-                targetLocked = false;
-            } else if (playerKnight != null && playerRobot != null){
-                target = (playerKnight.position - transform.position).magnitude > (playerRobot.position - transform.position).magnitude ? playerRobot : playerKnight;
-                targetLocked = true;
-            }
-       }
+         // Revert to search and destroy AI if no pressureplates are triggered
+        if (!targetLocked) {
+             if (playerKnight == null) {
+                 targetLocked = true;
+                 target = playerRobot;
+             }
+             else if (playerRobot == null) {
+                 targetLocked = true;
+                 target = playerKnight;
+             } 
+             else if (playerKnight == null && playerRobot == null) {
+                 targetLocked = false;
+             } else if (playerKnight != null && playerRobot != null){
+                 target = (playerKnight.position - transform.position).magnitude > (playerRobot.position - transform.position).magnitude ? playerRobot : playerKnight;
+                 targetLocked = true;
+             }
+        }
 
     }
 
+    // Calculate distance to target and set that as a destination
     void FixedUpdate() {
         float distance = (target.position - transform.position).magnitude;
         FaceTarget();
         agent.SetDestination(target.position);
-        //myRB.AddForce(myRB.transform.forward * speed);
     }
     
+    // Face the current target
     void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -91,8 +94,7 @@ public class disruptor : enemy
     private void OnCollisionEnter(Collision other) {
         if (other.transform.gameObject.GetComponent("Destructable") && (other.transform.gameObject.tag == "Knight" || other.transform.gameObject.tag == "Robot")){
             other.transform.gameObject.SendMessage("takeDamage", 2);
-            //TODO: Add knockback
-            myRB.AddForce(transform.forward * -50); // ???
+            myRB.AddForce(transform.forward * -50); // ??? Doesn't work :(
         }
     }
 }
