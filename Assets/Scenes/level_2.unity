@@ -3766,12 +3766,12 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 11071079}
+      objectReference: {fileID: 11071076}
     - target: {fileID: 629556841326107328, guid: 64fb30d8edd35dc43ba096075239fb19,
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1296467256}
+      objectReference: {fileID: 1296467254}
     - target: {fileID: 629556842171944527, guid: 64fb30d8edd35dc43ba096075239fb19,
         type: 3}
       propertyPath: totalTime

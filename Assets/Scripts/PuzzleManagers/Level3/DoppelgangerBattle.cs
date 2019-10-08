@@ -2,34 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
+ * This Script is manages the stages of the final battle - the culmulation of level 3
+ * The players are transported to a platform, after triggering pressure plates doppelgangers spawn and shortly after that enemies spawn
+ * The platform is divided into a grid by gas forcing the players to move in reverse to use the doppelgnagers to fight the enemies
+ * If successful, The gas disappears - a turnstile appears
+ * If all the players push the turnstile at once the gem explodes and the players have one
+ */
 public class DoppelgangerBattle : gameEndManager
 {
+    //Gem explodes if players complete level
     public GameObject Gem;
     public bool gemExploded = false;
     public GameObject explosion;
 
-    //PressurePlate ppLeft;
-    //PressurePlate ppRight;
-
+    //PressurePlates to trigger spawning Doppelgangers
     public GameObject PPLeft;
     public GameObject PPRight;
 
+    //Doppelgangers and spawn points
     public Transform spawnPointLeft;
     public Transform spawnPointRight;
-
     public GameObject knightDoppelgangerPrefab;
     public GameObject robotDoppelgangerPrefab;
+    public GameObject robotDoppelganger;
+    public GameObject knightDoppelganger;
     GameObject spawn1;
     GameObject spawn2;
     public bool spawned;
-
-    public GameObject GasEffect;
-
     public GameObject respawnEffect;
     float spawnTime;
     float spawnTimeTotal = 1.5f;
+    //reassign health bars to reflect doppelganger health after spawning them
+    public GameObject robotHealth;
+    public GameObject knightHealth;
 
+    public GameObject GasEffect;
+    
     //enemies
     public GameObject skeletonEnemy;
     public GameObject alienShipEnemy;
@@ -39,19 +48,18 @@ public class DoppelgangerBattle : gameEndManager
     private bool finalStage = false;
     private float finaleStageTime;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        //ppLeft = (PressurePlate) PPLeft.transform.gameObject.GetComponent<PressurePlate>();
-        //ppRight = (PressurePlate)PPRight.transform.gameObject.GetComponent<PressurePlate>();
         spawned = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(alienShipEnemy == null && skeletonEnemy == null);
         //both enemies successfully defeated
+        //remove gas and enable turnstile
         if (alienShipEnemy == null && skeletonEnemy == null && !finalStage)
         {
             Debug.Log("skeleton and alienship defeated");
@@ -60,28 +68,35 @@ public class DoppelgangerBattle : gameEndManager
             finalStage = true;
         }
 
-        //Pressure plates used to spawn scene elements
+        //Pressure plates used to spawn doppelgnagers and scene elements
         if ((PPLeft != null && PPRight != null) && (PPLeft.gameObject.transform.GetComponent<PressurePlate>().triggered && PPRight.gameObject.transform.GetComponent<PressurePlate>().triggered))
         {
+            //spawn the doppelgnagers (with spawn effect)
             spawn1 = Instantiate(respawnEffect, spawnPointRight.position + new Vector3(0, 1, 0), spawnPointRight.rotation);
             spawn2 = Instantiate(respawnEffect, spawnPointLeft.position + new Vector3(0, 1, 0), spawnPointLeft.rotation);
             spawned = true;
             spawnTime = Time.time;
-            Instantiate(knightDoppelgangerPrefab, spawnPointLeft.position, spawnPointLeft.rotation);
-            Instantiate(robotDoppelgangerPrefab, spawnPointRight.position, spawnPointRight.rotation);
+            knightDoppelganger = Instantiate(knightDoppelgangerPrefab, spawnPointLeft.position, spawnPointLeft.rotation);
+            robotDoppelganger = Instantiate(robotDoppelgangerPrefab, spawnPointRight.position, spawnPointRight.rotation);
 
             Destroy(PPLeft);
             Destroy(PPRight);
 
             Gem.SetActive(true);
             GasEffect.SetActive(true);
+
+            //make health bars reference doppelganger health
+            robotHealth.GetComponent<HealthBar>().player = robotDoppelganger;
+            knightHealth.GetComponent<HealthBar>().player = knightDoppelganger;
+
         }
 
+        //Destroy spawn effect after spawn time
         if (Time.time - spawnTime > spawnTimeTotal && spawned)
         {
             Destroy(spawn1);
             Destroy(spawn2);
-
+            //After destroying spawn effect, set the enemies active
             if (Time.time > spawnTime + spawnTimeTotal + 2f && !finalStage)
             {
                 //set enemies active
@@ -98,22 +113,20 @@ public class DoppelgangerBattle : gameEndManager
             gemExploded = true;
             Gem.SetActive(false);
             finaleStageTime = Time.time;
-            //waitSeconds(15);
-
-
         }
+
+        //successful completion of level
         if(finalStage && gemExploded && Time.time > finaleStageTime + 8f)
         {
             GameOver(true);
 
         }
 
-    }
-    IEnumerator waitSeconds(int s)
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(s);
-        print(Time.time);
+        //if either doppelganger dead - GameOver. success=false
+        if(spawned && (knightDoppelganger==null || robotDoppelganger == null))
+        {
+            GameOver(false);
+        }
 
     }
 
