@@ -14,16 +14,17 @@ public class HealthBar : MonoBehaviour
     //intialize all variables and render the starting value of the players' health bars
     void Start()
     {
-        fill = (float)player.health / (float)100;
+        fill = player.GetComponent<Destructable>().health;
+        //fill = (float)player.health / 10;
         healthBar.fillAmount = fill;
-        Debug.Log(fill);
+        Debug.Log("Poes");
     }
 
     //update the health bar on every update
-    void update()
+    void Update()
     {
-        fill = (float)player.health / (float)100;
+        fill = player.GetComponent<Destructable>().health;
+        //fill = (float)player.health / 10;
         healthBar.fillAmount = fill;
-        healthBar.fillAmount = (float)(player.health / 100);
     }
 }
