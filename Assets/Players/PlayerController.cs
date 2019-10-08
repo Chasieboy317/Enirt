@@ -255,8 +255,8 @@ public class PlayerController : MonoBehaviour
                 {
                     //Debug.Log("In Lever if");
                     //Debug.Log(lever.transform.gameObject.GetComponent<lever>()!=null);
-                    //lever.transform.gameObject.GetComponent<lever>().activated = true;
-                    lever.transform.gameObject.GetComponent<lever>().toggle();
+                    lever.transform.gameObject.GetComponent<lever>().activated = true;
+                    //lever.transform.gameObject.GetComponent<lever>().toggle();
                     animController.SetBool("pullLever", true);
                 }
             }
