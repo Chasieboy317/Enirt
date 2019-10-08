@@ -15,7 +15,6 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         fill = ((float)(player.transform.gameObject.GetComponent<Destructable>().health)/10);
-        Debug.Log(fill);
         healthBar.fillAmount = fill;
     }
 
@@ -23,7 +22,6 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         fill = ((float)(player.transform.gameObject.GetComponent<Destructable>().health) / 10);
-        Debug.Log(fill);
         healthBar.fillAmount = fill;
     }
 }
