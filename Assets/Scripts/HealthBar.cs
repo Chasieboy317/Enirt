@@ -15,16 +15,13 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         fill = player.GetComponent<Destructable>().health/10;
-        //fill = (float)player.health / 10;
         healthBar.fillAmount = fill;
-        Debug.Log("Poes");
     }
 
     //update the health bar on every update
     void Update()
     {
         fill = player.GetComponent<Destructable>().health/10;
-        //fill = (float)player.health / 10;
         healthBar.fillAmount = fill;
     }
 }
