@@ -245,9 +245,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(pullLever))
         {
             RaycastHit lever;
-            Debug.DrawRay(this.transform.position + new Vector3(0, 0.7f, 0), transform.forward);
-            if(Physics.Raycast(this.transform.position + new Vector3(0, 0.7f, 0), transform.forward,out lever))
+            if(Physics.Raycast(this.transform.position + new Vector3(0, 0.3f, 0) +0.3f*transform.forward, transform.forward,out lever))
             {
+                Debug.Log(lever.transform.gameObject.tag);
                 if((lever.transform.gameObject.GetComponent("lever")!=null || lever.transform.gameObject.GetComponent("myLever")!=null ) && Vector3.Distance(lever.point, transform.position + new Vector3(0, 1, 0)) < 1.0f)
                 {
                     lever.transform.gameObject.GetComponent<lever>().activated = true;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Basic Script that is shared among all enemmies share. 
+ * Basic Script that is shared among all enemmies
  **/
 
 public class enemy : MonoBehaviour
@@ -12,7 +12,7 @@ public class enemy : MonoBehaviour
     public int damage;
     public float speed;
 
-    public Rigidbody myRB; // 自分の剛体
+    public Rigidbody myRB; 
 
     void Start() {
         myRB = GetComponent<Rigidbody>();

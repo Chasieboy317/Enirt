@@ -16,7 +16,7 @@ public class fighter : enemy
 
     public float reTarget = 5f;
 
-    public bool targetLocked = false; //TODO: Add patrol route if no player is targeted
+    public bool targetLocked = false;
 
     public Transform playerKnight;
     public Transform playerRobot;
