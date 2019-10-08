@@ -4702,7 +4702,7 @@ MonoBehaviour:
   robot: {fileID: 703578726}
   knight: {fileID: 1886025709}
   main: {fileID: 271143503}
-  horizontalDistance: 4
+  horizontalDistance: 8
   verticalDistance: 3
 --- !u!4 &1285204859
 Transform:

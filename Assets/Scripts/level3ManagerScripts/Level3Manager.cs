@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Level3Manager : gameEndManager
 {
+    //Standard scene cameras
     public GameObject CamController;
 
     //players
@@ -15,8 +16,6 @@ public class Level3Manager : gameEndManager
     public GameObject fallingBlocks;
     public bool fallingBlocksCompleted;
     public Camera fallingBlocksCamera;
-    //public float fallingBlocksDelay = 1f;
-    //public float fallingBlocksTriggered;
 
     //climbing puzzle
     public GameObject tallBlock;
@@ -34,8 +33,6 @@ public class Level3Manager : gameEndManager
     public Transform finalBattleSpawnRight;
     public Camera finalBattleCamera;
 
-    //start timer?
-    //win/lose conditions
 
     void Start()
     {
@@ -48,7 +45,7 @@ public class Level3Manager : gameEndManager
     {
         if(!finalBattle && (KNIGHT==null || ROBOT == null))
         {
-            GameOver(false);
+            GameOver(false); //either player has dies, GameOver with success = false
         }
         /*
          * Falling Blocks Puzzle
@@ -71,15 +68,16 @@ public class Level3Manager : gameEndManager
 
         /*
          * Climbing Puzzle
+         * Lever pulled - make block for robot to climb ascend
          */
         if (tallBlockLever.transform.gameObject.GetComponent<lever>().activated)
         {
-            //Debug.Log("InTallBlockIf");
             tallBlock.transform.gameObject.GetComponent<ascend>().enabled = true;
         }
 
         /*
          * Window Puzzle
+         * Check using RayCast whether the red cylinder has been moved to the correct position to match 
          */
 
         RaycastHit cylinder;
@@ -87,16 +85,18 @@ public class Level3Manager : gameEndManager
         {
             if(cylinder.transform.tag == "redCylinder")
             {
-                //finalBattle = true; //this is how you get to the final battle for now
+                //enable pressure plates when 
                 pressureP1.SetActive(true);
                 pressureP2.SetActive(true);
             }
         }
 
+        //if both pressure plates are active and triggered, the players have reached the final stage
         if(pressureP1.transform.gameObject.GetComponent<PressurePlate>().triggered && pressureP2.transform.gameObject.GetComponent<PressurePlate>().triggered)
         {
             finalBattle = true;
         }
+
         /*
          * Final Battle
          * activate level and teleport players there
@@ -108,13 +108,7 @@ public class Level3Manager : gameEndManager
             Destroy(ROBOT);
             Destroy(KNIGHT);
             doppelgangerBattle.SetActive(true);
-            //set finalBattleCamera active?
-            /*
-            KNIGHT.transform.position = finalBattleSpawnRight.position;
-            KNIGHT.transform.rotation = finalBattleSpawnRight.rotation;
-            ROBOT.transform.position = finalBattleSpawnLeft.position + new Vector3(0,0.1f,0);
-            ROBOT.transform.rotation = finalBattleSpawnLeft.rotation;
-            */
+            
         }
         
     }
