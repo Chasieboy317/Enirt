@@ -1697,6 +1697,7 @@ GameObject:
   - component: {fileID: 6325354960705585395}
   - component: {fileID: 8588713414987819152}
   - component: {fileID: 5041955861411051536}
+  - component: {fileID: 6735422076840235411}
   m_Layer: 0
   m_Name: KNIGHTDOPPELGANGER
   m_TagString: Knight
@@ -1807,6 +1808,11 @@ MonoBehaviour:
   climbTime: 0
   climbStartTime: 0
   jumpDownTime: 0.5
+  runJumpBoxColCenter: {x: 0, y: 2, z: 0.35}
+  boxColCenter: {x: 0, y: 1, z: 0.35}
+  runJumpStart: 0
+  runJumpTime: 0.6
+  justJumped: 0
   north: 0
   south: 0
   east: 0
@@ -1816,6 +1822,9 @@ MonoBehaviour:
   pullLever: 0
   toggle: 0
   running: 0
+  runningClip: {fileID: 8300000, guid: 0b0a831c620b09d4ebf438b1f09e0c75, type: 3}
+  walkingClip: {fileID: 8300000, guid: d000123405fcac842b25ded266126954, type: 3}
+  audioSource: {fileID: 0}
   damage: 2
   blocking: 0
   dualAttack: 0
@@ -1825,6 +1834,104 @@ MonoBehaviour:
   startAttack: 0
   attackTime: 3.16
   swordCollider: {fileID: 4963109034580765070}
+  dualAttackSound: {fileID: 8300000, guid: 8b84e86c09e65c2469de461ee6bd278d, type: 3}
+  slashSound: {fileID: 8300000, guid: 2957ed79a6b8a5e4f9ea8d362b0cc3f2, type: 3}
+--- !u!82 &6735422076840235411
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325354960705585404}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6325354960758392995
 GameObject:
   m_ObjectHideFlags: 0

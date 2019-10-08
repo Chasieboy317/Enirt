@@ -43,7 +43,7 @@ public class Pushable : MonoBehaviour
         pushed = true;
         endPoint = this.transform.position + (direction * pushDistance);
         startTime = Time.time;
-        pushDistance = 05f;
+        pushDistance = 1f;
         distCovered = 0f;
     }
 

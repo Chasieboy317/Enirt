@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 /*
     Disruptor type enemies try their best to prevent players from completing puzzles. 
-    They are retarded however, and will lock on to the first player to be on a puzzle piece.
+    They will lock on to the first player to be on a puzzle piece.
     If no players are on a puzzle piece anymore, they target the closes player.
 */
 public class disruptor : enemy
