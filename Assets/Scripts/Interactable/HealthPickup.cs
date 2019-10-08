@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Collected via collision with player. Adds to health of player's destructable script
+ * Heart can be collected by the Knight 
+ * Battery can be collected by Robot
+ */
 public class HealthPickup : MonoBehaviour
 {
     public bool player; //this value will determine whether the knight or the robot can use the pickup. true is for robot, false for knight

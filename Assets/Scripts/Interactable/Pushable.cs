@@ -6,7 +6,7 @@ public class Pushable : MonoBehaviour
 {
     
     bool pushed = false;
-    private float speed = 0.01f;
+    private float speed = 0.02f;
     Vector3 direction;
 
     public Transform start;
@@ -20,6 +20,7 @@ public class Pushable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Object was pushed - linearly interpolate its position in the direction supplied
         if (pushed)
         {
             distCovered = (Time.time - startTime) * speed;
@@ -29,17 +30,17 @@ public class Pushable : MonoBehaviour
             //move in direction of push
             transform.position = Vector3.Lerp(this.transform.position,endPoint, fracJourney);
             
-            if (distCovered >= pushDistance || Time.time-startTime>1.2f)
+            if (distCovered >= pushDistance)//|| Time.time-startTime>1.2f)
             {
                 pushed = false;
             }
         }
     }
+
+    //object pushed in given direction. Other scripts use this method
     public void wasPushed(Vector3 direction)
     {
-        //Debug.Log("Message received");
         this.direction = direction;
-        //Debug.Log(direction);
         pushed = true;
         endPoint = this.transform.position + (direction * pushDistance);
         startTime = Time.time;

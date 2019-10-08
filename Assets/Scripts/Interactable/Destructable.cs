@@ -12,6 +12,7 @@ public class Destructable : MonoBehaviour
 {
     public int health;
 
+    //decreses health by integer value supplied
     public void takeDamage(int d)
     {
         health -= d;
@@ -30,6 +31,14 @@ public class Destructable : MonoBehaviour
         else if (health>10)
         {
             health = 10;
+        }
+    }
+
+    void Update()
+    {
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
