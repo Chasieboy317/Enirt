@@ -14,16 +14,16 @@ public class HealthBar : MonoBehaviour
     //intialize all variables and render the starting value of the players' health bars
     void Start()
     {
-        fill = (player.transform.gameObject.GetComponent<Destructable>().health/10);
-        //Debug.Log(fill);
+        fill = ((float)(player.transform.gameObject.GetComponent<Destructable>().health)/10);
+        Debug.Log(fill);
         healthBar.fillAmount = fill;
     }
 
     //update the health bar on every update
     void Update()
     {
-        fill = (player.transform.gameObject.GetComponent<Destructable>().health/10);
-        //Debug.Log(fill);
+        fill = ((float)(player.transform.gameObject.GetComponent<Destructable>().health) / 10);
+        Debug.Log(fill);
         healthBar.fillAmount = fill;
     }
 }
