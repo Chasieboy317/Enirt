@@ -42,7 +42,7 @@ public class lever : MonoBehaviour
     //method used to reset the state of the level to one in which it is ready to be pulled again
     public virtual void toggle()
     {
-        activated = activated ? false : true;
+        //activated = activated ? false : true;
         cycle = true;
         currentTime = 0.0f;
         transform.position = startPos;
