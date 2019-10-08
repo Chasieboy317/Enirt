@@ -15,6 +15,7 @@ public class moveWall : MonoBehaviour
 
     public moveDirection direction; // Direction the wall will open in
     private bool open;
+    private AudioSource audio;
     
     // Possible directions for the wall to move
     public enum moveDirection {
@@ -29,6 +30,7 @@ public class moveWall : MonoBehaviour
         enabled = false;
         open = false;
         startingPos = transform.position.y;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,9 @@ public class moveWall : MonoBehaviour
         if (direction == moveDirection.UP) {
             if (transform.position.y < startingPos + openSize) {
                 transform.position += new Vector3(0.0f,1.0f,0.0f) * Time.deltaTime * moveSpeed;
+                if (audio) {
+                    if (!audio.isPlaying) {audio.Play();}
+                }
             }
             else {
                 open = true;
@@ -52,6 +57,9 @@ public class moveWall : MonoBehaviour
         if (direction == moveDirection.DOWN) {
             if (transform.position.y > startingPos - openSize) {
                 transform.position -= new Vector3(0.0f,1.0f,0.0f) * Time.deltaTime * moveSpeed;
+                if (audio) {
+                    if (!audio.isPlaying) {audio.Play();}
+                }
             }
             else {
                 open = true;
