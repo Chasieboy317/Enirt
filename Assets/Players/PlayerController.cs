@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
         */
 
         //set toggle 
-        if (Input.GetKey(toggle))
+        if (Input.GetKeyDown(toggle))
         {
             running = running ? false : true;
         }
