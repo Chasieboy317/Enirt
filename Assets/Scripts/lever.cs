@@ -43,6 +43,10 @@ public class lever : MonoBehaviour
     public virtual void toggle()
     {
         //activated = activated ? false : true;
+        if (!activated)
+        {
+            activated = true;
+        }
         cycle = true;
         currentTime = 0.0f;
         transform.position = startPos;
@@ -50,29 +54,20 @@ public class lever : MonoBehaviour
     }
 
     //method used to animate the lever when it is being pulled
-    protected void move()
+    public virtual void move()
     {
-        if (activated)
+        if (activated && cycle)
         {
             currentTime += Time.deltaTime;
             //move the lever towards the player
-            if (cycle)
-            {
-                var rotation = transform.rotation;
-                transform.RotateAround(pivot, direction, maxAngle * speed * Time.deltaTime);  
-                transform.rotation = rotation;
-                transform.Rotate(direction * maxAngle * speed * Time.deltaTime);
-                if (currentTime>=waitTime) { cycle = false; currentTime = 0.0f; }
-            }
-            //move the lever back to its original position
-            else
-            {
-                var rotation = transform.rotation;
-                transform.RotateAround(pivot, direction, -maxAngle * speed * Time.deltaTime);
-                transform.rotation = rotation;
-                transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
-                if (currentTime>=waitTime) {  toggle(); }
-            }
+            
+            var rotation = transform.rotation;
+            transform.RotateAround(pivot, direction, maxAngle * speed * Time.deltaTime);  
+            transform.rotation = rotation;
+            transform.Rotate(direction * maxAngle * speed * Time.deltaTime);
+            if (currentTime>=waitTime) { cycle = false; currentTime = 0.0f; }
+            
+          
             
             if (audioSource != null && !audioSource.isPlaying)
             {

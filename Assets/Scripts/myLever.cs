@@ -17,7 +17,37 @@ public class myLever : lever
         transform.position = startPos;
         controlBlocks(); //this call is what alternates between the blocks the level controls
     }
+    public override void move()
+    {
+        if (activated)
+        {
+            currentTime += Time.deltaTime;
+            //move the lever towards the player
+            if (cycle)
+            {
+                var rotation = transform.rotation;
+                transform.RotateAround(pivot, direction, maxAngle * speed * Time.deltaTime);
+                transform.rotation = rotation;
+                transform.Rotate(direction * maxAngle * speed * Time.deltaTime);
+                if (currentTime >= waitTime) { cycle = false; currentTime = 0.0f; }
+            }
+            //move the lever back to its original position
+            else
+            {
+                var rotation = transform.rotation;
+                transform.RotateAround(pivot, direction, -maxAngle * speed * Time.deltaTime);
+                transform.rotation = rotation;
+                transform.Rotate(direction * -maxAngle * speed * Time.deltaTime);
+                if (currentTime >= waitTime) { toggle(); }
+            }
 
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+        }
+    }
     public void controlBlocks()
     {
         if (alternating)
