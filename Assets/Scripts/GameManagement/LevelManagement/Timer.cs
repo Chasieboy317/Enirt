@@ -21,7 +21,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ""+Mathf.Round(totalTime - currentTime);
+        //text.text = ""+Mathf.Round(totalTime - currentTime);
+        text.text = calcMinutes(totalTime - currentTime);
         currentTime += Time.deltaTime;
         //Time over - restarts the level
         if (currentTime >= totalTime)
@@ -29,5 +30,17 @@ public class Timer : MonoBehaviour
             Debug.Log("end");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }     
+    }
+
+    string calcMinutes(float currentTime)
+    {
+        int minutes = 0;
+        string result;
+        minutes = (int)currentTime / 60;
+        currentTime = Mathf.Round(currentTime % 60);
+        string i = currentTime.ToString("00");
+        result =  minutes + ":" + i;
+        return result;
+
     }
 }
