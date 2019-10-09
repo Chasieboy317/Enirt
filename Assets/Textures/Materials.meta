@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+fileFormatVersion: 2
+guid: 49d48f434faba5c43a45393c80e3b552
+=======
+<<<<<<<< HEAD:Assets/Materials.meta
+fileFormatVersion: 2
+guid: f031c54eefc760c4fa0b83be768ec48b
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+========
+fileFormatVersion: 2
+guid: 9bac6018ebae6d04abd495e27874fa94
+>>>>>>> CharacterAnimation
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+<<<<<<< HEAD
+=======
+>>>>>>>> CharacterAnimation:Assets/Players/Robot/Animations/Basic Shooter Pack.meta
+>>>>>>> CharacterAnimation
