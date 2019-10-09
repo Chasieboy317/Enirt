@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script encapsulates logic needed to find a player in the scene
+//used to differentiate between finding the player / player doppelganger as they have the same tag, but different scripts
 public class LockTarget : MonoBehaviour
 {
     public GameObject[] objects;

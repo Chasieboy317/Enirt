@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/*
+ * This script should be attached to objects which the player can interact with as a lever
+ * Interaction from the player will change whether the lever is activated
+ */
 public class lever : MonoBehaviour
 {
     public bool activated;

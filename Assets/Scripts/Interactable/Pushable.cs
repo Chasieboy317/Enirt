@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Attach to scene objects that you wish to enable the players to be able to 'push'
+ * These are objects without rigidbodies so can only be moved with this script
+ */
 public class Pushable : MonoBehaviour
 {
     
@@ -30,14 +34,15 @@ public class Pushable : MonoBehaviour
             //move in direction of push
             transform.position = Vector3.Lerp(this.transform.position,endPoint, fracJourney);
             
-            if (distCovered >= pushDistance)//|| Time.time-startTime>1.2f)
+            //Once the object has moved the appropriate distace - stop
+            if (distCovered >= pushDistance)
             {
                 pushed = false;
             }
         }
     }
 
-    //object pushed in given direction. Other scripts use this method
+    //object pushed in given direction. Other scripts call this method
     public void wasPushed(Vector3 direction)
     {
         this.direction = direction;

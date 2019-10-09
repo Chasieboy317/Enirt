@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 /*
 Controls the end of the level
+Inherits functionality from gameEndManager script
 */
 public class levelEnd : gameEndManager
 {

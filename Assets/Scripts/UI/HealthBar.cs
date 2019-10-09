@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //this class provides full functionality for the health bars
+//It takes a player and the health bar as variables and uses the Destructable script of the player to appropriately update the health bar
 public class HealthBar : MonoBehaviour
 {
     public GameObject player;

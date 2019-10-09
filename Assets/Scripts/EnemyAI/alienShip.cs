@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Planning to use this in level 3 doppelganger battle
+//this is used in level 3 doppelganger battle
 //Ship targets the RobotDoppelganger
+//Inherits functionality from LockTarget which it uses to find it's target
 public class alienShip : LockTarget
 {
     public Transform spawnPoint;
@@ -14,20 +15,24 @@ public class alienShip : LockTarget
     public GameObject[] robots;
     public GameObject target; //in level 3 this will be the robot doppelganger
 
+    //For up-down movement
     public float maxY;
     public float minY;
     public float deltaY = 3f;
     public bool up;
 
+    //change orbit direction periodically
     public float lastRandomDir;
     public float dirChangeTime = 12f;
     public bool clockwise;
 
+    //orbit radius
     public float targetDistance;
 
     // Start is called before the first frame update
     void Start()
     {
+        //aquire robot doppelganger as the target
         target = getTarget("Robot", "RobotDoppelgangerScript");
 
         maxY = this.transform.position.y;
@@ -41,15 +46,14 @@ public class alienShip : LockTarget
     // Update is called once per frame
     void Update()
     {
-
+        //Fire a torpedo if target exists and reload time lapsed
         if(Time.time > fireTime + fireRate && target!=null)
         {
             fireTime = Time.time;
             Instantiate(torpedoPrefab, spawnPoint.position, spawnPoint.rotation);
-            //Debug.Log("torpedo instantiated");
         
         }
-        //randomly assign clockwise or anticlockwise movement
+        //randomly assign clockwise or anticlockwise movement 
         if(Time.time > lastRandomDir + dirChangeTime)
         {
             if (Random.value > 0.5f)

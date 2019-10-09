@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Brooke
-//Just drag on
+
+//Simple script to just drag on to objects
+//Will rotate object on all axes
 public class Rotate : MonoBehaviour
 {
 

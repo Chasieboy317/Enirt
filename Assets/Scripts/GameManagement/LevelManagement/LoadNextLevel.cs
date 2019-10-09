@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Players progress to certain level when they move through a trigger collider in a certain region
 public class LoadNextLevel : MonoBehaviour
 {
     public int level;

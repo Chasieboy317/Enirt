@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Script used by the UI to display the time remaining
+ */
 public class Timer : MonoBehaviour
 {
     public float totalTime;
@@ -20,6 +23,7 @@ public class Timer : MonoBehaviour
     {
         text.text = ""+Mathf.Round(totalTime - currentTime);
         currentTime += Time.deltaTime;
+        //Time over - restarts the level
         if (currentTime >= totalTime)
         {
             Debug.Log("end");

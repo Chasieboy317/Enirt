@@ -110,7 +110,17 @@ public class Level3Manager : gameEndManager
             doppelgangerBattle.SetActive(true);
             
         }
-        
+
+        //check death by falling
+        if (KNIGHT.transform.position.y < 5)
+        {
+            Destroy(KNIGHT);
+        }
+        else if (ROBOT.transform.position.y < 5)
+        {
+            Destroy(ROBOT);
+        }
+
     }
 
     

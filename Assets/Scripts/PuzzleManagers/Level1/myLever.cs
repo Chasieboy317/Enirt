@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This class extends lever
+ * It is for specific use in level 1
+ */
 public class myLever : lever
 {
     public PuzzleBlock[] puzzleBlocks;

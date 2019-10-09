@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//Inherits from Alec's AI 
+//Inherits from 'fighter' which itself inherits from 'enemy'
 //for use in Scene 3
+//functionally the same as fighter - just targets the KnightDoppelganger
 public class skeletonFighter : fighter
 {
     
