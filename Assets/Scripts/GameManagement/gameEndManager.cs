@@ -19,7 +19,7 @@ public class gameEndManager : MonoBehaviour
         else
         {
             //replay current level for now 
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         Debug.Log("GameOver" + success);

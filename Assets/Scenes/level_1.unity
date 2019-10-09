@@ -181,6 +181,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 27.302002, y: 187.823, z: 7.385}
+--- !u!1 &108782999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 109458374927564955, guid: e0640911bdce6c14382443679eef692c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5158470417004461719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &108783000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108782999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db5df1fa39a5404195f82229b8e76a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Knight: {fileID: 2123926171}
+  Robot: {fileID: 365688831}
 --- !u!1 &365688831 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 244567602, guid: 7ba491759ce388c48a9d24508bec1c14,
@@ -423,13 +443,13 @@ PrefabInstance:
       propertyPath: health
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2123926174, guid: 66823101df994554e9f6aea44d84f956, type: 3}
-      propertyPath: m_Volume
-      value: 0.23
-      objectReference: {fileID: 0}
     - target: {fileID: 2123926180, guid: 66823101df994554e9f6aea44d84f956, type: 3}
       propertyPath: m_Volume
       value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123926174, guid: 66823101df994554e9f6aea44d84f956, type: 3}
+      propertyPath: m_Volume
+      value: 0.23
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2123926179, guid: 66823101df994554e9f6aea44d84f956, type: 3}
