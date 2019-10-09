@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3007,11 +3007,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3081,6 +3076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -3791,11 +3791,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3865,6 +3860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -9160,11 +9160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9234,6 +9229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -9557,11 +9557,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9632,6 +9627,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 500.0005
       objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (6)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
 --- !u!4 &762926976 stripped
@@ -9647,11 +9647,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2113648945}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9721,6 +9716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.00058
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -12867,11 +12867,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12941,6 +12936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -14067,11 +14067,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14142,6 +14137,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 500.0005
       objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
 --- !u!4 &1138088197 stripped
@@ -14157,11 +14157,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14231,6 +14226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -15623,11 +15623,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15697,6 +15692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -15926,11 +15926,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16000,6 +15995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -16196,11 +16196,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2113648945}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16270,6 +16265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.00058
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -18540,11 +18540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052969963}
     m_Modifications:
-    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
-        type: 3}
-      propertyPath: m_Name
-      value: Torch (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 6646917892519871712, guid: e05fd7806ba61d344a16202792f155a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18614,6 +18609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 500.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646917892519871727, guid: e05fd7806ba61d344a16202792f155a0,
+        type: 3}
+      propertyPath: m_Name
+      value: Torch (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05fd7806ba61d344a16202792f155a0, type: 3}
@@ -22409,7 +22409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829167773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.54, z: -88.9}
+  m_LocalPosition: {x: 0, y: 10.54, z: -10.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 11071077}
