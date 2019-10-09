@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Extends playerController to provide the unique functionality for the Robot: aiming, shooting, crawling
+ */
 public class RobotController : PlayerController
 {
     //Key codes for actions unique to knight
     public KeyCode crawling;
     public KeyCode aim;
     public KeyCode shoot;
-    //public KeyCode launchBomb;
 
     public float crawlTime = 2f;
     public float startCrawlTime;
@@ -41,7 +43,7 @@ public class RobotController : PlayerController
 
         screenHeight = Screen.height;
 
-        //firePoint = transform.Find("FirePoint");
+        //Set unique action controls
         aim = KeyCode.O;
         shoot = KeyCode.Mouse0; //left mouse
         crawling = KeyCode.P;
@@ -75,6 +77,7 @@ public class RobotController : PlayerController
     public void playerMovement()
     {
         OnUpdate(); //base class
+
         //reset boxColCenter
         if (Time.time > runJumpStart + runJumpTime && boxCollider.center.y != boxColCenter.y && Time.time - startCrawlTime > crawlTime)
         {
@@ -84,6 +87,7 @@ public class RobotController : PlayerController
 
         /*
          * CRAWL
+         * For this the boxCollider for the player is editted to suit the animation
          */
         if (Input.GetKey(crawling))
         {
@@ -125,12 +129,12 @@ public class RobotController : PlayerController
         if (Input.GetKey(aim))
         {
             animController.SetBool("isShooting", true);
-            //rotate towards mouse y
             
+            //Rotate gun, to visually display new gun direction
             angle = rotateGun((int)(((Input.mousePosition).y / screenHeight) * 10));
             gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, angle, gun.transform.localEulerAngles.z); 
 
-            //implement shooting
+            //On shoot, instantiate bullet prefab with firepoint position and rotation
             if (Input.GetKey(shoot))
             {
                 if (Time.time - fireTime > fireRate)

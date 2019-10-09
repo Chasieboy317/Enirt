@@ -3,6 +3,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * PlayerController encapsulates all logic for actions common to both players: walking, running, running jump, climbing/jumping, pushing and pulling levers
+ * RayCastHits are used to determine if the action is available for the intended object before the action is enabled
+ * 
+ */
 public class PlayerController : MonoBehaviour
 {
     public Animator animController;
@@ -27,12 +32,12 @@ public class PlayerController : MonoBehaviour
     public float runJumpTime = 0.6f;
     public bool justJumped = false;
 
-    //Added these variables so keycodes can be configured in options menu
     //Used cardinal directions because right/left etc are relative
     public KeyCode north;
     public KeyCode south;
     public KeyCode east;
     public KeyCode west;
+
     //keys for actions both players have
     public KeyCode push;
     public KeyCode jump;
@@ -45,26 +50,20 @@ public class PlayerController : MonoBehaviour
     //Sound effects
     public AudioClip runningClip;
     public AudioClip walkingClip;
-
-    //private Component[] audioSources;
-    //private AudioSource runningSource;
-    //private AudioSource walkingSource;
     public AudioSource audioSource;
+
+
     // Start is called before the first frame update
+    //On start assign keys based on the player
     public void OnStart()
     {
         animController = GetComponent<Animator>();
         rigBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
 
-        //audioSources = GetComponents(typeof(AudioSource));
-        //runningSource = (AudioSource)audioSources[0];
-        //walkingSource = (AudioSource)audioSources[1];
-        //Debug.Log(runningSource +""+ walkingSource);
-        //runningSource.clip = runningClip; walkingSource.clip = walkingClip;
         audioSource = GetComponent<AudioSource>();
 
-        //Maybe use a variable to check whether configured or not?
+        //Assign keys for Knight
         if(this.tag == "Knight")
         {
             north = KeyCode.W;
@@ -83,6 +82,7 @@ public class PlayerController : MonoBehaviour
             climableMinDistance = 0.5f;
             climbTime = 2.1f;
         }
+        //Assign keys for Robot
         else// if(this.tag == "Robot")
         {
             north = KeyCode.UpArrow;
@@ -90,11 +90,11 @@ public class PlayerController : MonoBehaviour
             south = KeyCode.DownArrow;
             east = KeyCode.RightArrow;
 
-            push = KeyCode.I;//KeyCode.Question;
+            push = KeyCode.I;
             jump = KeyCode.RightShift;
             pullLever = KeyCode.K;
 
-            toggle = KeyCode.L; //KeyCode.KeypadEnter
+            toggle = KeyCode.L; 
 
             climbableTag = "RobotClimbOnto";
             climableMaxDixtance = 1.5f;
@@ -112,16 +112,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //Movements common to both
+
         /*
          * JUMPING
          */
 
-        if (Input.GetKey(jump)) //!running && Input.GetKey(jump)
+        if (Input.GetKey(jump)) 
         {
-            //only enable jump if it is an object the player can jump onto 
+            
             Vector3 direction = this.transform.forward;
             Vector3 start = this.transform.position + new Vector3(0,0.5f,0) + 0.5f * direction;
 
+            //only enable jump if it is an object the player can jump onto 
             RaycastHit hit;
             if (Physics.Raycast(start, direction, out hit))
             {
@@ -140,19 +142,7 @@ public class PlayerController : MonoBehaviour
                     animController.SetBool("jumpingOnto", true);
                     
                 }
-                //hit.collider.gameObject.SetActive(false);
             }
-            /*
-            else
-            {
-                
-                if (this.transform.position.y >= 0.5)
-                {
-                    animController.SetBool("jump", true);
-                    animController.SetBool("jumpingOnto", false);
-                }
-            }
-            */
         }
         //renable box collider when jump time has passed
         else if (!boxCollider.enabled && Time.time - climbStartTime > climbTime)
@@ -185,18 +175,8 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
-        /*
-         * 360 rotation
-        //Use right/D and left/W arrow keys to change player direction
-        Vector2 keyInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-        Vector2 inputDirection = keyInput.normalized;
-        if (inputDirection != Vector2.zero)
-        {
-            transform.RotateAround(transform.position, Vector3.up, Mathf.Atan2(inputDirection.x, inputDirection.y) * Mathf.Rad2Deg * Time.deltaTime);
-        }
-        */
 
-        //set toggle 
+        //if toggle key is pressed change between running and walking
         if (Input.GetKeyDown(toggle))
         {
             running = running ? false : true;
@@ -209,7 +189,8 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 dir = this.transform.forward;
             Vector3 startPos = this.transform.position + new Vector3(0, 0.3f, 0) + 0.3f*dir;
-            
+
+            //only enable push if it is an object with Pushable script attached
             RaycastHit hitObj;
             if (Physics.Raycast(startPos, dir, out hitObj))
             {
@@ -217,16 +198,14 @@ public class PlayerController : MonoBehaviour
                 Debug.DrawRay(startPos, dir * 10, Color.red);
                 Debug.Log("push distance "+dist);
                 Debug.Log(hitObj.transform.gameObject.GetComponent("Pushable") != null);
-                if (dist <= 15f && hitObj.transform.gameObject.GetComponent("Pushable") != null) //dist changed from 3.3f
+                if (dist <= 15f && hitObj.transform.gameObject.GetComponent("Pushable") != null) 
                 {
-                    
-                    Debug.Log("transform.forward" + dir);
-                    hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir);
+                    hitObj.transform.gameObject.GetComponent("Pushable").SendMessage("wasPushed", dir); //send message to pushable script
                     animController.SetBool("isPushing", true);                    
                 }
-                //code for turnstile Level 3 (doesn't affect anything else)
+                //code for turnstile Level 3 
                 GameObject turnstile = hitObj.transform.parent.gameObject;
-                if (dist <=3.3f && turnstile.GetComponent("Turnstile")!=null)//hitObj.transform.gameObject.GetComponentInParent("Turnstile") != null)
+                if (dist <=3.3f && turnstile.GetComponent("Turnstile")!=null)
                 {
                     turnstile.GetComponent("Turnstile").SendMessage("playerPushing", 1);
                     animController.SetBool("isPushing", true);
@@ -244,6 +223,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(pullLever))
         {
+            //only enable pull lever if it is an object with lever script attached
             RaycastHit lever;
             if(Physics.Raycast(this.transform.position + new Vector3(0, 0.3f, 0) +0.3f*transform.forward, transform.forward,out lever))
             {
@@ -262,6 +242,7 @@ public class PlayerController : MonoBehaviour
 
         /*
          * WALKING AND RUNNING
+         * AudioClip set to match walking or running and sound effect plays
          */
 
         if (Input.GetKey(east) || Input.GetKey(west) || Input.GetKey(north) || Input.GetKey(south))
@@ -300,91 +281,21 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //runningSource.Stop();
-                //if (!walkingSource.isPlaying) walkingSource.Play();
                 audioSource.clip = walkingClip;
-                //audioSource.Play();
-
                 animController.SetBool("isWalking", true);
                 animController.SetBool("isRunning", false);
             }
         }
-        /*
-         * Was trying to debug running jump but then it just gave crawling bugs
-        if(Input.GetKey(jump) && running)
-        {
-            if (!justJumped)
-            {
-                justJumped = true;
-                runJumpStart = Time.time;
-                rigBody.useGravity = false;
-                //rigBody.AddForce(transform.up);
-                boxCollider.center = runJumpBoxColCenter;
-                animController.SetBool("jump", true);
-            }
-        }
-        else if (running)
-        {
-            animController.SetBool("isRunning", true);
-            animController.SetBool("isWalking", false);
-            if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
-            {
-                justJumped = false;
-            }
-            else if (Time.time > runJumpStart + runJumpTime)
-            {
-                boxCollider.center = boxColCenter;
-                rigBody.useGravity = true;
-            }
-            animController.SetBool("jump", false);
-        }
+       
         else
         {
-            animController.SetBool("isWalking", true);
-            animController.SetBool("isRunning", false);
-        }
-        */
-
-    
-        else
-        {
+            //stop audio
             if (audioSource.clip == walkingClip || audioSource.clip == runningClip) { audioSource.clip = null; }
             animController.SetBool("isRunning", false);
             animController.SetBool("isWalking", false);
         }
 
-        /*
-        if (justJumped && Time.time > runJumpStart + runJumpTime + 0.3f)
-        {
-            justJumped = false;
-        }
-        else if (Time.time > runJumpStart + runJumpTime)
-        {
-            boxCollider.center = boxColCenter;
-            rigBody.useGravity = true;
-        }
-        */
-        /*
-         * CHECK IF PLAYER DIES
-         * move to Destructable?
-         
-        if (!dead && health <= 0)
-        {
-            Debug.Log("isDead set");
-            animController.SetBool("isDead", true);
-            dead = true;
-            //animController.SetBool("isDead", false);
-        }
-        */
 
-    }
-
-   
-
-    void Die()
-    {
-        Debug.Log("player died");
-        animController.SetBool("isDead", true);
     }
 
 }

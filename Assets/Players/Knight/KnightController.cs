@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Extends playerController to provide the unique functionality for the Knight: attacking, slashing, blocking
+ *
+ */
 public class KnightController : PlayerController
 {
     public int damage = 2;

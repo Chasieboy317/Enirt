@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Manages the puzzle progression in level 3
+ */
 public class Level3Manager : gameEndManager
 {
     //Standard scene cameras

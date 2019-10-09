@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Laser Bullet for Robot's gun
+//Applies force to RigidBody 
+
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 15f;
@@ -17,7 +20,8 @@ public class Bullet : MonoBehaviour
         this.GetComponent<Rigidbody>().velocity = bulletSpeed * transform.forward;
     }
 
-    // Update is called once per frame
+
+    //Destroy the bullet after a certain time
     void Update()
     {
         if (Time.time - startTime > 2.5f)
@@ -26,7 +30,7 @@ public class Bullet : MonoBehaviour
         }
     }
     
-
+    //On Collision with another object - if destructable script attached, takeDamage will decrement the health
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag!="Robot")
